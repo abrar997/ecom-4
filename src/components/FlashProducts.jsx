@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import HeaderSection from "./reusable/HeaderSection";
 import SingleProduct from "./SingleProduct";
 import { Swiper, SwiperSlide } from "swiper/react";

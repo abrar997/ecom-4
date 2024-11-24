@@ -1,3 +1,5 @@
+import enhanceImage from "../assets/images/enhance.png";
+
 const Enhancing = () => {
   const dataTime = [
     { number: 23, text: "Hours" },
@@ -12,9 +14,12 @@ const Enhancing = () => {
           <h2 className="font-semibold text-lightGreen font-secondary text-md">
             Categories
           </h2>
-          <h1 className="text-5xl font-semibold text-text leading-[50px]">
-            Enhance Your Experience
-          </h1>
+          <div className="grid gap-2">
+            <h1 className="text-5xl font-semibold  text-text">Enhance Your</h1>
+            <h1 className="text-5xl font-semibold whitespace-nowrap text-text ">
+              Shopping Experience
+            </h1>
+          </div>
           <div className="flex gap-6">
             {dataTime.map((item, index) => (
               <div
@@ -35,9 +40,13 @@ const Enhancing = () => {
 
         <div className="col-span-2 relative">
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-[#D9D9D9] opacity-30 rounded-full blur-[100px] w-[500px] h-[500px]">
-              <img src="" alt="" />
-            </div>
+            <div className="bg-[#D9D9D9] opacity-30 rounded-full blur-[100px] z-0 w-[500px] h-[500px]"></div>
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/037/210/464/original/ai-generated-3d-rendering-of-a-shopping-bag-on-transparent-background-ai-generated-free-png.png"
+              // "https://png.pngtree.com/png-vector/20230903/ourmid/pngtree-black-shopping-bag-isolated-with-reflect-floor-for-mockup-png-image_9938141.png"
+              alt=""
+              className="absolute z-10 w-[60%]"
+            />
           </div>
         </div>
       </div>

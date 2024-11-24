@@ -50,7 +50,8 @@ const FirstSection = () => {
             </button>
           </div>
           <img
-            src="https://i0.wp.com/img.talkandroid.com/uploads/2021/07/T-Mobile_REVVL-V-Plus-5G_Nebula-Black_1.png?fit=1280%2C1280&ssl=1"
+            src="https://vitormattos.github.io/poc-lineageos-cellphone-list-statics/images/devices/starlte.png"
+            // "https://i0.wp.com/img.talkandroid.com/uploads/2021/07/T-Mobile_REVVL-V-Plus-5G_Nebula-Black_1.png?fit=1280%2C1280&ssl=1"
             alt=""
             className="w-1/3 brightness-75 ml-auto  rotate-3"
           />

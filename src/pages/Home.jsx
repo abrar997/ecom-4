@@ -1,22 +1,18 @@
+import { useContext } from "react";
+import { ProductsContext } from "../context/context";
 import FirstSection from "../components/FirstSection";
 import FlashProducts from "../components/FlashProducts";
 import Categories from "../components/Categories";
 import BestProducts from "../components/BestProducts";
-import { useEffect, useState } from "react";
 import Enhancing from "../components/Enhancing";
+import OurProducts from "../components/OurProducts";
+import Featured from "../components/Featured";
+import Services from "../components/Services";
+import Footer from "../components/Footer";
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
-
-  async function fetchAllProducts() {
-    const data = await fetch("data.json");
-    const res = await data.json();
-    setProducts(res);
-  }
-
-  useEffect(() => {
-    fetchAllProducts();
-  }, []);
+  const { products } = useContext(ProductsContext);
+  console.log(products);
 
   return (
     <div>
@@ -27,6 +23,10 @@ const Home = () => {
       <Categories />
       <BestProducts products={products} />
       <Enhancing />
+      <OurProducts products={products} />
+      <Featured />
+      <Services />
+      <Footer />
     </div>
   );
 };
