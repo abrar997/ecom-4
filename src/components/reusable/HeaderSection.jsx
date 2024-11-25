@@ -8,6 +8,7 @@ const HeaderSection = ({
   buttonText,
   isNotSlider,
   isTime,
+  isFeatured,
 }) => {
   const timeData = [
     { title: "days", number: "03" },
@@ -16,19 +17,19 @@ const HeaderSection = ({
     { title: "seconds", number: "56" },
   ];
   return (
-    <div className="flex flex-col gap-6 p-inline">
-      <div className="flex gap-4 items-center">
+    <div className="flex flex-col lg:gap-6 gap-3 lg:p-inline p-4">
+      <div className="flex lg:gap-4 gap-2 items-center">
         <div className="bg-secondary w-5 h-10 rounded" />
         <p className="text-secondary text-base capitalize font-semibold">
           {subtitle}
         </p>
       </div>
       <div className="flex items-center">
-        <h1 className="font-semibold text-4xl tracking-wide capitalize">
+        <h1 className="font-semibold lg:text-4xl text-3xl tracking-wide capitalize">
           {title}
         </h1>
         {isTime && (
-          <div className="flex ml-[87px] gap-4 items-center">
+          <div className="lg:flex lg:ml-[87px] ml-6 gap-4 items-center hidden">
             {timeData.map((item, index) => (
               <div key={index} className="flex items-center gap-3">
                 <div>
@@ -45,7 +46,7 @@ const HeaderSection = ({
             ))}
           </div>
         )}
-        {!isNotSlider && !isButton && (
+        {!isNotSlider && !isButton && !isFeatured && (
           <div className="flex gap-2 ml-auto">
             <button className="bg-secondary2 rounded-full w-11 h-11 flex items-center justify-center text-2xl">
               <FiArrowLeft />
@@ -56,7 +57,7 @@ const HeaderSection = ({
           </div>
         )}
         {isButton && (
-          <button className="bg-secondary ml-auto py-4 px-12 hover:bg-hoverBtn text-white rounded capitalize text-md font-medium">
+          <button className="bg-secondary ml-auto lg:py-4 py-2 lg:px-12 px-6 hover:bg-hoverBtn text-white rounded capitalize lg:text-md lg:font-medium">
             {buttonText}
           </button>
         )}

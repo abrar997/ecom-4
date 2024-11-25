@@ -8,8 +8,13 @@ const SingleProduct = ({ product }) => {
         <img src={product.image} alt="" />
         <div>
           {product.discount && (
-            <span className="absolute left-3 top-3 bg-secondary text-white rounded px-3 py-1">
+            <span className="absolute left-3 top-3 bg-secondary text-white rounded px-3 py-1 text-xs">
               {product.discount}%
+            </span>
+          )}
+          {product.isNew && (
+            <span className="absolute left-3 top-3 bg-lightGreen text-white rounded px-3 py-1 uppercase text-xs">
+              New
             </span>
           )}
         </div>

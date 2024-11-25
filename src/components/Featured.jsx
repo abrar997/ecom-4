@@ -6,11 +6,14 @@ import feature4 from "../assets/images/feature-4.png";
 
 const Featured = () => {
   return (
-    <div className="mt-[140px] grid gap-sections">
-      <HeaderSection subtitle="featured" title="new arrival" />
-      <div className="grid grid-cols-2  text-text gap-[30px] p-inline">
-        <div className="relative bg-black h-[600px]">
-          <img className="absolute bottom-0 right-0" src={feature1} />
+    <div className="lg:mt-[140px] mt-8 grid lg:gap-sections gap-4">
+      <HeaderSection subtitle="featured" title="new arrival" isFeatured />
+      <div className="grid lg:grid-cols-2 text-text lg:gap-[30px] gap-4 lg:p-inline p-4">
+        <div className="relative bg-black lg:h-[600px] h-[300px]">
+          <img
+            className="absolute bottom-0 right-0 lg:w-full w-1/2"
+            src={feature1}
+          />
           <div className="absolute left-8 bottom-8 flex flex-col gap-4 items-start">
             <h1 className="font-semibold text-[24px]">PlayStation 5</h1>
             <p className="font-secondary text-sm leading-5">

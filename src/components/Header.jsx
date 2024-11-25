@@ -11,14 +11,14 @@ const Header = () => {
   ];
   return (
     <>
-      <div className="flex justify-between p-inline lg:pt-10 lg:pb-4">
+      <div className="flex justify-between lg:p-inline lg:pt-10 lg:pb-4 p-4">
         <Link
           to=""
           className="font-bold text-[24px] border-black hover:border-b"
         >
           Exclusive
         </Link>
-        <div className="flex items-center gap-x-12 capitalize">
+        <div className="lg:flex hidden items-center gap-x-12 capitalize">
           {Links.map((link, index) => (
             <Link
               className="focus:border-b border-black hover:border-b"
@@ -30,7 +30,7 @@ const Header = () => {
           ))}
         </div>
         <div className="flex items-center gap-6">
-          <div className="bg-secondary2 rounded relative py-2 px-5">
+          <div className="bg-secondary2 rounded relative py-2 px-5 hidden lg:flex">
             <input
               type="text"
               className="outline-none border-none bg-transparent placeholder:font-light placeholder:text-xs"
