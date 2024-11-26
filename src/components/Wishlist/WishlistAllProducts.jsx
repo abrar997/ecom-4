@@ -1,6 +1,6 @@
 import WishListProduct from "./WishListProduct";
 
-const WishlistAllProduct = ({ products }) => {
+const WishlistAllProducts = ({ products }) => {
   return (
     <div className="grid lg:gap-[60px] gap-8">
       <div className="flex justify-between items-center">
@@ -18,4 +18,4 @@ const WishlistAllProduct = ({ products }) => {
   );
 };
 
-export default WishlistAllProduct;
+export default WishlistAllProducts;

@@ -3,8 +3,8 @@ import { ProductsContext } from "../context/context";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import TopHeader from "../components/TopHeader";
-import WishlistAllProduct from "../components/Wishlist/wishlistAllProduct";
 import ForYouProducts from "../components/Wishlist/ForYouProducts";
+import WishlistAllProducts from "../components/Wishlist/WishlistAllProducts";
 
 const WishList = () => {
   const { products } = useContext(ProductsContext);
@@ -14,7 +14,7 @@ const WishList = () => {
       <TopHeader />
       <Header />
       <div className="lg:p-inline p-4 lg:mt-[80px] mt-8 lg:mb-[140px] mb-12 grid lg:gap-[80px] gap-12">
-        <WishlistAllProduct products={products} />
+        <WishlistAllProducts products={products} />
         <ForYouProducts products={products} />
       </div>
       <Footer />
