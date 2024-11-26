@@ -1,8 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import HeaderSection from "./reusable/HeaderSection";
-import SingleProduct from "./SingleProduct";
-import Button from "./reusable/Button";
-import Hr from "./reusable/Hr";
+import HeaderSection from "../reusable/HeaderSection";
+import SingleProduct from "../reusable/SingleProduct";
+import Button from "../reusable/Button";
+import Hr from "../reusable/Hr";
 import "swiper/css";
 
 const FlashProducts = ({ products }) => {

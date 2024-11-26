@@ -1,6 +1,6 @@
-import { CategoriesData } from "../assets/mockData";
-import HeaderSection from "./reusable/HeaderSection";
-import Hr from "./reusable/Hr";
+import { CategoriesData } from "../../assets/mockData";
+import HeaderSection from "../reusable/HeaderSection";
+import Hr from "../reusable/Hr";
 
 const Categories = () => {
   return (

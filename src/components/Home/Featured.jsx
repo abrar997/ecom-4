@@ -1,8 +1,8 @@
-import HeaderSection from "./reusable/HeaderSection";
-import feature1 from "../assets/images/feature-1.png";
-import feature2 from "../assets/images/feature-2.jpg";
-import feature3 from "../assets/images/feature-3.png";
-import feature4 from "../assets/images/feature-4.png";
+import HeaderSection from "../reusable/HeaderSection";
+import feature1 from "../../assets/images/feature-1.png";
+import feature2 from "../../assets/images/feature-2.jpg";
+import feature3 from "../../assets/images/feature-3.png";
+import feature4 from "../../assets/images/feature-4.png";
 
 const Featured = () => {
   return (
@@ -73,7 +73,7 @@ const Featured = () => {
 };
 export default Featured;
 
-export const Button = () => {
+const Button = () => {
   return (
     <button className="text-white text-md font-medium font-secondary border-b border-gray-400 leading-6 capitalize">
       Shop now

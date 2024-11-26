@@ -1,6 +1,6 @@
-import Button from "./reusable/Button";
-import HeaderSection from "./reusable/HeaderSection";
-import SingleProduct from "./SingleProduct";
+import Button from "../reusable/Button";
+import HeaderSection from "../reusable/HeaderSection";
+import SingleProduct from "../reusable/SingleProduct";
 
 const OurProducts = ({ products }) => {
   return (

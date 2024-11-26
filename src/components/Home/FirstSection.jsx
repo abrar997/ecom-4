@@ -1,7 +1,7 @@
 import { IoArrowForward } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { FaAppleAlt } from "react-icons/fa";
-import { FirstSectionCategories } from "../assets/mockData";
+import { FirstSectionCategories } from "../../assets/mockData";
 
 const FirstSection = () => {
   return (

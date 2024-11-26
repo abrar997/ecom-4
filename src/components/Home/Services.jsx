@@ -1,4 +1,4 @@
-import { ServicesData } from "../assets/mockData";
+import { ServicesData } from "../../assets/mockData";
 
 const Services = () => {
   return (

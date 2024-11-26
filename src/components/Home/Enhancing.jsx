@@ -1,4 +1,4 @@
-import { EnhancingDataTime } from "../assets/mockData";
+import { EnhancingDataTime } from "../../assets/mockData";
 
 const Enhancing = () => {
   return (

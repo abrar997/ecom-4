@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
 import { AiOutlineSend } from "react-icons/ai";
+import { BiCopyright } from "react-icons/bi";
 import { FaInstagram } from "react-icons/fa";
 import { RiFacebookLine, RiLinkedinLine, RiTwitterLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 // images
 import Qr from "../assets/images/QrFooter.png";
 import google from "../assets/images/googleFooter.png";
@@ -25,7 +26,9 @@ const Footer = () => {
               placeholder="Enter your email"
               className="border-none bg-transparent outline-none pl-4 placeholder:opacity-40 text-md"
             />
-            <AiOutlineSend className="text-xl absolute right-2 text-white" />
+            <button className="text-xl text-white absolute right-2">
+              <AiOutlineSend />
+            </button>
           </div>
         </div>
         <div className="grid gap-6">
@@ -84,6 +87,13 @@ const Footer = () => {
             </a>
           </div>
         </div>
+      </div>
+      <div>
+        <hr className="opacity-40" />
+
+        <p className="lg:text-md text-sm pl-4 lg:px-0 text-white opacity-60 gap-[6px] font-secondary font-normal py-4 flex items-center lg:justify-center">
+          <BiCopyright /> Copyright Rimel 2022. All right reserved
+        </p>
       </div>
     </div>
   );

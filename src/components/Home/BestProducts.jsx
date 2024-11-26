@@ -1,5 +1,5 @@
-import HeaderSection from "./reusable/HeaderSection";
-import SingleProduct from "./SingleProduct";
+import HeaderSection from "../reusable/HeaderSection";
+import SingleProduct from "../reusable/SingleProduct";
 
 const BestProducts = ({ products }) => {
   return (
