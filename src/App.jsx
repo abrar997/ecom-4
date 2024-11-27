@@ -6,6 +6,7 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import WishList from "./pages/WishList";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route element={<Login />} path="/login" />
               <Route element={<WishList />} path="/wishlist" />
               <Route element={<Cart />} path="/cart" />
+              <Route element={<Checkout />} path="/checkout" />
             </Routes>
           </div>
         </ContextProvider>

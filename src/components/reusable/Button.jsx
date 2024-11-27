@@ -1,8 +1,13 @@
-const Button = ({ text }) => {
+import { Link } from "react-router-dom";
+
+const Button = ({ text, to }) => {
   return (
-    <button className="m-auto bg-secondary capitalize text-white rounded py-4 text-md lg:px-12 px-10 hover:bg-hoverBtn transition-all duration-300">
+    <Link
+      to={to}
+      className="m-auto bg-secondary capitalize text-white rounded py-4 text-md lg:px-12 px-10 hover:bg-hoverBtn transition-all duration-300"
+    >
       {text}
-    </button>
+    </Link>
   );
 };
 

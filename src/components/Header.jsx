@@ -10,10 +10,7 @@ const Header = ({ isSignUp }) => {
   return (
     <>
       <div className="flex justify-between lg:p-inline lg:pt-10 lg:pb-4 p-4">
-        <Link
-          to=""
-          className="font-bold text-[24px] border-black hover:border-b"
-        >
+        <Link to="/" className="font-bold text-[24px] border-black">
           Exclusive
         </Link>
         <div className="lg:flex hidden items-center gap-x-12 capitalize">
