@@ -26,6 +26,7 @@ export default {
       },
       boxShadow: {
         cartItem: "0px 1px 13px rgba(0, 0, 0, 0.05)",
+        contactBox: "0px 1px 13px rgba(0, 0, 0, 0.05)",
       },
     },
   },

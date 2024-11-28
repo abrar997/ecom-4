@@ -2,6 +2,7 @@ import { IoArrowForward } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { FaAppleAlt } from "react-icons/fa";
 import { FirstSectionCategories } from "../../assets/mockData";
+import Pagination from "../reusable/Pagination";
 
 const FirstSection = () => {
   return (
@@ -46,13 +47,7 @@ const FirstSection = () => {
             alt=""
             className="brightness-75 lg:w-[33%] m-auto w-[40%] "
           />
-          <div className="flex absolute bottom-4 lg:gap-3 gap-1 lg:left-[353px] left-[40%]">
-            <span className="bg-white opacity-50 rounded-full w-3 h-3 cursor-pointer"></span>
-            <span className="bg-white opacity-50 rounded-full w-3 h-3 cursor-pointer"></span>
-            <span className="bg-secondary border-white border-2  rounded-full w-3 h-3 cursor-pointer"></span>
-            <span className="bg-white opacity-50 rounded-full w-3 h-3 cursor-pointer"></span>
-            <span className="bg-white opacity-50 rounded-full w-3 h-3 cursor-pointer"></span>
-          </div>
+          <Pagination isHome />
         </div>
       </div>
     </div>

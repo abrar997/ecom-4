@@ -4,8 +4,9 @@ import { IoCartOutline, IoHeartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { HeaderLinks } from "../assets/mockData";
 import user from "../assets/icons/user.svg";
+import darkUser from "../assets/icons/darkUser.svg";
 
-const Header = ({ isSignUp }) => {
+const Header = ({ isSignUp, isWithUser }) => {
   const [isOpenUser, setIsOpenUSer] = useState(false);
   return (
     <>
@@ -49,25 +50,30 @@ const Header = ({ isSignUp }) => {
                   0
                 </span>
               </Link>
-              <div className="relative">
-                <button
-                  onClick={() => setIsOpenUSer(!isOpenUser)}
-                  className="bg-secondary rounded-full w-8 h-8 flex items-center justify-center text-white transition-all duration-300"
-                >
-                  <img src={user} alt="" />
+              {!isWithUser ? (
+                <button onClick={() => setIsOpenUSer(!isOpenUser)}>
+                  <img src={darkUser} />
                 </button>
-                {isOpenUser && (
-                  <div
-                    className={`bg-gradient-to-r from-red-500 overflow-hidden to-gray-900 bg-opacity-5 rounded capitalize absolute z-[40] right-0 top-9 w-52 whitespace-nowrap py-[18px] pl-5 pr-4 text-white transform transition-all duration-300 origin-top-right
+              ) : (
+                <div className="relative">
+                  <button
+                    onClick={() => setIsOpenUSer(!isOpenUser)}
+                    className="bg-secondary rounded-full w-8 h-8 flex items-center justify-center text-white transition-all duration-300"
+                  >
+                    <img src={user} alt="" />
+                  </button>
+                  {isOpenUser && (
+                    <div
+                      className={`bg-gradient-to-r from-red-500 overflow-hidden to-gray-900 bg-opacity-5 rounded capitalize absolute z-[40] right-0 top-9 w-52 whitespace-nowrap py-[18px] pl-5 pr-4 text-white transform transition-all duration-300 origin-top-right
                    ${
                      isOpenUser ? "scale-100 opacity-100" : "scale-95 opacity-0"
-                   }
-                   `}
-                  >
-                    <DropDown />
-                  </div>
-                )}
-              </div>
+                   }`}
+                    >
+                      <DropDown />
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -81,7 +87,7 @@ export default Header;
 const DropDown = () => {
   return (
     <div className="flex flex-col items-start gap-3">
-      <Link to="" className="flex gap-4 items-center w-full">
+      <Link to="/account" className="flex gap-4 items-center w-full">
         <img src={user} />
         <span className="text-sm font-secondary">Manage my account</span>
       </Link>

@@ -12,8 +12,8 @@ import gamingLight from "./icons/gamingLight.svg";
 
 export const HeaderLinks = [
   { title: "home", to: "/" },
-  { title: "contact", to: "contact" },
-  { title: "About", to: "about" },
+  { title: "contact", to: "/contact" },
+  { title: "About", to: "/about" },
   { title: "sign up", to: "/signup" },
 ];
 
@@ -97,4 +97,14 @@ export const EnhancingDataTime = [
   { number: "05", text: "days" },
   { number: 59, text: "minutes" },
   { number: 35, text: "seconds" },
+];
+
+export const FormInputsFieldsCheckOut = [
+  { label: "First name", to: "", name: "" },
+  { label: "Company Name", to: "", name: "" },
+  { label: "Street Address", to: "", name: "" },
+  { label: " Apartment, floor, etc. (optional)", to: "", name: "" },
+  { label: " Town/City*", to: "", name: "" },
+  { label: "Phone Number**", to: "", name: "" },
+  { label: "Email Address*", to: "", name: "" },
 ];

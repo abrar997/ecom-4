@@ -11,7 +11,7 @@ import BestProducts from "../components/Home/BestProducts";
 import Enhancing from "../components/Home/Enhancing";
 import OurProducts from "../components/Home/OurProducts";
 import Featured from "../components/Home/Featured";
-import Services from "../components/Home/Services";
+import Services from "../components/reusable/Services";
 
 const Home = () => {
   const { products } = useContext(ProductsContext);
@@ -28,10 +28,10 @@ const Home = () => {
         <Enhancing />
         <OurProducts products={products} />
         <Featured />
-        <Services />
+        <Services isHome />
         <a
           href="#firstSection"
-          className="absolute w-[46px] h-[46px] right-[89px] -bottom-28 flex items-center justify-center rounded-full bg-[#F5F5F5] transition-all duration-300"
+          className="absolute w-[46px] h-[46px] right-[89px] -bottom-28 flex items-center justify-center rounded-full bg-secondary2 transition-all duration-300"
         >
           <FaArrowUp />
         </a>

@@ -20,6 +20,7 @@ const Footer = () => {
               Get 10% off your first order
             </p>
           </div>
+
           <div className="flex relative justify-between items-center border py-3 border-white rounded">
             <input
               type="text"
@@ -31,6 +32,7 @@ const Footer = () => {
             </button>
           </div>
         </div>
+
         <div className="grid gap-6">
           <h1 className="text-[20px] font-medium leading-7">Support</h1>
           <div className="grid gap-4 text-md">
@@ -39,6 +41,7 @@ const Footer = () => {
             <p>+88015-88888-9999</p>
           </div>
         </div>
+
         <div className="grid gap-6">
           <h1 className="text-[20px] font-medium leading-7">Account</h1>
           <div className="grid gap-4 text-md">
@@ -49,6 +52,7 @@ const Footer = () => {
             <Link to="">Shop </Link>
           </div>
         </div>
+
         <div className="grid gap-6">
           <h1 className="text-[20px] font-medium leading-7">Quick Link</h1>
           <div className="grid gap-4 text-md capitalize">
@@ -58,20 +62,24 @@ const Footer = () => {
             <Link to="">contact </Link>
           </div>
         </div>
+
         <div className="grid gap-6">
           <h1 className="text-[20px] font-medium leading-7">Download App</h1>
+
           <div className="grid gap-4 text-md capitalize">
             <p className="text-xs font-medium leading-4 font-secondary whitespace-nowrap">
               Save $3 with App New User Only
             </p>
-            <div className="grid grid-cols-2 gap-2">
+
+            <div className="grid lg:grid-cols-2 lg:gap-2 gap-3">
               <img src={Qr} alt="Qr Scan" />
-              <div className="grid gap-1">
+              <div className="grid lg:gap-1 gap-3">
                 <img src={google} alt="google play" />
                 <img src={store} alt="app store" />
               </div>
             </div>
           </div>
+
           <div className="flex text-2xl gap-6 items-center">
             <a href="">
               <RiFacebookLine />
@@ -88,9 +96,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
       <div>
         <hr className="opacity-40" />
-
         <p className="lg:text-md text-sm pl-4 lg:px-0 text-white opacity-60 gap-[6px] font-secondary font-normal py-4 flex items-center lg:justify-center">
           <BiCopyright /> Copyright Rimel 2022. All right reserved
         </p>

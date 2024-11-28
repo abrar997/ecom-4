@@ -2,7 +2,7 @@ import Button from "../reusable/Button";
 
 const CartTotal = () => {
   return (
-    <div className="border border-black rounded py-8 px-6 grid gap-6 w-full">
+    <div className="border border-black rounded lg:py-8 lg:px-6 px-4 py-6 grid lg:gap-6 gap-3 w-full">
       <h1 className="text-xl font-medium font-secondary">Cart Total</h1>
       <div className="grid gap-4">
         <div className="flex justify-between pb-4 border-b border-black text-md font-secondary">
