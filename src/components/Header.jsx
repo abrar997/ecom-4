@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { IoCartOutline, IoHeartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { HeaderLinks } from "../assets/mockData";
-import user from "../assets/icons/user.svg";
+import userIcon from "../assets/icons/user.svg";
 import darkUser from "../assets/icons/darkUser.svg";
+import { AuthContext } from "../context/authContext";
 
-const Header = ({ isSignUp, isWithUser }) => {
-  const [isOpenUser, setIsOpenUSer] = useState(false);
+const Header = ({ isRed }) => {
+  const [isOpenUser, setIsOpenUser] = useState(false);
+  const { user, handleLogout } = useContext(AuthContext);
+
   return (
     <>
       <div className="flex justify-between lg:p-inline lg:pt-10 lg:pb-4 p-4">
@@ -25,7 +28,7 @@ const Header = ({ isSignUp, isWithUser }) => {
             </Link>
           ))}
         </div>
-        <div className={`${!isSignUp && "flex"} items-center gap-6`}>
+        <div className="flex items-center gap-6">
           <div className="bg-secondary2 rounded relative py-2 px-5 hidden lg:flex">
             <input
               type="text"
@@ -36,46 +39,50 @@ const Header = ({ isSignUp, isWithUser }) => {
               <CiSearch />
             </button>
           </div>
-          {!isSignUp && (
-            <div className="flex gap-4 text-[22px] items-center">
-              <Link to="/wishlist" className="relative">
-                <IoHeartOutline />
-                <span className="absolute -top-2 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">
-                  0
-                </span>
-              </Link>
-              <Link to="/cart" className="relative">
-                <IoCartOutline />
-                <span className="absolute -top-2 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">
-                  0
-                </span>
-              </Link>
-              {!isWithUser ? (
-                <button onClick={() => setIsOpenUSer(!isOpenUser)}>
-                  <img src={darkUser} />
+          <div className="flex gap-4 text-[22px] items-center">
+            <Link to="/wishlist" className="relative">
+              <IoHeartOutline />
+              <span className="absolute -top-2 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">
+                0
+              </span>
+            </Link>
+            <Link to="/cart" className="relative">
+              <IoCartOutline />
+              <span className="absolute -top-2 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">
+                0
+              </span>
+            </Link>
+            <div className="relative">
+              {user && isRed ? (
+                <button
+                  onClick={() => setIsOpenUser(!isOpenUser)}
+                  className="bg-secondary rounded-full w-8 h-8 flex items-center justify-center text-white transition-all duration-300"
+                >
+                  <img src={userIcon} alt="" />
                 </button>
               ) : (
-                <div className="relative">
-                  <button
-                    onClick={() => setIsOpenUSer(!isOpenUser)}
-                    className="bg-secondary rounded-full w-8 h-8 flex items-center justify-center text-white transition-all duration-300"
-                  >
-                    <img src={user} alt="" />
-                  </button>
-                  {isOpenUser && (
-                    <div
-                      className={`bg-gradient-to-r from-red-500 overflow-hidden to-gray-900 bg-opacity-5 rounded capitalize absolute z-[40] right-0 top-9 w-52 whitespace-nowrap py-[18px] pl-5 pr-4 text-white transform transition-all duration-300 origin-top-right
+                ""
+              )}
+              {user && !isRed && (
+                <button onClick={() => setIsOpenUser(!isOpenUser)}>
+                  <img src={darkUser} />
+                </button>
+              )}
+              {isOpenUser && (
+                <div
+                  className={`bg-[#000] backdrop-blur-[75px] bg-opacity-10 overflow-hidden to-black rounded capitalize absolute z-[40] right-0 top-9 w-52 whitespace-nowrap py-[18px] pl-5 pr-4 text-white transform transition-all duration-300 origin-top-right
                    ${
                      isOpenUser ? "scale-100 opacity-100" : "scale-95 opacity-0"
-                   }`}
-                    >
-                      <DropDown />
-                    </div>
-                  )}
+                   }`} /* Account Dropdown */
+                >
+                  <DropDown
+                    handleLogout={handleLogout}
+                    setIsOpenUser={setIsOpenUser}
+                  />
                 </div>
               )}
             </div>
-          )}
+          </div>
         </div>
       </div>
       <hr />
@@ -84,29 +91,36 @@ const Header = ({ isSignUp, isWithUser }) => {
 };
 export default Header;
 
-const DropDown = () => {
+const DropDown = ({ handleLogout, setIsOpenUser }) => {
   return (
     <div className="flex flex-col items-start gap-3">
       <Link to="/account" className="flex gap-4 items-center w-full">
-        <img src={user} />
+        <img src={userIcon} />
         <span className="text-sm font-secondary">Manage my account</span>
       </Link>
       <Link to="" className="flex gap-4 items-center w-full">
-        <img src={user} />
+        <img src={userIcon} />
         <span className="text-sm font-secondary"> my order</span>
       </Link>
       <Link to="" className="flex gap-4 items-center w-full">
-        <img src={user} />
+        <img src={userIcon} />
         <span className="text-sm font-secondary"> my collection </span>
       </Link>
       <Link to="" className="flex gap-4 items-center w-full">
-        <img src={user} />
+        <img src={userIcon} />
         <span className="text-sm font-secondary"> my reviews</span>
       </Link>
-      <Link to="" className="flex gap-4 items-center w-full">
-        <img src={user} />
+      <button
+        onClick={() => {
+          handleLogout();
+          setIsOpenUser(false);
+        }}
+        to=""
+        className="flex gap-4 items-center w-full"
+      >
+        <img src={userIcon} />
         <span className="text-sm font-secondary"> logout</span>
-      </Link>
+      </button>
     </div>
   );
 };

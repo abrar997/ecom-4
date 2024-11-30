@@ -12,14 +12,16 @@ import Enhancing from "../components/Home/Enhancing";
 import OurProducts from "../components/Home/OurProducts";
 import Featured from "../components/Home/Featured";
 import Services from "../components/reusable/Services";
+import { AuthContext } from "../context/authContext";
 
 const Home = () => {
   const { products } = useContext(ProductsContext);
+  const { user } = useContext(AuthContext);
 
   return (
     <div className="">
       <TopHeader />
-      <Header />
+      {user ? <Header isRed /> : <Header />}
       <div className="relative">
         <FirstSection />
         <FlashProducts products={products} />

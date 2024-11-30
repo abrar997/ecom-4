@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-
 export const ProductsContext = createContext();
 
 export default function ContextProvider({ children }) {
@@ -20,7 +19,6 @@ export default function ContextProvider({ children }) {
     } else {
       console.log("product not found");
     }
-    console.log(`single products is ${singleProduct}`);
   };
   useEffect(() => {
     fetchAllProducts();

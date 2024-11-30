@@ -9,6 +9,7 @@ const HeaderSection = ({
   isNotSlider,
   isTime,
   isFeatured,
+  isDetail,
 }) => {
   const timeData = [
     { title: "days", number: "03" },
@@ -17,7 +18,11 @@ const HeaderSection = ({
     { title: "seconds", number: "56" },
   ];
   return (
-    <div className="flex flex-col lg:gap-6 gap-3 lg:p-inline p-4">
+    <div
+      className={`flex flex-col lg:gap-6 gap-3 ${
+        isDetail ? "" : "lg:p-inline p-4"
+      } `}
+    >
       <div className="flex lg:gap-4 gap-2 items-center">
         <div className="bg-secondary w-5 h-10 rounded" />
         <p className="text-secondary text-base capitalize font-semibold">
@@ -25,9 +30,11 @@ const HeaderSection = ({
         </p>
       </div>
       <div className="flex items-center">
-        <h1 className="font-semibold lg:text-4xl text-3xl tracking-wide capitalize">
-          {title}
-        </h1>
+        {title && (
+          <h1 className="font-semibold lg:text-4xl text-3xl tracking-wide capitalize">
+            {title}
+          </h1>
+        )}
         {isTime && (
           <div className="lg:flex lg:ml-[87px] ml-6 gap-4 items-center hidden">
             {timeData.map((item, index) => (
@@ -46,7 +53,7 @@ const HeaderSection = ({
             ))}
           </div>
         )}
-        {!isNotSlider && !isButton && !isFeatured && (
+        {!isNotSlider && !isButton && !isFeatured && !isDetail && (
           <div className="flex gap-2 ml-auto">
             <button className="bg-secondary2 rounded-full w-11 h-11 flex items-center justify-center text-2xl">
               <FiArrowLeft />

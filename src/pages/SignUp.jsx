@@ -1,15 +1,35 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import signUpImage from "../assets/images/signup.png";
 import TopHeader from "../components/TopHeader";
 import Header from "../components/Header";
 import Google from "../assets/icons/google.svg";
 import Footer from "../components/Footer";
+import { useContext } from "react";
+import { AuthContext } from "../context/authContext";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
+  const {
+    handleSignUp,
+    userName,
+    email,
+    password,
+    setEmail,
+    setUserName,
+    setPassword,
+  } = useContext(AuthContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleSignUp();
+    navigate("/login");
+  };
+
   return (
     <>
       <TopHeader />
-      <Header isSignUp />
+      <Header />
       <div className="grid lg:grid-cols-3 gap-4 lg:gap-32 lg:pr-[135px]">
         <div className="lg:col-span-2">
           <img src={signUpImage} />
@@ -24,26 +44,42 @@ const SignUp = () => {
             </p>
           </div>
           <div className="grid lg:gap-10 gap-5">
-            <form action="" className="grid gap-10 w-full">
-              <div className="grid gap-10">
+            <form
+              action=""
+              className="grid lg:gap-8 gap-4  w-full"
+              onSubmit={handleSubmit}
+            >
+              <div className="grid gap-10 font-secondary text-md font-normal">
                 <input
                   type="text"
-                  className="border-b bg-transparent font-secondary text-md font-normal"
+                  className="border-b bg-transparent  py-2 focus:outline-none"
                   placeholder="Name"
+                  value={userName}
+                  onChange={(e) => setUserName(e.target.value)}
                 />
                 <input
-                  type="text"
-                  className="border-b bg-transparent font-secondary text-md font-normal"
+                  type="email"
+                  className="border-b bg-transparent  py-2 focus:outline-none"
                   placeholder="Email or Phone Number"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
                   type="password"
-                  className="border-b bg-transparent font-secondary text-md font-normal"
+                  className="border-b bg-transparent  py-2 focus:outline-none"
                   placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div className="grid gap-4">
-                <button className="bg-secondary rounded text-center py-4 text-white hover:bg-hoverBtn font-secondary text-md font-medium">
+                <button
+                  className={`${
+                    !userName || !email || !password
+                      ? "bg-gray-400  cursor-not-allowed"
+                      : "bg-secondary hover:bg-hoverBtn"
+                  } rounded text-center py-4 text-white font-secondary text-md font-medium`}
+                >
                   Create Account
                 </button>
                 <button className="border border-black flex items-center justify-center gap-4 text-center py-4 text-md font-secondary">
@@ -53,7 +89,7 @@ const SignUp = () => {
             </form>
             <p className="text-center font-secondary text-md font-normal justify-center flex gap-4">
               Already have account?
-              <Link to="" className="border-b font-medium border-black">
+              <Link to="/login" className="border-b font-medium border-black">
                 Login
               </Link>
             </p>
