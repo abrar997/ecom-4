@@ -45,7 +45,7 @@ const FlashProducts = ({ products }) => {
         </div>
       </div>
       <div className="m-auto lg:mt-6 lg:pt-0.5 mt-4">
-        <Button text="view all products" />
+        <Button text="view all products" to="/products" />
       </div>
       <Hr className="mt-5" />
     </div>

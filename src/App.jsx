@@ -13,6 +13,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import ProductDetails from "./pages/ProductDetails";
 import AuthenticationContext from "./context/authContext";
+import AllProducts from "./pages/AllProducts";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <div>
               <Routes>
                 <Route element={<Home />} path="/" index />
+                <Route element={<AllProducts />} path="/products" />
                 <Route element={<ProductDetails />} path="/:productId/" />
                 <Route element={<About />} path="/about" />
                 <Route element={<SignUp />} path="/signup" />

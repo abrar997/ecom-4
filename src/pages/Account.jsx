@@ -4,8 +4,11 @@ import TopHeader from "../components/TopHeader";
 import PathPages from "../components/reusable/PathPages";
 import Button from "../components/reusable/Button";
 import Footer from "../components/Footer";
+import { useContext } from "react";
+import { AuthContext } from "../context/authContext";
 
 const Account = () => {
+  const { user } = useContext(AuthContext);
   let itemIndex = 0;
   const links = [
     { link: "Home", to: "/" },
@@ -33,11 +36,13 @@ const Account = () => {
           <PathPages links={links} lastIndex={1} />
           <div className="flex gap-2 text-sm">
             <span>Welcome!</span>
-            <span className="text-secondary capitalize">user NAme</span>
+            <span className="text-secondary capitalize">
+              {user ? user.userName : <p>user name</p>}
+            </span>
           </div>
         </div>
         <div className="grid lg:grid-cols-3 lg:gap-0 gap-4">
-          <div className="capitalize col-span-1 flex flex-col lg:gap-6 gap-3 font-secondary text-md">
+          <div className="capitalize col-span-1 flex flex-col lg:gap-6 gap-3 font-secondary text-md shadow-contactBox lg:shadow-none p-4 lg:p-0">
             <div className="grid gap-4">
               <h1 className="font-medium">manage my account</h1>
               <div className="lg:pl-9 pl-2 grid gap-2">
@@ -48,7 +53,7 @@ const Account = () => {
                   Address Book
                 </Link>
                 <Link to="" className="opacity-50">
-                  My Payment Options{" "}
+                  My Payment Options
                 </Link>
               </div>
             </div>
@@ -59,7 +64,7 @@ const Account = () => {
                   my returns
                 </Link>
                 <Link to="" className="opacity-50">
-                  my cancellations{" "}
+                  my cancellations
                 </Link>
               </div>
             </div>
@@ -68,7 +73,7 @@ const Account = () => {
             </div>
           </div>
 
-          <div className="shadow-lg grid gap-6 lg:py-10 py-6 lg:px-20 px-4 lg:col-span-2">
+          <div className="shadow-contactBox grid gap-6 lg:py-10 py-6 lg:px-20 px-4 lg:col-span-2">
             <div className="grid gap-4">
               <h1 className="text-md font-secondary text-secondary font-medium">
                 Edit your profile
@@ -80,13 +85,14 @@ const Account = () => {
                 } gap-6`}
               >
                 {inputsData.map((input, index) => {
-                  itemIndex === index;
+                  const isLstThree = index >= inputsData.length - 3;
                   return (
                     <InputField
                       key={index}
                       label={input.label}
                       placeholder={input.placeholder}
                       type={input.type}
+                      className={`${isLstThree ? "col-span-full w-full" : ""}`}
                     />
                   );
                 })}
@@ -108,15 +114,15 @@ const Account = () => {
 
 export default Account;
 
-const InputField = ({ label, placeholder, type }) => {
+const InputField = ({ label, placeholder, type, className }) => {
   return (
-    <div className="grid gap-2 ">
+    <div className={`grid gap-2  ${className}`}>
       <label htmlFor="" className="text-md font-secondary capitalize">
         {label}
       </label>
       <input
         type={type}
-        className="px-4 py-[13px] bg-secondary2 rounded border-none "
+        className={`px-4 py-[13px] bg-secondary2 rounded border-none`}
         placeholder={placeholder}
       />
     </div>

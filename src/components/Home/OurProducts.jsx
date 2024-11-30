@@ -12,7 +12,7 @@ const OurProducts = ({ products }) => {
         ))}
       </div>
       <div className="m-auto">
-        <Button text="view all products" />
+        <Button text="view all products" to="/products" />
       </div>
     </div>
   );

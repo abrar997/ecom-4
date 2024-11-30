@@ -73,7 +73,7 @@ const Header = ({ isRed }) => {
                   className={`bg-[#000] backdrop-blur-[75px] bg-opacity-10 overflow-hidden to-black rounded capitalize absolute z-[40] right-0 top-9 w-52 whitespace-nowrap py-[18px] pl-5 pr-4 text-white transform transition-all duration-300 origin-top-right
                    ${
                      isOpenUser ? "scale-100 opacity-100" : "scale-95 opacity-0"
-                   }`} /* Account Dropdown */
+                   }`}
                 >
                   <DropDown
                     handleLogout={handleLogout}
