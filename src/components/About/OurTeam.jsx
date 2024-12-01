@@ -5,22 +5,24 @@ import Pagination from "../reusable/Pagination";
 const OurTeam = ({ data }) => {
   return (
     <div className="grid gap-[42px]">
-      <div className="grid lg:grid-cols-3 lg:gap-[30px] gap-8">
+      <div className="grid lg:grid-cols-3 lg:gap-[30px] gap-4">
         {data.map((item, index) => (
-          <div key={index} className="grid gap-8">
-            <div className="rounded bg-secondary2 flex items-center justify-center lg:h-[430px] h-[320px]">
+          <div key={index} className="grid lg:gap-8 gap-3">
+            <div className="rounded bg-secondary2 flex items-center justify-center lg:h-[430px] h-[300px]">
               <img
                 src={item.image}
                 alt=""
-                className="lg:h-[392px] h-[300px] mt-auto"
+                className="lg:h-[392px] h-[250px] mt-auto"
               />
             </div>
             <div className="grid lg:gap-2">
-              <h1 className="text-[32px] font-medium tracking-[4%]">
+              <h1 className="lg:text-[32px] text-2xl font-medium lg:tracking-[4%]">
                 {item.title}
               </h1>
-              <p className="text-md font-secondary">{item.position}</p>
-              <div className="flex items-center mt-2 text-2xl gap-4">
+              <p className="lg:text-md text-sm font-secondary">
+                {item.position}
+              </p>
+              <div className="flex items-center mt-2 lg:text-2xl lg:gap-4 gap-2 text-lg">
                 <a href="">
                   <RiTwitterLine />
                 </a>

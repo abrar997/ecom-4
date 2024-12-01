@@ -2,7 +2,7 @@ import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 
 const ProductCart = ({ item }) => {
   return (
-    <div className="grid grid-cols-4 gap-4 px-10 py-6 lg:text-md text-sm capitalize font-secondary shadow-cartItem rounded lg:items-center items-start">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:px-10 pz-2 lg:py-6 py-3 lg:text-md text-sm capitalize font-secondary shadow-cartItem rounded lg:items-center items-start">
       <div className="lg:flex gap-5 items-center">
         <img
           src={item.image}

@@ -6,7 +6,7 @@ import feature4 from "../../assets/images/feature-4.png";
 
 const Featured = () => {
   return (
-    <div className="lg:mt-[140px] mt-8 grid lg:gap-sections gap-4">
+    <div className="lg:mt-[140px] mt-8 grid lg:gap-sections">
       <HeaderSection subtitle="featured" title="new arrival" isFeatured />
       <div className="grid lg:grid-cols-2 text-text lg:gap-[30px] gap-4 lg:p-inline p-4">
         <div className="relative bg-black lg:h-[600px] h-[300px]">

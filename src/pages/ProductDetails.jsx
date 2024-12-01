@@ -1,13 +1,13 @@
 import { useContext, useEffect } from "react";
 import { ProductsContext } from "../context/context";
 import { useParams } from "react-router-dom";
-import TopHeader from "../components/TopHeader";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import PathPages from "../components/reusable/PathPages";
 import ProductImages from "../components/Details/ProductImages";
 import ProductContent from "../components/Details/ProductContent";
 import RelatedItems from "../components/Details/RelatedItems";
+import TopHeader from "../components/reusable/TopHeader";
+import Header from "../components/reusable/Header";
+import Footer from "../components/reusable/Footer";
 
 const ProductDetails = () => {
   const { products, singleProduct, fetchSingleProduct } =

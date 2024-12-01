@@ -1,6 +1,3 @@
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import TopHeader from "../components/TopHeader";
 import { useContext } from "react";
 import { ProductsContext } from "../context/context";
 import Coupon from "../components/Cart/Coupon";
@@ -11,6 +8,9 @@ import visa from "../assets/icons/visa.svg";
 import master from "../assets/icons/master.svg";
 import bangali from "../assets/icons/bangali.svg";
 import PathPages from "../components/reusable/PathPages";
+import TopHeader from "../components/reusable/TopHeader";
+import Header from "../components/reusable/Header";
+import Footer from "../components/reusable/Footer";
 
 const Checkout = () => {
   const { products } = useContext(ProductsContext);

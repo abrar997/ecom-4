@@ -4,7 +4,7 @@ import SingleProduct from "../reusable/SingleProduct";
 
 const OurProducts = ({ products }) => {
   return (
-    <div className="grid lg:gap-sections gap-6 lg:mt-[71px] mt-12">
+    <div className="grid lg:gap-sections gap-6 lg:mt-[71px] mt-8">
       <HeaderSection subtitle="our products" title="explore our products" />
       <div className="grid lg:grid-cols-4 gap-products lg:p-inline p-4">
         {products.slice(9, 17).map((item, index) => (

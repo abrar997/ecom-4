@@ -4,14 +4,11 @@ const Services = ({ isHome }) => {
   return (
     <div
       className={`lg:flex lg:justify-center lg:items-center grid ${
-        isHome ? "lg:my-[140px] my-12" : ""
+        isHome ? "lg:my-[140px] my-8 mb-12" : ""
       } gap-6 lg:gap-[88px] p-4 lg:p-0`}
     >
       {ServicesData.map((service, index) => (
-        <div
-          className="lg:grid flex lg:gap-6 gap-3 items-center bg-slate-50"
-          key={index}
-        >
+        <div className="lg:grid flex lg:gap-6 gap-3 items-center" key={index}>
           <div className="bg-black rounded-full lg:m-auto w-16 h-16 border-8 border-[#c1c0c1] flex items-center justify-center text-white text-4xl">
             {service.icon}
           </div>

@@ -1,11 +1,11 @@
 const FirstSectionAbout = () => {
   return (
-    <div className="grid lg:grid-cols-2 items-center gap-14 lg:pl-[135px] pl-4">
+    <div className="grid lg:grid-cols-2 items-center lg:gap-14 gap-6 lg:pl-[135px] pl-4 lg:pr-0 pr-4">
       <div className="grid lg:gap-10 gap-4">
         <h1 className="lg:text-[54px] text-3xl font-semibold tracking-[6%] capitalize">
           our story
         </h1>
-        <div className="grid lg:gap-6 gap-3 lg:text-md font-secondary">
+        <div className="grid lg:gap-6 gap-3 lg:text-md text-sm font-secondary">
           <p>
             Launced in 2015, Exclusive is South Asia’s premier online shopping
             makterplace with an active presense in Bangladesh. Supported by wide

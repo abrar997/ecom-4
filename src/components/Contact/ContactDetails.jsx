@@ -2,8 +2,8 @@ import { FiPhone } from "react-icons/fi";
 
 const ContactDetails = () => {
   return (
-    <div className="shadow-contactBox py-10 px-[35px] grid lg:col-span-1 gap-8 w-full">
-      <div className="grid gap-8">
+    <div className="lg:shadow-contactBox lg:py-10 lg:px-[35px] p-0 py-4 grid lg:col-span-1 gap-8 w-full">
+      <div className="grid lg:gap-8 gap-4">
         <div className="flex gap-4 items-center">
           <span className="bg-secondary text-white text-xl rounded-full w-10 h-10 flex items-center justify-center">
             <FiPhone />
@@ -18,7 +18,7 @@ const ContactDetails = () => {
         <p className="text-sm font-secondary">Phone: +8801611112222</p>
       </div>
       <div className="h-[1px] w-full bg-black opacity-50" />
-      <div className="grid gap-8">
+      <div className="grid lg:gap-8 gap-4">
         <div className="flex gap-4 items-center">
           <span className="bg-secondary text-white text-xl rounded-full w-10 h-10 flex items-center justify-center">
             <FiPhone />

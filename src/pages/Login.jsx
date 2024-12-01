@@ -1,9 +1,9 @@
-import Header from "../components/Header";
-import TopHeader from "../components/TopHeader";
 import signUpImage from "../assets/images/signup.png";
-import Footer from "../components/Footer";
 import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
+import TopHeader from "../components/reusable/TopHeader";
+import Header from "../components/reusable/Header";
+import Footer from "../components/reusable/Footer";
 
 const Login = () => {
   const { error, handleLogin, email, setEmail, password, setPassword } =
@@ -33,21 +33,20 @@ const Login = () => {
           </div>
           <div className="grid lg:gap-10 gap-5">
             <form
-              action=""
-              className="grid gap-10 w-full"
+              className="grid lg:gap-10 gap-6 w-full"
               onSubmit={CheckHandleLogin}
             >
-              <div className="grid gap-10">
+              <div className="grid lg:gap-10 gap-5">
                 <input
                   type="email"
-                  className="border-b bg-transparent font-secondary text-md font-normal"
+                  className="border-b bg-transparent py-2 focus:outline-none font-secondary lg:text-md font-normal"
                   placeholder="Email or Phone Number"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
                   type="password"
-                  className="border-b bg-transparent font-secondary text-md font-normal"
+                  className="border-b bg-transparent py-2 focus:outline-none font-secondary lg:text-md font-normal"
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}

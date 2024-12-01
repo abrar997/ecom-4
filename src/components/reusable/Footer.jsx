@@ -4,9 +4,9 @@ import { FaInstagram } from "react-icons/fa";
 import { RiFacebookLine, RiLinkedinLine, RiTwitterLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 // images
-import Qr from "../assets/images/QrFooter.png";
-import google from "../assets/images/googleFooter.png";
-import store from "../assets/images/storeFooter.png";
+import Qr from "../../assets/images/QrFooter.png";
+import google from "../../assets/images/googleFooter.png";
+import store from "../../assets/images/storeFooter.png";
 
 const Footer = () => {
   return (

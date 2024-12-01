@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { ProductsContext } from "../context/context";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import TopHeader from "../components/TopHeader";
 import ForYouProducts from "../components/Wishlist/ForYouProducts";
 import WishlistAllProducts from "../components/Wishlist/WishlistAllProducts";
+import TopHeader from "../components/reusable/TopHeader";
+import Header from "../components/reusable/Header";
+import Footer from "../components/reusable/Footer";
 
 const WishList = () => {
   const { products } = useContext(ProductsContext);

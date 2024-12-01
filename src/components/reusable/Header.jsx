@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { IoCartOutline, IoHeartOutline, IoMenuOutline } from "react-icons/io5";
-import { AuthContext } from "../context/authContext";
 import { Link } from "react-router-dom";
-import userIcon from "../assets/icons/user.svg";
-import darkUser from "../assets/icons/darkUser.svg";
+import userIcon from "../../assets/icons/user.svg";
+import darkUser from "../../assets/icons/darkUser.svg";
 import { CiSearch } from "react-icons/ci";
+import { AuthContext } from "../../context/authContext";
 
 const Header = ({ isRed }) => {
   const { user, handleLogout } = useContext(AuthContext);
@@ -60,14 +60,14 @@ const ShoppingItems = ({ isRed, user, handleLogout }) => {
           <CiSearch />
         </button>
       </div>
-      <div className="lg:flex lg:gap-4 text-[22px] items-center grid gap-3 top-1/2 rounded lg:shadow-none shadow z-30 p-4 pt-6 lg:p-0 lg:top-0 lg:sticky fixed bg-secondary2 lg:bg-transparent right-0">
+      <div className="lg:flex lg:gap-4 text-[22px] items-center grid gap-3 top-[270px]  rounded lg:shadow-none shadow z-30 p-4 px-2 pt-6 lg:p-0 lg:top-0 lg:sticky fixed bg-secondary2 lg:bg-transparent right-0">
         <Link to="/wishlist" className="relative">
           <IoHeartOutline />
           <span className="absolute -top-2 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">
             0
           </span>
         </Link>
-        <Link to="/cart" className="relative">
+        <Link to="/cart" className="relative mt-1 lg:my-0">
           <IoCartOutline />
           <span className="absolute -top-2 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">
             0
@@ -112,7 +112,7 @@ const NavLinksSmallScreens = ({ links }) => {
         <MenuItems
           transition
           anchor="top start"
-          className="bg-[#000] origin-left rounded text-white gap-3 absolute z-[40] inset-x-0 mt-6 whitespace-nowrap p-4 py-8 transition duration-100 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0 grid items-center justify-center"
+          className="bg-[#000] origin-left text-white gap-3 absolute z-[40] inset-x-0 mt-6 whitespace-nowrap p-4 py-8 transition duration-100 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0 grid items-center justify-center"
         >
           {links.map((link, index) => (
             <MenuItem key={index}>
@@ -182,7 +182,7 @@ const InputField = ({ className }) => {
         <MenuItems
           transition
           anchor="top start"
-          className="bg-white origin-bottom rounded absolute z-[140] inset-0 bottom-0 whitespace-nowrap p-4 transition duration-100 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
+          className="bg-white origin-left text-white fixed -mt-24 z-[40] inset-x-0 p-4 py-8 transition duration-100 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
         >
           <MenuItem>
             <input

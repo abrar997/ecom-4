@@ -1,11 +1,11 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import signUpImage from "../assets/images/signup.png";
-import TopHeader from "../components/TopHeader";
-import Header from "../components/Header";
 import Google from "../assets/icons/google.svg";
-import Footer from "../components/Footer";
 import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
+import TopHeader from "../components/reusable/TopHeader";
+import Header from "../components/reusable/Header";
+import Footer from "../components/reusable/Footer";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -45,28 +45,27 @@ const SignUp = () => {
           </div>
           <div className="grid lg:gap-10 gap-5">
             <form
-              action=""
-              className="grid lg:gap-8 gap-4  w-full"
+              className="grid lg:gap-8 gap-6  w-full"
               onSubmit={handleSubmit}
             >
-              <div className="grid gap-10 font-secondary text-md font-normal">
+              <div className="grid lg:gap-10 gap-5 font-secondary text-md font-normal">
                 <input
                   type="text"
-                  className="border-b bg-transparent  py-2 focus:outline-none"
+                  className="border-b bg-transparent py-2 focus:outline-none"
                   placeholder="Name"
                   value={userName}
                   onChange={(e) => setUserName(e.target.value)}
                 />
                 <input
                   type="email"
-                  className="border-b bg-transparent  py-2 focus:outline-none"
+                  className="border-b bg-transparent py-2 focus:outline-none"
                   placeholder="Email or Phone Number"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
                   type="password"
-                  className="border-b bg-transparent  py-2 focus:outline-none"
+                  className="border-b bg-transparent py-2 focus:outline-none"
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}

@@ -1,6 +1,11 @@
 import { CiCamera, CiHeadphones, CiMobile4 } from "react-icons/ci";
 import { TbTruckDelivery } from "react-icons/tb";
 import { IoIosArrowForward } from "react-icons/io";
+import { BsShopWindow } from "react-icons/bs";
+import { CiDollar } from "react-icons/ci";
+import { TbShoppingBag } from "react-icons/tb";
+import { FaSackDollar } from "react-icons/fa6";
+
 // icons as svg file
 import computer from "./icons/computer.svg";
 import computerLight from "./icons/computerLight.svg";
@@ -9,6 +14,11 @@ import secureServices from "./icons/secureServices.svg";
 import SmartWatchLight from "./icons/smartLight.svg";
 import gaming from "./icons/gaming.svg";
 import gamingLight from "./icons/gamingLight.svg";
+
+// image
+import Team1 from "../assets/images/team-1.png";
+import Team2 from "../assets/images/team-2.png";
+import Team3 from "../assets/images/team-3.png";
 
 export const FirstSectionCategories = [
   { title: "women's fashion", to: "", icon: <IoIosArrowForward /> },
@@ -100,4 +110,29 @@ export const FormInputsFieldsCheckOut = [
   { label: " Town/City*", to: "", name: "" },
   { label: "Phone Number**", to: "", name: "" },
   { label: "Email Address*", to: "", name: "" },
+];
+
+export const NumberOfUsersData = [
+  {
+    icon: <BsShopWindow className="p-1" />,
+    number: "10.5k ",
+    text: "Sallers active our site",
+  },
+  { icon: <CiDollar />, number: "33K ", text: "Monthly Product Sale" },
+  {
+    icon: <TbShoppingBag className="p-0.5" />,
+    number: "45.5K ",
+    text: "Customer active in our site",
+  },
+  {
+    icon: <FaSackDollar className="p-1" />,
+    number: "25K ",
+    text: "Anual gross sale in our site",
+  },
+];
+
+export const TeamData = [
+  { title: "Tom Cruise", position: "Founder & Chairman", image: Team1 },
+  { title: "Emma Watson", position: "Managing director", image: Team2 },
+  { title: "Will Smith", position: "product designer", image: Team3 },
 ];

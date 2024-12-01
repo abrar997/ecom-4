@@ -1,8 +1,8 @@
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Button from "../components/reusable/Button";
+import Footer from "../components/reusable/Footer";
+import Header from "../components/reusable/Header";
 import PathPages from "../components/reusable/PathPages";
-import TopHeader from "../components/TopHeader";
+import TopHeader from "../components/reusable/TopHeader";
 
 const NotFound = () => {
   const links = [

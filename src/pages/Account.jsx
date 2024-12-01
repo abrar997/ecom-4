@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import Header from "../components/Header";
-import TopHeader from "../components/TopHeader";
+import Header from "../components/reusable/Header";
+import TopHeader from "../components/reusable/TopHeader";
 import PathPages from "../components/reusable/PathPages";
 import Button from "../components/reusable/Button";
-import Footer from "../components/Footer";
+import Footer from "../components/reusable/Footer";
 import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
 
@@ -31,7 +31,7 @@ const Account = () => {
     <div>
       <TopHeader />
       <Header isCheckout />
-      <div className="lg:mt-[80px] mt-8 lg:mb-[140px] mb-12 lg:p-inline p-4 grid gap-[80px]">
+      <div className="lg:mt-[80px] mt-8 lg:mb-[140px] mb-12 lg:p-inline p-4 grid lg:gap-[80px] gap-10">
         <div className="flex justify-between items-center font-secondary">
           <PathPages links={links} lastIndex={1} />
           <div className="flex gap-2 text-sm">
@@ -42,7 +42,7 @@ const Account = () => {
           </div>
         </div>
         <div className="grid lg:grid-cols-3 lg:gap-0 gap-4">
-          <div className="capitalize col-span-1 flex flex-col lg:gap-6 gap-3 font-secondary text-md shadow-contactBox lg:shadow-none p-4 lg:p-0">
+          <div className="capitalize col-span-1 flex flex-col lg:gap-6 gap-3 font-secondary lg:text-md">
             <div className="grid gap-4">
               <h1 className="font-medium">manage my account</h1>
               <div className="lg:pl-9 pl-2 grid gap-2">
@@ -73,7 +73,7 @@ const Account = () => {
             </div>
           </div>
 
-          <div className="shadow-contactBox grid gap-6 lg:py-10 py-6 lg:px-20 px-4 lg:col-span-2">
+          <div className="lg:shadow-contactBox grid gap-6 lg:py-10 py-6 lg:px-20 px-0 lg:col-span-2">
             <div className="grid gap-4">
               <h1 className="text-md font-secondary text-secondary font-medium">
                 Edit your profile
@@ -82,7 +82,7 @@ const Account = () => {
                 action=""
                 className={`grid ${
                   itemIndex > 2 ? "grid-cols-1" : "lg:grid-cols-2"
-                } gap-6`}
+                } lg:gap-6 gap-5`}
               >
                 {inputsData.map((input, index) => {
                   const isLstThree = index >= inputsData.length - 3;

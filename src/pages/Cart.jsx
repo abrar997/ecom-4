@@ -1,13 +1,12 @@
-import { Link } from "react-router-dom";
-import Header from "../components/Header";
-import TopHeader from "../components/TopHeader";
 import { useContext } from "react";
 import { ProductsContext } from "../context/context";
 import ProductCart from "../components/Cart/ProductCart";
-import Footer from "../components/Footer";
 import Coupon from "../components/Cart/Coupon";
 import CartTotal from "../components/Cart/CartTotal";
 import PathPages from "../components/reusable/PathPages";
+import TopHeader from "../components/reusable/TopHeader";
+import Header from "../components/reusable/Header";
+import Footer from "../components/reusable/Footer";
 
 const Cart = () => {
   const { products } = useContext(ProductsContext);
@@ -17,14 +16,14 @@ const Cart = () => {
   ];
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <TopHeader />
       <Header />
       {products.length > 0 ? (
         <div className="lg:p-inline p-4 lg:mt-[80px] mt-8 lg:mb-[140px] mb-12 grid lg:gap-[80px] gap-12">
           <PathPages links={links} lastIndex={1} />
-          <div className="grid items-start gap-10">
-            <div className="grid grid-cols-4 gap-4 px-10 py-6 text-md capitalize font-secondary shadow-cartItem rounded">
+          <div className="grid items-start gap-10 overflow-x-auto w-fit">
+            <div className="grid grid-cols-4 gap-4 lg:px-10 px-2 lg:py-6 py-3 text-md capitalize font-secondary shadow-cartItem rounded">
               <h1>Product</h1>
               <h1>Price</h1>
               <h1>Quantity</h1>
