@@ -7,7 +7,7 @@ import "swiper/css";
 
 const FlashProducts = ({ products }) => {
   return (
-    <div className="flex flex-col lg:gap-10 gap-4 lg:mt-36 mt-12">
+    <div className="flex flex-col lg:gap-10 gap-4 lg:mt-36 mt-8 w-full">
       <HeaderSection subtitle="Today's" title="Flash Sales" isTime />
       <div className="lg:pl-[135px] lg:pr-0 px-4">
         <div className="swiper">
@@ -44,7 +44,7 @@ const FlashProducts = ({ products }) => {
           </Swiper>
         </div>
       </div>
-      <div className="m-auto lg:mt-6 lg:pt-0.5 mt-4">
+      <div className="m-auto mt-6 lg:pt-0.5">
         <Button text="view all products" to="/products" />
       </div>
       <Hr className="mt-5" />

@@ -19,7 +19,7 @@ const Home = () => {
   const { user } = useContext(AuthContext);
 
   return (
-    <div className="">
+    <div>
       <TopHeader />
       {user ? <Header isRed /> : <Header />}
       <div className="relative">

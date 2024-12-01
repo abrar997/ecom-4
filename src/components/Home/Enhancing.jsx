@@ -3,7 +3,7 @@ import { EnhancingDataTime } from "../../assets/mockData";
 const Enhancing = () => {
   return (
     <div className="lg:p-inline px-4">
-      <div className="lg:mt-[140px] mt-16 bg-black grid lg:grid-cols-3 gap-6">
+      <div className="lg:mt-[140px] mt-10 bg-black grid lg:grid-cols-3 lg:gap-6">
         <div className="w-full lg:py-[69px] py-8 flex flex-col items-start lg:pl-14 pl-4 lg:gap-8 gap-4 col-span-1">
           <h2 className="font-semibold text-lightGreen font-secondary text-md">
             Categories
@@ -34,9 +34,9 @@ const Enhancing = () => {
           </button>
         </div>
 
-        <div className="col-span-2 relative hidden lg:flex">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-[#D9D9D9] opacity-30 rounded-full blur-[100px] z-0 w-[500px] h-[500px]"></div>
+        <div className="lg:col-span-2 relative flex">
+          <div className="absolute lg:inset-0 flex items-center justify-center">
+            <div className="bg-[#D9D9D9] opacity-30 rounded-full blur-[100px] z-0 lg:w-[500px] lg:h-[500px] h-12 w-12"></div>
             <img
               src="https://static.vecteezy.com/system/resources/previews/037/210/464/original/ai-generated-3d-rendering-of-a-shopping-bag-on-transparent-background-ai-generated-free-png.png"
               alt=""

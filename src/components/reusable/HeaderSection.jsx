@@ -31,7 +31,7 @@ const HeaderSection = ({
       </div>
       <div className="flex items-center">
         {title && (
-          <h1 className="font-semibold lg:text-4xl text-3xl tracking-wide capitalize">
+          <h1 className="font-semibold lg:text-4xl text-2xl lg:tracking-[4%] capitalize">
             {title}
           </h1>
         )}
@@ -55,16 +55,16 @@ const HeaderSection = ({
         )}
         {!isNotSlider && !isButton && !isFeatured && !isDetail && (
           <div className="flex gap-2 ml-auto">
-            <button className="bg-secondary2 rounded-full w-11 h-11 flex items-center justify-center text-2xl">
+            <button className="bg-secondary2 rounded-full lg:w-11 lg:h-11 w-8 h-8 p-1.5 lg:p-0 flex items-center justify-center text-2xl">
               <FiArrowLeft />
             </button>
-            <button className="bg-secondary2 rounded-full w-11 h-11 flex items-center justify-center text-2xl">
+            <button className="bg-secondary2 rounded-full lg:w-11 lg:h-11 w-8 h-8 p-1.5 lg:p-0 flex items-center justify-center text-2xl">
               <FiArrowRight />
             </button>
           </div>
         )}
         {isButton && (
-          <button className="bg-secondary ml-auto lg:py-4 py-2 lg:px-12 px-6 hover:bg-hoverBtn text-white rounded capitalize lg:text-md lg:font-medium">
+          <button className="bg-secondary ml-auto lg:py-4 py-2 lg:px-12 px-2 hover:bg-hoverBtn text-white rounded capitalize lg:text-md lg:font-medium text-sm">
             {buttonText}
           </button>
         )}

@@ -7,11 +7,11 @@ import Pagination from "../reusable/Pagination";
 const FirstSection = () => {
   return (
     <div
-      className="grid lg:p-inline p-4 lg:grid-cols-4 lg:gap-x-11"
+      className="grid lg:p-inline p-0 lg:grid-cols-4 lg:gap-x-11"
       id="firstSection"
     >
-      <div className="border-r col-span-1">
-        <div className="lg:pt-10 hidden lg:grid gap-y-4 text-base">
+      <div className="border-r col-span-1 p-4 lg:p-0 order-2">
+        <div className="lg:pt-10 grid lg:gap-y-4 gap-2 text-base">
           {FirstSectionCategories.map((category, index) => (
             <Link
               to={category.to}
@@ -24,8 +24,8 @@ const FirstSection = () => {
           ))}
         </div>
       </div>
-      <div className="lg:col-span-3 text-white flex lg:pt-10 pt-4 lg:gap-12">
-        <div className="relative bg-black lg:p-10 lg:px-11 p-6 px-4 flex w-full">
+      <div className="lg:col-span-3 text-white lg:order-2 flex lg:pt-10 pt-0 lg:gap-12">
+        <div className="relative bg-black lg:py-10 lg:px-11 py-6 px-4 lg:flex w-full">
           <div className="grid lg:gap-5 gap-3">
             <div className="flex lg:gap-6 gap-3 items-center">
               <FaAppleAlt className="lg:w-10 lg:h-12" />
@@ -33,7 +33,7 @@ const FirstSection = () => {
                 Headphone 14 series
               </span>
             </div>
-            <h1 className="font-semibold lg:text-5xl text-3xl flex flex-col gap-2">
+            <h1 className="font-semibold lg:text-5xl text-3xl flex lg:flex-col gap-2">
               <span>Up to 10%</span>
               <span>off Voucher</span>
             </h1>
@@ -45,7 +45,7 @@ const FirstSection = () => {
           <img
             src="https://www.freeiconspng.com/thumbs/headphones-png/headphones-png-0.png"
             alt=""
-            className="brightness-75 lg:w-[33%] m-auto w-[40%] "
+            className="brightness-75 lg:w-[33%] m-auto w-[50%] -mt-4 lg:my-0"
           />
           <Pagination isHome />
         </div>

@@ -10,13 +10,6 @@ import SmartWatchLight from "./icons/smartLight.svg";
 import gaming from "./icons/gaming.svg";
 import gamingLight from "./icons/gamingLight.svg";
 
-export const HeaderLinks = [
-  { title: "home", to: "/" },
-  { title: "contact", to: "/contact" },
-  { title: "About", to: "/about" },
-  { title: "sign up", to: "/signup" },
-];
-
 export const FirstSectionCategories = [
   { title: "women's fashion", to: "", icon: <IoIosArrowForward /> },
   { title: "men's fashion", to: "", icon: <IoIosArrowForward /> },

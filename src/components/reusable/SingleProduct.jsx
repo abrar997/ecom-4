@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 const SingleProduct = ({ product }) => {
   return (
     <div className="grid gap-4 w-full">
-      <div className="h-64 group overflow-hidden bg-secondary2 relative rounded flex items-center justify-center">
+      <div className="lg:h-64 h-52 p-6 lg:p-0 group overflow-hidden bg-secondary2 relative rounded flex items-center justify-center">
         <img src={product.image} alt="" />
         <div>
           {product.discount && (
-            <span className="absolute left-3 top-3 bg-secondary text-white rounded px-3 py-1 text-xs">
+            <span className="absolute left-3 top-3 bg-secondary text-white rounded lg:px-3 px-2 py-1 text-xs">
               {product.discount}%
             </span>
           )}
@@ -19,7 +19,7 @@ const SingleProduct = ({ product }) => {
             </span>
           )}
         </div>
-        <div className="grid absolute right-3 top-3 gap-2">
+        <div className="grid absolute right-3 top-3 lg:gap-2 gap-0.5">
           <button className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
             <IoHeartOutline />
           </button>
@@ -34,7 +34,7 @@ const SingleProduct = ({ product }) => {
           add to cart
         </Link>
       </div>
-      <div className="flex flex-col gap-2 text-md font-medium">
+      <div className="flex flex-col gap-2 lg:text-md text-sm font-medium">
         <h2>{product.title}</h2>
         <span className="flex gap-3">
           <p className="text-secondary">${product.price}</p>

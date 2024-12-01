@@ -1,5 +1,5 @@
 const Hr = ({ className }) => {
-  return <hr className={`${className} mx-[135px]`} />;
+  return <hr className={`${className} lg:mx-[135px]`} />;
 };
 
 export default Hr;
