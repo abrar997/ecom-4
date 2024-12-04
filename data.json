@@ -1,0 +1,435 @@
+[
+  {
+    "id": 1,
+    "title": "HAVIT HV-G92 Gamepad",
+    "price": 120,
+    "oldPrice": 160,
+    "discount": -40,
+    "views": 88,
+    "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+    "category": "men's clothing",
+    "image": "images/flash-1.png",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 3.9,
+      "count": 120
+    }
+  },
+  {
+    "id": 2,
+    "title": "AK-900 Wired Keyboard",
+    "price": 1160,
+    "oldPrice": 960,
+    "discount": -35,
+    "views": 75,
+    "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing.",
+    "category": "men's clothing",
+    "image": "images/flash-2.png",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 4.1,
+      "count": 259
+    }
+  },
+  {
+    "id": 3,
+    "title": "IPS LCD Gaming Monitor",
+    "price": 370,
+    "oldPrice": 400,
+    "discount": -30,
+    "views": 99,
+    "description": "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors.",
+    "category": "men's clothing",
+    "image": "images/flash-3.png",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 4.7,
+      "count": 500
+    }
+  },
+  {
+    "id": 4,
+    "title": "S-Series Comfort Chair",
+    "price": 375,
+    "oldPrice": 400,
+    "discount": -25,
+    "views": 99,
+    "description": "The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person.",
+    "category": "men's clothing",
+    "image": "images/flash-4.png",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 2.1,
+      "count": 430
+    }
+  },
+  {
+    "id": 5,
+    "title": "S-Series Comfort Chair",
+    "price": 375,
+    "oldPrice": 400,
+    "discount": -35,
+    "views": 99,
+    "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl.",
+    "category": "jewelery",
+    "image": "images/flash-5.png",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 4.6,
+      "count": 400
+    }
+  },
+  {
+    "id": 6,
+    "title": "The north coat",
+    "price": 260,
+    "oldPrice": 360,
+    "views": 99,
+    "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day.",
+    "category": "jewelery",
+    "image": "images/best-1.png",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 3,
+      "count": 400
+    }
+  },
+  {
+    "id": 7,
+    "title": "duffle bag",
+    "price": 900,
+    "oldPrice": 1100,
+    "views": 65,
+    "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
+    "category": "jewelery",
+    "image": "images/best-2.png",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 3,
+      "count": 400
+    }
+  },
+  {
+    "id": 8,
+    "title": "RGB liquid CPU Cooler",
+    "price": 160,
+    "oldPrice": 170,
+    "views": 65,
+    "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
+    "category": "jewelery",
+    "image": "images/best-3.png",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 1.9,
+      "count": 100
+    }
+  },
+  {
+    "id": 9,
+    "title": "Small BookSelf",
+    "price": 900,
+    "oldPrice": "",
+    "views": 65,
+    "description": "USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1",
+    "category": "electronics",
+    "image": "images/best-4.png",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 3.3,
+      "count": 203
+    }
+  },
+  {
+    "id": 10,
+    "title": "Breed Dry Dog Food",
+    "price": 100,
+    "views": 35,
+    "description": "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance.",
+    "category": "electronics",
+    "image": "images/ourP-1.png",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 2.9,
+      "count": 470
+    }
+  },
+  {
+    "id": 11,
+    "title": "CANON EOS DSLR Camera",
+    "price": 360,
+    "views": 95,
+    "description": "3D NAND flash are applied to deliver high transfer speeds Remarkable transfer speeds that enable faster bootup and improved overall system performance. The advanced SLC Cache Technology allows performance boost and longer lifespan 7mm slim design suitable for Ultrabooks and Ultra-slim notebooks.",
+    "category": "electronics",
+    "image": "images/ourP-2.png",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 4.8,
+      "count": 319
+    }
+  },
+  {
+    "id": 12,
+    "title": "ASUS FHD Gaming Laptop",
+    "price": 700,
+    "views": 325,
+    "description": "Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty",
+    "category": "electronics",
+    "image": "images/ourP-3.png",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 4.8,
+      "count": 400
+    }
+  },
+  {
+    "id": 13,
+    "title": "Curology Product Set ",
+    "price": 500,
+    "views": 145,
+    "description": "21. 5 inches Full HD (1920 x 1080) widescreen IPS display And Radeon free Sync technology. No compatibility for VESA Mount Refresh Rate: 75Hz - Using HDMI port Zero-frame design | ultra-thin | 4ms response time | IPS panel Aspect ratio - 16: 9. Color Supported - 16. 7 million colors.",
+    "category": "electronics",
+    "image": "images/ourP-4.png",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 2.9,
+      "count": 250
+    }
+  },
+  {
+    "id": 14,
+    "title": "Kids Electric Car",
+    "price": 960,
+    "views": 65,
+    "isNew": true,
+    "description": "49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag",
+    "category": "electronics",
+    "image": "images/ourP-5.png",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 2.2,
+      "count": 140
+    }
+  },
+  {
+    "id": 15,
+    "title": "Jr. Zoom Soccer Cleats",
+    "price": 1160,
+    "views": 35,
+    "description": "Note:The Jackets is US standard size, Please choose size as your usual wear Material: 100% Polyester; Detachable Liner Fabric: Warm Fleece. Detachable Functional Liner: Skin Friendly, Lightweigt and Warm.Stand Collar Liner jacket, keep you warm in cold weather. Zippered Pockets: 2 Zippered Hand Pockets, 2 Zippered Pockets on Chest (enough to keep cards or keys)and 1 Hidden Pocket Inside.",
+    "category": "women's clothing",
+    "image": "images/ourP-6.png",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 2.6,
+      "count": 235
+    }
+  },
+  {
+    "id": 16,
+    "title": "GP11 Shooter USB Gamepad",
+    "price": 660,
+    "views": 55,
+    "isNew": true,
+    "description": "100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON",
+    "category": "women's clothing",
+    "image": "images/ourP-7.png",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 2.9,
+      "count": 340
+    }
+  },
+  {
+    "id": 17,
+    "title": "Quilted Satin Jacket",
+    "price": 660,
+    "views": 55,
+    "description": "Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn't overdo it.Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look.",
+    "category": "women's clothing",
+    "image": "images/ourP-8.png",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 3.8,
+      "count": 679
+    }
+  },
+  {
+    "id": 18,
+    "title": "MBJ Women's Solid Short Sleeve Boat Neck V ",
+    "price": 9.85,
+    "description": "95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem",
+    "category": "women's clothing",
+    "image": "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 4.7,
+      "count": 130
+    }
+  },
+  {
+    "id": 19,
+    "title": "Opna Women's Short Sleeve Moisture",
+    "price": 7.95,
+    "description": "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
+    "category": "women's clothing",
+    "image": "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 4.5,
+      "count": 146
+    }
+  },
+  {
+    "id": 20,
+    "title": "DANVOUY Womens T Shirt Casual Cotton Short",
+    "price": 12.99,
+    "description": "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
+    "category": "women's clothing",
+    "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
+    "productsImages": [
+      {
+        "image": " images/productsImages/p1-1.png"
+      },
+      { "image": " images/productsImages/p1-2.png" },
+      { "image": " images/productsImages/p1-3.png" },
+      { "image": " images/productsImages/p1-4.png" }
+    ],
+    "rating": {
+      "rate": 3.6,
+      "count": 145
+    }
+  }
+]
