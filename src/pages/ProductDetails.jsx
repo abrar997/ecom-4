@@ -8,18 +8,19 @@ import RelatedItems from "../components/Details/RelatedItems";
 import TopHeader from "../components/reusable/TopHeader";
 import Header from "../components/reusable/Header";
 import Footer from "../components/reusable/Footer";
+import { CartContext } from "../context/cartContext";
 
 const ProductDetails = () => {
   const { products, singleProduct, fetchSingleProduct } =
     useContext(ProductsContext);
   const { productId } = useParams();
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     fetchSingleProduct(productId);
   }, [productId, singleProduct]);
 
   if (!productId) return <p>loading ...</p>;
-
   return (
     <div>
       <TopHeader />
@@ -40,7 +41,11 @@ const ProductDetails = () => {
           </div>
         </div>
         <div>
-          <RelatedItems products={products} singleProduct={singleProduct} />
+          <RelatedItems
+            products={products}
+            singleProduct={singleProduct}
+            addToCart={addToCart}
+          />
         </div>
       </div>
       <Footer />

@@ -2,7 +2,7 @@ import { FaStar } from "react-icons/fa";
 import { IoEyeOutline, IoHeartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
-const SingleProduct = ({ product }) => {
+const SingleProduct = ({ product, addToCart }) => {
   return (
     <div className="grid gap-4 w-full">
       <div className="lg:h-64 h-52 p-6 lg:p-0 group overflow-hidden bg-secondary2 relative rounded flex items-center justify-center">
@@ -23,16 +23,19 @@ const SingleProduct = ({ product }) => {
           <button className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
             <IoHeartOutline />
           </button>
-          <button className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+          <Link
+            to={`/${product.id}`}
+            className="w-8 h-8 bg-white rounded-full flex items-center justify-center"
+          >
             <IoEyeOutline />
-          </button>
+          </Link>
         </div>
-        <Link
-          to={`/${product.id}`}
+        <button
+          onClick={() => addToCart(product)}
           className="bg-black absolute -bottom-7 opacity-0 transition-all duration-300 inset-x-0 py-2 capitalize text-white text-center group-hover:bottom-0 group-hover:opacity-100 rounded-b"
         >
           add to cart
-        </Link>
+        </button>
       </div>
       <div className="flex flex-col gap-2 lg:text-md text-sm font-medium">
         <h2>{product.title}</h2>

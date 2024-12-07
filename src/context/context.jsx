@@ -7,9 +7,10 @@ export default function ContextProvider({ children }) {
 
   const fetchAllProducts = async () => {
     const res = await fetch("data.json");
-    const data = await res.json();
-    setProducts(data);
+    const dataApi = await res.json();
+    setProducts(dataApi);
   };
+
   const fetchSingleProduct = async (id) => {
     const res = await fetch(`data.json`);
     const data = await res.json();
@@ -20,9 +21,11 @@ export default function ContextProvider({ children }) {
       console.log("product not found");
     }
   };
+
   useEffect(() => {
     fetchAllProducts();
   }, []);
+
   return (
     <ProductsContext.Provider
       value={{ products, singleProduct, fetchSingleProduct }}

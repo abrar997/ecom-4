@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { ProductsContext } from "../context/context";
+import { useContext, useEffect } from "react";
 import ProductCart from "../components/Cart/ProductCart";
 import Coupon from "../components/Cart/Coupon";
 import CartTotal from "../components/Cart/CartTotal";
@@ -7,9 +6,12 @@ import PathPages from "../components/reusable/PathPages";
 import TopHeader from "../components/reusable/TopHeader";
 import Header from "../components/reusable/Header";
 import Footer from "../components/reusable/Footer";
+import { CartContext } from "../context/cartContext";
 
 const Cart = () => {
-  const { products } = useContext(ProductsContext);
+  const { cartItems, productQuantity, Increment, Decrement } =
+    useContext(CartContext);
+
   const links = [
     { link: "Home", to: "/" },
     { link: "Cart", to: "/cart" },
@@ -19,7 +21,7 @@ const Cart = () => {
     <div className="overflow-hidden">
       <TopHeader />
       <Header />
-      {products.length > 0 ? (
+      {cartItems.length > 0 ? (
         <div className="lg:p-inline p-4 lg:mt-[80px] mt-8 lg:mb-[140px] mb-12 grid lg:gap-[80px] gap-12">
           <PathPages links={links} lastIndex={1} />
           <div className="grid items-start gap-10 overflow-x-auto w-fit">
@@ -31,9 +33,16 @@ const Cart = () => {
             </div>
             <div className="grid gap-6">
               <div className="grid gap-10">
-                {products.slice(0, 2).map((item, index) => (
-                  <ProductCart item={item} key={index} />
-                ))}
+                {cartItems.length > 0 &&
+                  cartItems.map((item, index) => (
+                    <ProductCart
+                      item={item}
+                      key={index}
+                      productQuantity={productQuantity}
+                      Increment={Increment}
+                      Decrement={Decrement}
+                    />
+                  ))}
               </div>
             </div>
             <div className="flex lg:justify-between gap-4">
@@ -52,7 +61,9 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <div>please start add products</div>
+        <p className="text-3xl font-semibold text-center flex items-center justify-center h-[60vh] capitalize">
+          please start add products
+        </p>
       )}
       <Footer />
     </div>

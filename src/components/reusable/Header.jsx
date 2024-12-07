@@ -6,9 +6,11 @@ import userIcon from "../../assets/icons/user.svg";
 import darkUser from "../../assets/icons/darkUser.svg";
 import { CiSearch } from "react-icons/ci";
 import { AuthContext } from "../../context/authContext";
+import { CartContext } from "../../context/cartContext";
 
 const Header = ({ isRed }) => {
   const { user, handleLogout } = useContext(AuthContext);
+  const { cartItems } = useContext(CartContext);
   const HeaderLinks = [
     { title: "home", to: "/" },
     { title: "contact", to: "/contact" },
@@ -38,6 +40,7 @@ const Header = ({ isRed }) => {
             isRed={isRed}
             user={user}
             handleLogout={handleLogout}
+            cartItems={cartItems}
           />
         </div>
       </div>
@@ -47,7 +50,7 @@ const Header = ({ isRed }) => {
 };
 export default Header;
 
-const ShoppingItems = ({ isRed, user, handleLogout }) => {
+const ShoppingItems = ({ isRed, user, handleLogout, cartItems }) => {
   return (
     <div className="flex items-center lg:gap-4">
       <div className="bg-secondary2 rounded relative py-2 px-5 hidden lg:flex">
@@ -63,14 +66,14 @@ const ShoppingItems = ({ isRed, user, handleLogout }) => {
       <div className="lg:flex lg:gap-4 text-[22px] items-center grid gap-3 top-[270px]  rounded lg:shadow-none shadow z-30 p-4 px-2 pt-6 lg:p-0 lg:top-0 lg:sticky fixed bg-secondary2 lg:bg-transparent right-0">
         <Link to="/wishlist" className="relative">
           <IoHeartOutline />
-          <span className="absolute -top-2 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">
+          <span className="absolute -top-3 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">
             0
           </span>
         </Link>
         <Link to="/cart" className="relative mt-1 lg:my-0">
           <IoCartOutline />
-          <span className="absolute -top-2 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">
-            0
+          <span className="absolute -top-2.5 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">
+            {cartItems ? cartItems.length : 0}
           </span>
         </Link>
         <InputField className="lg:hidden" />

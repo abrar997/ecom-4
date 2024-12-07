@@ -13,10 +13,12 @@ import { AuthContext } from "../context/authContext";
 import TopHeader from "../components/reusable/TopHeader";
 import Header from "../components/reusable/Header";
 import Footer from "../components/reusable/Footer";
+import { CartContext } from "../context/cartContext";
 
 const Home = () => {
   const { products } = useContext(ProductsContext);
   const { user } = useContext(AuthContext);
+  const { addToCart } = useContext(CartContext);
 
   return (
     <div>
@@ -24,11 +26,11 @@ const Home = () => {
       {user ? <Header isRed /> : <Header />}
       <div className="relative">
         <FirstSection />
-        <FlashProducts products={products} />
+        <FlashProducts products={products} addToCart={addToCart} />
         <Categories />
-        <BestProducts products={products} />
+        <BestProducts products={products} addToCart={addToCart} />
         <Enhancing />
-        <OurProducts products={products} />
+        <OurProducts products={products} addToCart={addToCart} />
         <Featured />
         <Services isHome />
         <a

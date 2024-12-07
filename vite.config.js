@@ -9,5 +9,5 @@ export default defineConfig({
       plugins: [tailwindcss()],
     },
   },
-  base: "/ecom-4",
+  base: "/",
 });
