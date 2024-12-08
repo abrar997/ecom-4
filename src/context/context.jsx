@@ -15,6 +15,7 @@ export default function ContextProvider({ children }) {
     const res = await fetch(`data.json`);
     const data = await res.json();
     const product = data.find((item) => item.id.toString() === id);
+
     if (product) {
       setSingleProduct(product);
     } else {
@@ -28,7 +29,11 @@ export default function ContextProvider({ children }) {
 
   return (
     <ProductsContext.Provider
-      value={{ products, singleProduct, fetchSingleProduct }}
+      value={{
+        products,
+        singleProduct,
+        fetchSingleProduct,
+      }}
     >
       {children}
     </ProductsContext.Provider>

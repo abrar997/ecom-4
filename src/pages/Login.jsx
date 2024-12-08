@@ -4,14 +4,19 @@ import { AuthContext } from "../context/authContext";
 import TopHeader from "../components/reusable/TopHeader";
 import Header from "../components/reusable/Header";
 import Footer from "../components/reusable/Footer";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { error, handleLogin, email, setEmail, password, setPassword } =
     useContext(AuthContext);
+  const navigate = useNavigate();
 
   const CheckHandleLogin = (e) => {
     e.preventDefault();
     handleLogin();
+    if (localStorage.getItem("auth")) {
+      navigate("/");
+    }
   };
 
   return (
@@ -41,6 +46,7 @@ const Login = () => {
                   type="email"
                   className="border-b bg-transparent py-2 focus:outline-none font-secondary lg:text-md font-normal"
                   placeholder="Email or Phone Number"
+                  defaultValue=""
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -60,6 +66,7 @@ const Login = () => {
                       ? "bg-gray-400 cursor-not-allowed"
                       : "bg-secondary hover:bg-hoverBtn"
                   } rounded text-center py-4 px-12 text-white  font-secondary text-md font-medium`}
+                  type="submit"
                 >
                   Login
                 </button>

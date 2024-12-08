@@ -1,15 +1,14 @@
+import { AuthContext } from "../context/authContext";
+import { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import signUpImage from "../assets/images/signup.png";
 import Google from "../assets/icons/google.svg";
-import { useContext } from "react";
-import { AuthContext } from "../context/authContext";
 import TopHeader from "../components/reusable/TopHeader";
 import Header from "../components/reusable/Header";
 import Footer from "../components/reusable/Footer";
 
 const SignUp = () => {
   const navigate = useNavigate();
-
   const {
     handleSignUp,
     userName,
@@ -18,6 +17,8 @@ const SignUp = () => {
     setEmail,
     setUserName,
     setPassword,
+    isLogin,
+    signUpGoogle,
   } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
@@ -25,6 +26,12 @@ const SignUp = () => {
     handleSignUp();
     navigate("/login");
   };
+
+  useEffect(() => {
+    if (isLogin) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <>
@@ -45,7 +52,7 @@ const SignUp = () => {
           </div>
           <div className="grid lg:gap-10 gap-5">
             <form
-              className="grid lg:gap-8 gap-6  w-full"
+              className="grid lg:gap-8 gap-6 w-full"
               onSubmit={handleSubmit}
             >
               <div className="grid lg:gap-10 gap-5 font-secondary text-md font-normal">
@@ -73,6 +80,7 @@ const SignUp = () => {
               </div>
               <div className="grid gap-4">
                 <button
+                  type="submit"
                   className={`${
                     !userName || !email || !password
                       ? "bg-gray-400  cursor-not-allowed"
@@ -81,7 +89,11 @@ const SignUp = () => {
                 >
                   Create Account
                 </button>
-                <button className="border border-black flex items-center justify-center gap-4 text-center py-4 text-md font-secondary">
+                <button
+                  onClick={signUpGoogle}
+                  type="button"
+                  className="border border-black flex items-center justify-center gap-4 text-center py-4 text-md font-secondary"
+                >
                   <img src={Google} /> Sign up with Google
                 </button>
               </div>

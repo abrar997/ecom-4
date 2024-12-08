@@ -7,6 +7,7 @@ import darkUser from "../../assets/icons/darkUser.svg";
 import { CiSearch } from "react-icons/ci";
 import { AuthContext } from "../../context/authContext";
 import { CartContext } from "../../context/cartContext";
+import Dropdown from "./Dropdown";
 
 const Header = ({ isRed }) => {
   const { user, handleLogout } = useContext(AuthContext);
@@ -16,6 +17,44 @@ const Header = ({ isRed }) => {
     { title: "contact", to: "/contact" },
     { title: "About", to: "/about" },
     { title: "sign up", to: "/signup" },
+  ];
+
+  const dataUser = [
+    {
+      title: "Manage my account",
+      icon: <img src={userIcon} />,
+      to: "/account",
+      isFunction: false,
+      itemClassName: "flex gap-4 items-center w-full text-sm font-secondary",
+    },
+    {
+      title: "my order",
+      icon: <img src={userIcon} />,
+      to: "/cart",
+      isFunction: false,
+      itemClassName: "flex gap-4 items-center w-full text-sm font-secondary",
+    },
+    {
+      title: "my collection",
+      icon: <img src={userIcon} />,
+      to: "/wishlist",
+      isFunction: false,
+      itemClassName: "flex gap-4 items-center w-full text-sm font-secondary",
+    },
+    {
+      title: "my reviews",
+      icon: <img src={userIcon} />,
+      to: "/cart",
+      isFunction: false,
+      itemClassName: "flex gap-4 items-center w-full text-sm font-secondary",
+    },
+    {
+      title: "logout",
+      icon: <img src={userIcon} />,
+      isFunction: true,
+      handleFunction: handleLogout,
+      itemClassName: "flex gap-4 items-center w-full text-sm font-secondary",
+    },
   ];
   return (
     <>
@@ -35,12 +74,19 @@ const Header = ({ isRed }) => {
           ))}
         </div>
         <div className="flex items-center lg:gap-6 gap-3">
-          <NavLinksSmallScreens links={HeaderLinks} />
+          <div className="lg:hidden">
+            <Dropdown
+              button={<IoMenuOutline size={24} />}
+              className="bg-[#000] origin-left text-white gap-3 absolute z-[40] inset-x-0 mt-6 whitespace-nowrap p-4 py-8 transition duration-100 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0 grid items-center justify-center"
+              itemClassName="focus:border-b border-black hover:border-b capitalize text-center"
+              data={HeaderLinks}
+            />
+          </div>
           <ShoppingItems
             isRed={isRed}
             user={user}
-            handleLogout={handleLogout}
             cartItems={cartItems}
+            dataUser={dataUser}
           />
         </div>
       </div>
@@ -50,7 +96,7 @@ const Header = ({ isRed }) => {
 };
 export default Header;
 
-const ShoppingItems = ({ isRed, user, handleLogout, cartItems }) => {
+const ShoppingItems = ({ isRed, user, handleLogout, cartItems, dataUser }) => {
   return (
     <div className="flex items-center lg:gap-4">
       <div className="bg-secondary2 rounded relative py-2 px-5 hidden lg:flex">
@@ -73,107 +119,79 @@ const ShoppingItems = ({ isRed, user, handleLogout, cartItems }) => {
         <Link to="/cart" className="relative mt-1 lg:my-0">
           <IoCartOutline />
           <span className="absolute -top-2.5 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">
-            {cartItems ? cartItems.length : 0}
+            {cartItems && cartItems.length > 0 ? cartItems.length : 0}
           </span>
         </Link>
         <InputField className="lg:hidden" />
       </div>
       <div className="relative">
-        <Menu>
-          <MenuButton
-            className={`${
-              user && isRed
-                ? "bg-secondary rounded-full w-8 h-8 flex items-center justify-center text-white transition-all duration-300"
-                : "w-full h-full"
-            }`}
-          >
-            {user && isRed ? <img src={userIcon} alt="" /> : ""}
-            {user && !isRed && <img src={darkUser} />}
-          </MenuButton>
-          <MenuItems
-            transition
-            anchor="bottom end"
-            className={`bg-[#000] ${
-              isRed ? "bg-opacity-10" : "bg-opacity-90"
-            } backdrop-blur-[75px] capitalize bg-opacity-10 origin-top-right rounded text-white absolute z-[40] right-0 top-10 w-52 whitespace-nowrap py-[18px] pl-5 pr-4 transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0`}
-          >
-            <DropDown handleLogout={handleLogout} />
-          </MenuItems>
-        </Menu>
+        <Dropdown
+          button={
+            <>
+              {user && isRed ? <img src={userIcon} alt="" /> : ""}
+              {user && !isRed && <img src={darkUser} />}
+            </>
+          }
+          ClassBtn={`${
+            user && isRed
+              ? "bg-secondary rounded-full w-8 h-8 flex items-center justify-center text-white transition-all duration-300"
+              : "w-full h-full"
+          }`}
+          className={`bg-[#000] ${
+            isRed ? "bg-opacity-10" : "bg-opacity-90"
+          } backdrop-blur-[75px] capitalize bg-opacity-10 origin-top-right rounded text-white absolute z-[40] right-0 top-10 w-52 whitespace-nowrap py-[18px] pl-5 pr-4 transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0`}
+          data={dataUser}
+          isFunction
+          Function={handleLogout}
+        />
       </div>
     </div>
   );
 };
 
-const NavLinksSmallScreens = ({ links }) => {
-  return (
-    <div className="lg:hidden">
-      <Menu>
-        <MenuButton>
-          <IoMenuOutline size={24} />
-        </MenuButton>
-        <MenuItems
-          transition
-          anchor="top start"
-          className="bg-[#000] origin-left text-white gap-3 absolute z-[40] inset-x-0 mt-6 whitespace-nowrap p-4 py-8 transition duration-100 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0 grid items-center justify-center"
-        >
-          {links.map((link, index) => (
-            <MenuItem key={index}>
-              <Link
-                className="focus:border-b border-black hover:border-b capitalize text-center"
-                to={link.to}
-              >
-                {link.title}
-              </Link>
-            </MenuItem>
-          ))}
-        </MenuItems>
-      </Menu>
-    </div>
-  );
-};
-const DropDown = ({ handleLogout }) => {
-  return (
-    <div className="flex flex-col items-start gap-3">
-      <MenuItem>
-        <Link to="/account" className="flex gap-4 items-center w-full">
-          <img src={userIcon} />
-          <span className="text-sm font-secondary">Manage my account</span>
-        </Link>
-      </MenuItem>
-      <MenuItem>
-        <Link to="" className="flex gap-4 items-center w-full">
-          <img src={userIcon} />
-          <span className="text-sm font-secondary"> my order</span>
-        </Link>
-      </MenuItem>
-      <MenuItem>
-        <Link to="" className="flex gap-4 items-center w-full">
-          <img src={userIcon} />
-          <span className="text-sm font-secondary"> my collection </span>
-        </Link>
-      </MenuItem>
-      <MenuItem>
-        <Link to="" className="flex gap-4 items-center w-full">
-          <img src={userIcon} />
-          <span className="text-sm font-secondary"> my reviews</span>
-        </Link>
-      </MenuItem>
-      <MenuItem>
-        <button
-          onClick={() => {
-            handleLogout();
-          }}
-          to=""
-          className="flex gap-4 items-center w-full"
-        >
-          <img src={userIcon} />
-          <span className="text-sm font-secondary"> logout</span>
-        </button>
-      </MenuItem>
-    </div>
-  );
-};
+// const DropDown = ({ handleLogout }) => {
+
+//   return (
+//     <div className="flex flex-col items-start gap-3">
+//       <MenuItem>
+//         <Link to="/account" className="flex gap-4 items-center w-full">
+//           <img src={userIcon} />
+//           <span className="text-sm font-secondary">Manage my account</span>
+//         </Link>
+//       </MenuItem>
+//       <MenuItem>
+//         <Link to="" className="flex gap-4 items-center w-full">
+//           <img src={userIcon} />
+//           <span className="text-sm font-secondary"> my order</span>
+//         </Link>
+//       </MenuItem>
+//       <MenuItem>
+//         <Link to="" className="flex gap-4 items-center w-full">
+//           <img src={userIcon} />
+//           <span className="text-sm font-secondary"> my collection </span>
+//         </Link>
+//       </MenuItem>
+//       <MenuItem>
+//         <Link to="" className="flex gap-4 items-center w-full">
+//           <img src={userIcon} />
+//           <span className="text-sm font-secondary"> my reviews</span>
+//         </Link>
+//       </MenuItem>
+//       <MenuItem>
+//         <button
+//           onClick={() => {
+//             handleLogout();
+//           }}
+//           to=""
+//           className="flex gap-4 items-center w-full"
+//         >
+//           <img src={userIcon} />
+//           <span className="text-sm font-secondary"> logout</span>
+//         </button>
+//       </MenuItem>
+//     </div>
+//   );
+// };
 
 const InputField = ({ className }) => {
   return (

@@ -36,9 +36,13 @@ const FlashProducts = ({ products, addToCart }) => {
             loop={true}
             className="mySwiper"
           >
-            {products.slice(0, 6).map((item) => (
+            {products.slice(0, 6).map((item, index) => (
               <SwiperSlide key={item.id} className="swiper-slide">
-                <SingleProduct product={item} addToCart={addToCart} />
+                <SingleProduct
+                  product={item}
+                  addToCart={addToCart}
+                  key={index}
+                />
               </SwiperSlide>
             ))}
           </Swiper>

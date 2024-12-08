@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
@@ -8,9 +7,9 @@ const AuthenticationContext = ({ children }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLogin, setIsLogin] = useState(!!localStorage.getItem("auth"));
 
   const user = JSON.parse(localStorage.getItem("auth")) || null;
-  const navigate = useNavigate();
 
   const handleSignUp = () => {
     const item = {
@@ -19,27 +18,28 @@ const AuthenticationContext = ({ children }) => {
       password,
     };
     localStorage.setItem("auth", JSON.stringify(item));
+    setIsLogin(true);
   };
 
   const handleLogin = () => {
-    if (!user) {
-      setError("No account found. Please sign up first.");
-      setEmail("");
-      setPassword("");
-    } else if (user.email !== email.trim().toLowerCase()) {
-      setEmail("");
-      setError("There is an issue with the email. Please try again.");
-    } else if (user.password !== password) {
-      setError("There is an issue with the password. Please try again.");
-      setPassword("");
-    } else {
-      console.log("User is correct");
-      navigate("/cart");
+    const user = JSON.parse(localStorage.getItem("auth"));
+    if (user) {
+      if (email === user.email && password === user.password) {
+        localStorage.setItem("auth", "true");
+        setIsLogin(true);
+      } else {
+        setError("invalid email or password .");
+      }
     }
   };
   const handleLogout = () => {
-    localStorage.removeItem("auth");
-    navigate("signup");
+    if (isLogin) {
+      localStorage.removeItem("auth");
+    }
+    setIsLogin(false);
+  };
+  const signUpGoogle = () => {
+    console.log("goole");
   };
 
   return (
@@ -56,6 +56,8 @@ const AuthenticationContext = ({ children }) => {
         error,
         user,
         handleLogout,
+        isLogin,
+        signUpGoogle,
       }}
     >
       {children}

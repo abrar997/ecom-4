@@ -14,7 +14,7 @@ const FirstSection = () => {
         <div className="lg:pt-10 grid lg:gap-y-4 gap-2 text-base">
           {FirstSectionCategories.map((category, index) => (
             <Link
-              to={category.to}
+              to={`category/${category.category}`}
               key={index}
               className="flex justify-between pr-4 items-center capitalize"
             >

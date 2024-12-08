@@ -11,16 +11,17 @@ import Footer from "../components/reusable/Footer";
 import { CartContext } from "../context/cartContext";
 
 const ProductDetails = () => {
-  const { products, singleProduct, fetchSingleProduct } =
-    useContext(ProductsContext);
   const { productId } = useParams();
+
+  const { products, fetchSingleProduct } = useContext(ProductsContext);
   const { addToCart } = useContext(CartContext);
 
+  const item = products.find((product) => product.id.toString() === productId);
+  // if (!item) return <p>loading ...</p>;
   useEffect(() => {
     fetchSingleProduct(productId);
-  }, [productId, singleProduct]);
+  }, []);
 
-  if (!productId) return <p>loading ...</p>;
   return (
     <div>
       <TopHeader />
@@ -30,20 +31,20 @@ const ProductDetails = () => {
           <PathPages
             links={[
               { link: "Account", to: "/account" },
-              { link: singleProduct.category, to: "/" },
-              { link: singleProduct.title, to: "/" },
+              { link: item.category, to: "/" },
+              { link: item.title, to: "/" },
             ]}
             lastIndex={2}
           />
           <div className="grid lg:grid-cols-3 lg:gap-[71px] gap-6">
-            <ProductImages singleProduct={singleProduct} />
-            <ProductContent singleProduct={singleProduct} />
+            <ProductImages singleProduct={item} />
+            <ProductContent singleProduct={item} />
           </div>
         </div>
         <div>
           <RelatedItems
             products={products}
-            singleProduct={singleProduct}
+            singleProduct={item}
             addToCart={addToCart}
           />
         </div>

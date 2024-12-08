@@ -24,7 +24,7 @@ const SingleProduct = ({ product, addToCart }) => {
             <IoHeartOutline />
           </button>
           <Link
-            to={`/${product.id}`}
+            to={`/product/${product.id}/`}
             className="w-8 h-8 bg-white rounded-full flex items-center justify-center"
           >
             <IoEyeOutline />

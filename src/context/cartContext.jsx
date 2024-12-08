@@ -3,11 +3,11 @@ import { createContext, useEffect, useState } from "react";
 export const CartContext = createContext();
 
 const CartProductsContext = ({ children }) => {
-  const [cartItems, setCartItems] = useState(() => {
-    return JSON.parse(localStorage.getItem("cart")) || [];
-  });
+  const data = localStorage.getItem("cart")
+    ? JSON.parse(localStorage.getItem("cart"))
+    : [];
+  const [cartItems, setCartItems] = useState(data);
   const [productQuantity, setProductQuantity] = useState(1);
-  const [isItem, setIsItem] = useState({});
 
   const addToCart = (product) => {
     const selectedItem = {
@@ -17,18 +17,24 @@ const CartProductsContext = ({ children }) => {
       price: product.price,
     };
 
-    setIsItem(selectedItem);
-
     setCartItems([...cartItems, selectedItem]);
     localStorage.setItem("cart", JSON.stringify(cartItems));
-    console.log(cartItems);
   };
 
-  const Increment = () => {
-    if (isItem) setProductQuantity((prev) => prev + 1);
+  const Increment = (id) => {
+    cartItems.map((item) => {
+      item.id === id
+        ? {
+            ...item,
+            quantity: item.quantity + 1,
+          }
+        : item;
+    });
   };
-  const Decrement = () => {
-    if (isItem) setProductQuantity((prev) => prev - 1);
+  const Decrement = (id) => {
+    cartItems.map((item) => {
+      setProductQuantity(() => item - 1);
+    });
   };
 
   useEffect(() => {

@@ -38,7 +38,6 @@ const Cart = () => {
                     <ProductCart
                       item={item}
                       key={index}
-                      productQuantity={productQuantity}
                       Increment={Increment}
                       Decrement={Decrement}
                     />

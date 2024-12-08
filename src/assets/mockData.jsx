@@ -21,15 +21,23 @@ import Team2 from "../assets/images/team-2.png";
 import Team3 from "../assets/images/team-3.png";
 
 export const FirstSectionCategories = [
-  { title: "women's fashion", to: "", icon: <IoIosArrowForward /> },
-  { title: "men's fashion", to: "", icon: <IoIosArrowForward /> },
-  { title: "electronics fashion", to: "" },
-  { title: "home & lifestyle fashion", to: "" },
-  { title: "medicine", to: "" },
-  { title: "sports & outdoor", to: "" },
-  { title: "Baby's & toys", to: "" },
-  { title: "groceries & pets", to: "" },
-  { title: "health & beauty", to: "" },
+  {
+    title: "women's fashion",
+    icon: <IoIosArrowForward />,
+    categoryName: "womenClothing",
+  },
+  {
+    title: "men's fashion",
+    icon: <IoIosArrowForward />,
+    categoryName: "menClothing",
+  },
+  { title: "electronics fashion", category: "electronics" },
+  { title: "home & lifestyle fashion", category: "home" },
+  { title: "medicine", category: "jewelery" },
+  { title: "sports & outdoor", category: "electronics" },
+  { title: "Baby's & toys", category: "electronics" },
+  { title: "groceries & pets", category: "electronics" },
+  { title: "health & beauty", category: "jewelery" },
 ];
 
 export const CategoriesData = [
