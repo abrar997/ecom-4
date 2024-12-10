@@ -13,12 +13,12 @@ const ProductCart = ({ item, Increment, Decrement }) => {
       </div>
       <p>${item.price}</p>
       <div className="flex gap-4 border-[1.5px] border-black rounded items-center border-opacity-40 lg:w-[72px] lg:h-[44px] lg:px-3 px-2 w-fit">
-        <span>{item.quantity ? item.quantity : 1}</span>
+        <span>{item.quantity || 1}</span>
         <div className="flex flex-col">
           <button className="w-4 h-4" onClick={() => Increment(item.id)}>
             <MdKeyboardArrowUp />
           </button>
-          <button className="w-4 h-4" onClick={Decrement}>
+          <button className="w-4 h-4" onClick={() => Decrement(item.id)}>
             <MdKeyboardArrowDown />
           </button>
         </div>

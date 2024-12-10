@@ -9,8 +9,7 @@ import Footer from "../components/reusable/Footer";
 import { CartContext } from "../context/cartContext";
 
 const Cart = () => {
-  const { cartItems, productQuantity, Increment, Decrement } =
-    useContext(CartContext);
+  const { cartItems, Increment, Decrement } = useContext(CartContext);
 
   const links = [
     { link: "Home", to: "/" },
@@ -37,7 +36,7 @@ const Cart = () => {
                   cartItems.map((item, index) => (
                     <ProductCart
                       item={item}
-                      key={index}
+                      key={index + 1}
                       Increment={Increment}
                       Decrement={Decrement}
                     />

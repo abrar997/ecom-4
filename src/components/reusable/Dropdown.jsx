@@ -6,25 +6,27 @@ const Dropdown = ({
   data,
   className,
   itemClassName,
-  isFunction,
   ClassBtn,
+  anchor,
 }) => {
   return (
     <Menu>
       <MenuButton className={ClassBtn ? ClassBtn : ""}>{button}</MenuButton>
-      <MenuItems transition anchor="top start" className={`${className}`}>
-        {data.map((link, index) => (
+      <MenuItems transition anchor={anchor} className={`${className}`}>
+        {data.map((item, index) => (
           <MenuItem key={index}>
-            {isFunction ? (
+            {item.handleFunction ? (
               <button
-                className="flex gap-4 items-center w-full"
-                onClick={link.handleFunction}
+                className="flex gap-2 items-center w-full"
+                onClick={item.handleFunction}
               >
-                {link.icon}
+                {item.icon}{" "}
+                <span className="text-white capitalize"> {item.title}</span>
               </button>
             ) : (
-              <Link className={itemClassName} to={link.to}>
-                {link.title}
+              <Link className={itemClassName} to={item.to}>
+                <span>{item.icon}</span>
+                <span> {item.title}</span>
               </Link>
             )}
           </MenuItem>

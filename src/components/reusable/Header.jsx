@@ -2,12 +2,16 @@ import { useContext } from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { IoCartOutline, IoHeartOutline, IoMenuOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import userIcon from "../../assets/icons/user.svg";
-import darkUser from "../../assets/icons/darkUser.svg";
 import { CiSearch } from "react-icons/ci";
 import { AuthContext } from "../../context/authContext";
 import { CartContext } from "../../context/cartContext";
-import Dropdown from "./Dropdown";
+import Dropdown from "../reusable/Dropdown";
+import userIcon from "../../assets/icons/user.svg";
+import darkUser from "../../assets/icons/darkUser.svg";
+import order from "../../assets/icons/bag.svg";
+import cancel from "../../assets/icons/cancel.svg";
+import star from "../../assets/icons/star.svg";
+import logout from "../../assets/icons/logout.svg";
 
 const Header = ({ isRed }) => {
   const { user, handleLogout } = useContext(AuthContext);
@@ -19,38 +23,37 @@ const Header = ({ isRed }) => {
     { title: "sign up", to: "/signup" },
   ];
 
-  const dataUser = [
+  const data = [
     {
       title: "Manage my account",
       icon: <img src={userIcon} />,
       to: "/account",
-      isFunction: false,
       itemClassName: "flex gap-4 items-center w-full text-sm font-secondary",
     },
     {
       title: "my order",
-      icon: <img src={userIcon} />,
+      icon: <img src={order} />,
       to: "/cart",
       isFunction: false,
       itemClassName: "flex gap-4 items-center w-full text-sm font-secondary",
     },
     {
       title: "my collection",
-      icon: <img src={userIcon} />,
+      icon: <img src={cancel} />,
       to: "/wishlist",
       isFunction: false,
       itemClassName: "flex gap-4 items-center w-full text-sm font-secondary",
     },
     {
       title: "my reviews",
-      icon: <img src={userIcon} />,
+      icon: <img src={star} />,
       to: "/cart",
       isFunction: false,
       itemClassName: "flex gap-4 items-center w-full text-sm font-secondary",
     },
     {
       title: "logout",
-      icon: <img src={userIcon} />,
+      icon: <img src={logout} />,
       isFunction: true,
       handleFunction: handleLogout,
       itemClassName: "flex gap-4 items-center w-full text-sm font-secondary",
@@ -80,13 +83,14 @@ const Header = ({ isRed }) => {
               className="bg-[#000] origin-left text-white gap-3 absolute z-[40] inset-x-0 mt-6 whitespace-nowrap p-4 py-8 transition duration-100 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0 grid items-center justify-center"
               itemClassName="focus:border-b border-black hover:border-b capitalize text-center"
               data={HeaderLinks}
+              anchor="top start"
             />
           </div>
           <ShoppingItems
             isRed={isRed}
             user={user}
             cartItems={cartItems}
-            dataUser={dataUser}
+            dataUser={data}
           />
         </div>
       </div>
@@ -126,6 +130,7 @@ const ShoppingItems = ({ isRed, user, handleLogout, cartItems, dataUser }) => {
       </div>
       <div className="relative">
         <Dropdown
+          anchor="left start"
           button={
             <>
               {user && isRed ? <img src={userIcon} alt="" /> : ""}
@@ -139,59 +144,15 @@ const ShoppingItems = ({ isRed, user, handleLogout, cartItems, dataUser }) => {
           }`}
           className={`bg-[#000] ${
             isRed ? "bg-opacity-10" : "bg-opacity-90"
-          } backdrop-blur-[75px] capitalize bg-opacity-10 origin-top-right rounded text-white absolute z-[40] right-0 top-10 w-52 whitespace-nowrap py-[18px] pl-5 pr-4 transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0`}
+          } backdrop-blur-[75px] capitalize bg-opacity-10 origin-top-right rounded absolute z-[40] right-0 top-16 ml-8 mt-10 lg:px-4 lg:w-56 py-[18px] w-fit pl-5 pr-4 transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0 grid gap-2 items-start`}
           data={dataUser}
-          isFunction
           Function={handleLogout}
+          itemClassName="flex items-center gap-2 text-white"
         />
       </div>
     </div>
   );
 };
-
-// const DropDown = ({ handleLogout }) => {
-
-//   return (
-//     <div className="flex flex-col items-start gap-3">
-//       <MenuItem>
-//         <Link to="/account" className="flex gap-4 items-center w-full">
-//           <img src={userIcon} />
-//           <span className="text-sm font-secondary">Manage my account</span>
-//         </Link>
-//       </MenuItem>
-//       <MenuItem>
-//         <Link to="" className="flex gap-4 items-center w-full">
-//           <img src={userIcon} />
-//           <span className="text-sm font-secondary"> my order</span>
-//         </Link>
-//       </MenuItem>
-//       <MenuItem>
-//         <Link to="" className="flex gap-4 items-center w-full">
-//           <img src={userIcon} />
-//           <span className="text-sm font-secondary"> my collection </span>
-//         </Link>
-//       </MenuItem>
-//       <MenuItem>
-//         <Link to="" className="flex gap-4 items-center w-full">
-//           <img src={userIcon} />
-//           <span className="text-sm font-secondary"> my reviews</span>
-//         </Link>
-//       </MenuItem>
-//       <MenuItem>
-//         <button
-//           onClick={() => {
-//             handleLogout();
-//           }}
-//           to=""
-//           className="flex gap-4 items-center w-full"
-//         >
-//           <img src={userIcon} />
-//           <span className="text-sm font-secondary"> logout</span>
-//         </button>
-//       </MenuItem>
-//     </div>
-//   );
-// };
 
 const InputField = ({ className }) => {
   return (

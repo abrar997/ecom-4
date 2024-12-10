@@ -22,28 +22,43 @@ const CartProductsContext = ({ children }) => {
   };
 
   const Increment = (id) => {
-    cartItems.map((item) => {
-      item.id === id
-        ? {
-            ...item,
-            quantity: item.quantity + 1,
-          }
-        : item;
+    const updatedQuantity = cartItems.map((item) => {
+      if (item.id === id)
+        return { ...item, quantity: (item.quantity || 1) + 1 };
     });
+    setCartItems(updatedQuantity);
   };
   const Decrement = (id) => {
-    cartItems.map((item) => {
-      setProductQuantity(() => item - 1);
-    });
+    const exitingItem = cartItems.find((item) => item.id === id);
+    if (exitingItem.quantity > 1) {
+      const updatedQuantity = cartItems.map((item) => {
+        if (item.id === id) {
+          return { ...item, quantity: item.quantity - 1 };
+        }
+      });
+      setCartItems(updatedQuantity);
+    } else {
+      DeleteItem(id);
+    }
   };
 
+  const DeleteItem = (id) => {
+    const deletedItem = cartItems.filter((item) => item.id !== id);
+    setCartItems(deletedItem);
+  };
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, productQuantity, Increment, Decrement }}
+      value={{
+        cartItems,
+        addToCart,
+        productQuantity,
+        Increment,
+        Decrement,
+      }}
     >
       {children}
     </CartContext.Provider>
