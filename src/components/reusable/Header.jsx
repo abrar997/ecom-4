@@ -12,10 +12,12 @@ import order from "../../assets/icons/bag.svg";
 import cancel from "../../assets/icons/cancel.svg";
 import star from "../../assets/icons/star.svg";
 import logout from "../../assets/icons/logout.svg";
+import { WishListContextProvider } from "../../context/wishlistContext";
 
 const Header = ({ isRed }) => {
   const { user, handleLogout } = useContext(AuthContext);
   const { cartItems } = useContext(CartContext);
+  const { wishListProducts } = useContext(WishListContextProvider);
 
   const HeaderLinks = [
     { title: "home", to: "/" },
@@ -92,6 +94,7 @@ const Header = ({ isRed }) => {
             user={user}
             cartItems={cartItems}
             dataUser={data}
+            wishListProducts={wishListProducts}
           />
         </div>
       </div>
@@ -101,7 +104,14 @@ const Header = ({ isRed }) => {
 };
 export default Header;
 
-const ShoppingItems = ({ isRed, user, handleLogout, cartItems, dataUser }) => {
+const ShoppingItems = ({
+  isRed,
+  user,
+  handleLogout,
+  cartItems,
+  dataUser,
+  wishListProducts,
+}) => {
   return (
     <div className="flex items-center lg:gap-4">
       <div className="bg-secondary2 rounded relative py-2 px-5 hidden lg:flex">
@@ -118,7 +128,9 @@ const ShoppingItems = ({ isRed, user, handleLogout, cartItems, dataUser }) => {
         <Link to="/wishlist" className="relative">
           <IoHeartOutline />
           <span className="absolute -top-2 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">
-            0
+            {wishListProducts && wishListProducts.length > 0
+              ? wishListProducts.length
+              : 0}
           </span>
         </Link>
         <Link to="/cart" className="relative mt-1 lg:my-0">

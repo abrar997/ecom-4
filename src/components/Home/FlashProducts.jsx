@@ -5,7 +5,7 @@ import Button from "../reusable/Button";
 import Hr from "../reusable/Hr";
 import "swiper/css";
 
-const FlashProducts = ({ products, addToCart }) => {
+const FlashProducts = ({ products, addToCart, addToWishlist, isLike }) => {
   return (
     <div className="flex flex-col lg:gap-10 gap-4 lg:mt-36 mt-8 w-full">
       <HeaderSection subtitle="Today's" title="Flash Sales" isTime />
@@ -39,9 +39,11 @@ const FlashProducts = ({ products, addToCart }) => {
             {products.slice(0, 6).map((item, index) => (
               <SwiperSlide key={item.id} className="swiper-slide">
                 <SingleProduct
+                  key={index}
                   product={item}
                   addToCart={addToCart}
-                  key={index}
+                  addToWishlist={addToWishlist}
+                  isLike={isLike}
                 />
               </SwiperSlide>
             ))}

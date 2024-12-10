@@ -1,8 +1,9 @@
+import { BsHeartFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import { IoEyeOutline, IoHeartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
-const SingleProduct = ({ product, addToCart }) => {
+const SingleProduct = ({ product, addToCart, addToWishlist, isLike }) => {
   return (
     <div className="grid gap-4 w-full">
       <div className="lg:h-64 h-52 p-6 lg:p-0 group overflow-hidden bg-secondary2 relative rounded flex items-center justify-center">
@@ -20,8 +21,15 @@ const SingleProduct = ({ product, addToCart }) => {
           )}
         </div>
         <div className="grid absolute right-3 top-3 lg:gap-2 gap-0.5">
-          <button className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-            <IoHeartOutline />
+          <button
+            onClick={() => addToWishlist(product)}
+            className="w-8 h-8 bg-white rounded-full flex items-center justify-center"
+          >
+            {isLike ? (
+              <BsHeartFill className="text-secondary" />
+            ) : (
+              <IoHeartOutline />
+            )}
           </button>
           <Link
             to={`/product/${product.id}/`}

@@ -15,9 +15,10 @@ const ForYouProducts = ({ products }) => {
         </div>
       </div>
       <div className="grid lg:grid-cols-4 grid-cols-2 lg:gap-[30px] gap-5">
-        {products.slice(5, 9).map((product, index) => (
-          <SingleProduct key={index} product={product} />
-        ))}
+        {products.length > 0 &&
+          products.map((product, index) => (
+            <SingleProduct key={index} product={product} />
+          ))}
       </div>
     </div>
   );

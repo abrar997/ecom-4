@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import ProductCart from "../components/Cart/ProductCart";
-import Coupon from "../components/Cart/Coupon";
+import Coupon from "../components/reusable/Coupon";
 import TotalPrice from "../components/reusable/TotalPrice";
 import PathPages from "../components/reusable/PathPages";
 import TopHeader from "../components/reusable/TopHeader";

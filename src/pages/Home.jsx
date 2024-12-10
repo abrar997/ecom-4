@@ -14,11 +14,15 @@ import TopHeader from "../components/reusable/TopHeader";
 import Header from "../components/reusable/Header";
 import Footer from "../components/reusable/Footer";
 import { CartContext } from "../context/cartContext";
+import { WishListContextProvider } from "../context/wishlistContext";
 
 const Home = () => {
   const { products } = useContext(ProductsContext);
   const { user } = useContext(AuthContext);
   const { addToCart } = useContext(CartContext);
+  const { addToWishlist, wishListProducts, isLike } = useContext(
+    WishListContextProvider
+  );
 
   return (
     <div>
@@ -26,7 +30,12 @@ const Home = () => {
       {user ? <Header isRed /> : <Header />}
       <div className="relative">
         <FirstSection />
-        <FlashProducts products={products} addToCart={addToCart} />
+        <FlashProducts
+          products={products}
+          addToCart={addToCart}
+          addToWishlist={addToWishlist}
+          isLike={isLike}
+        />
         <Categories />
         <BestProducts products={products} addToCart={addToCart} />
         <Enhancing />

@@ -15,8 +15,9 @@ import ProductDetails from "./pages/ProductDetails";
 import AuthenticationContext from "./context/authContext";
 import AllProducts from "./pages/AllProducts";
 import CartProductsContext from "./context/cartContext";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/route/ProtectedRoute";
 import ProductCategory from "./pages/ProductCategory";
+import WishlistContext from "./context/wishlistContext";
 
 function App() {
   return (
@@ -25,89 +26,91 @@ function App() {
         <AuthenticationContext>
           <ContextProvider>
             <CartProductsContext>
-              <div>
-                <Routes>
-                  {/* public routes */}
-                  <Route element={<Login />} path="/login" />
-                  <Route element={<SignUp />} path="/signup" />
-                  <Route
-                    element={<ProductCategory />}
-                    path="/category/:category/"
-                  />
-                  <Route
-                    element={<ProductDetails />}
-                    path="/product/:productId/"
-                  />
+              <WishlistContext>
+                <div>
+                  <Routes>
+                    {/* public routes */}
+                    <Route element={<Login />} path="/login" />
+                    <Route element={<SignUp />} path="/signup" />
+                    <Route
+                      element={<ProductCategory />}
+                      path="/category/:category/"
+                    />
+                    <Route
+                      element={<ProductDetails />}
+                      path="/product/:productId/"
+                    />
 
-                  {/* protected routes */}
-                  <Route
-                    element={
-                      <ProtectedRoute>
-                        <Home />
-                      </ProtectedRoute>
-                    }
-                    path="/"
-                  />
-                  <Route
-                    element={
-                      <ProtectedRoute>
-                        <AllProducts />
-                      </ProtectedRoute>
-                    }
-                    path="/products"
-                  />
+                    {/* protected routes */}
+                    <Route
+                      element={
+                        <ProtectedRoute>
+                          <Home />
+                        </ProtectedRoute>
+                      }
+                      path="/"
+                    />
+                    <Route
+                      element={
+                        <ProtectedRoute>
+                          <AllProducts />
+                        </ProtectedRoute>
+                      }
+                      path="/products"
+                    />
 
-                  <Route
-                    element={
-                      <ProtectedRoute>
-                        <About />
-                      </ProtectedRoute>
-                    }
-                    path="/about"
-                  />
-                  <Route
-                    element={
-                      <ProtectedRoute>
-                        <WishList />
-                      </ProtectedRoute>
-                    }
-                    path="/wishlist"
-                  />
-                  <Route
-                    element={
-                      <ProtectedRoute>
-                        <Cart />
-                      </ProtectedRoute>
-                    }
-                    path="/cart"
-                  />
-                  <Route
-                    element={
-                      <ProtectedRoute>
-                        <Checkout />
-                      </ProtectedRoute>
-                    }
-                    path="/checkout"
-                  />
-                  <Route
-                    element={
-                      <ProtectedRoute>
-                        <Account />
-                      </ProtectedRoute>
-                    }
-                    path="/account"
-                  />
-                  <Route
-                    element={
-                      <ProtectedRoute>
-                        <Contact />
-                      </ProtectedRoute>
-                    }
-                    path="/contact"
-                  />
-                  <Route element={<NotFound />} path="*" />
-                </Routes>
-              </div>
+                    <Route
+                      element={
+                        <ProtectedRoute>
+                          <About />
+                        </ProtectedRoute>
+                      }
+                      path="/about"
+                    />
+                    <Route
+                      element={
+                        <ProtectedRoute>
+                          <WishList />
+                        </ProtectedRoute>
+                      }
+                      path="/wishlist"
+                    />
+                    <Route
+                      element={
+                        <ProtectedRoute>
+                          <Cart />
+                        </ProtectedRoute>
+                      }
+                      path="/cart"
+                    />
+                    <Route
+                      element={
+                        <ProtectedRoute>
+                          <Checkout />
+                        </ProtectedRoute>
+                      }
+                      path="/checkout"
+                    />
+                    <Route
+                      element={
+                        <ProtectedRoute>
+                          <Account />
+                        </ProtectedRoute>
+                      }
+                      path="/account"
+                    />
+                    <Route
+                      element={
+                        <ProtectedRoute>
+                          <Contact />
+                        </ProtectedRoute>
+                      }
+                      path="/contact"
+                    />
+                    <Route element={<NotFound />} path="*" />
+                  </Routes>
+                </div>
+              </WishlistContext>
             </CartProductsContext>
           </ContextProvider>
         </AuthenticationContext>

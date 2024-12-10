@@ -1,6 +1,5 @@
 import { useContext } from "react";
-import { ProductsContext } from "../context/context";
-import Coupon from "../components/Cart/Coupon";
+import Coupon from "../components/reusable/Coupon";
 import Button from "../components/reusable/Button";
 import { FormInputsFieldsCheckOut } from "../assets/mockData";
 import bk from "../assets/icons/bkash.svg";

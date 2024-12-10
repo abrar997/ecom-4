@@ -1,7 +1,7 @@
 import { BsTrash } from "react-icons/bs";
 import { IoCartOutline } from "react-icons/io5";
 
-const WishListProduct = ({ product }) => {
+const WishListProduct = ({ product, deleteItem }) => {
   return (
     <div className="grid gap-4 w-full">
       <div className="h-64 bg-secondary2 relative rounded flex items-center justify-center">
@@ -19,7 +19,10 @@ const WishListProduct = ({ product }) => {
           )}
         </div>
         <div className="grid absolute right-3 top-3 gap-2">
-          <button className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+          <button
+            onClick={() => deleteItem(product.id)}
+            className="w-8 h-8 bg-white rounded-full flex items-center justify-center"
+          >
             <BsTrash />
           </button>
         </div>
