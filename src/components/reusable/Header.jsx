@@ -16,6 +16,7 @@ import logout from "../../assets/icons/logout.svg";
 const Header = ({ isRed }) => {
   const { user, handleLogout } = useContext(AuthContext);
   const { cartItems } = useContext(CartContext);
+
   const HeaderLinks = [
     { title: "home", to: "/" },
     { title: "contact", to: "/contact" },
@@ -116,13 +117,13 @@ const ShoppingItems = ({ isRed, user, handleLogout, cartItems, dataUser }) => {
       <div className="lg:flex lg:gap-4 text-[22px] items-center grid gap-3 top-[270px]  rounded lg:shadow-none shadow z-30 p-4 px-2 pt-6 lg:p-0 lg:top-0 lg:sticky fixed bg-secondary2 lg:bg-transparent right-0">
         <Link to="/wishlist" className="relative">
           <IoHeartOutline />
-          <span className="absolute -top-3 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">
+          <span className="absolute -top-2 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">
             0
           </span>
         </Link>
         <Link to="/cart" className="relative mt-1 lg:my-0">
           <IoCartOutline />
-          <span className="absolute -top-2.5 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">
+          <span className="absolute -top-2 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">
             {cartItems && cartItems.length > 0 ? cartItems.length : 0}
           </span>
         </Link>
@@ -159,17 +160,17 @@ const InputField = ({ className }) => {
     <div className={className}>
       <Menu>
         <MenuButton>
-          <CiSearch className="ml-0.5" />
+          <CiSearch />
         </MenuButton>
         <MenuItems
           transition
           anchor="top start"
-          className="bg-white origin-left text-white fixed -mt-24 z-[40] inset-x-0 p-4 py-8 transition duration-100 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
+          className="origin-left fixed  -mt-20 text-white z-[40] w-full border shadow-lg bg-secondary2 p-4 py-8 transition duration-100 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
         >
           <MenuItem>
             <input
               type="text"
-              className="outline-none border-none bg-secondary2 placeholder:font-light placeholder:text-xs p-2 rounded w-full"
+              className="outline-none border-none lg:bg-secondary2 placeholder:font-light placeholder:text-xs p-2 rounded w-full"
               placeholder="What are you looking for?"
             />
           </MenuItem>

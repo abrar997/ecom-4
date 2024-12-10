@@ -11,9 +11,12 @@ import PathPages from "../components/reusable/PathPages";
 import TopHeader from "../components/reusable/TopHeader";
 import Header from "../components/reusable/Header";
 import Footer from "../components/reusable/Footer";
+import { CartContext } from "../context/cartContext";
+import TotalPrice from "../components/reusable/TotalPrice";
 
 const Checkout = () => {
-  const { products } = useContext(ProductsContext);
+  const { cartItems, totalPrice, subtotal } = useContext(CartContext);
+
   const links = [
     { link: "Account", to: "/account" },
     { link: "My Account", to: "/myAccount" },
@@ -43,7 +46,7 @@ const Checkout = () => {
             </form>
             <div className="flex flex-col gap-8 mt-8">
               <div className="grid gap-8">
-                {products.slice(0, 2).map((item, index) => (
+                {cartItems.map((item, index) => (
                   <div
                     key={index}
                     className="flex justify-between items-center text-md font-secondary"
@@ -56,20 +59,7 @@ const Checkout = () => {
                   </div>
                 ))}
               </div>
-              <div className="grid gap-4">
-                <div className="flex justify-between pb-4 border-b border-black text-md font-secondary">
-                  <h1>Subtotal</h1>
-                  <span>$</span>
-                </div>
-                <div className="flex justify-between pb-4 border-b border-black text-md font-secondary">
-                  <h1>Shipping</h1>
-                  <span>Free</span>
-                </div>
-                <div className="flex justify-between text-md font-secondary">
-                  <h1>Total:</h1>
-                  <span>$1170</span>
-                </div>
-              </div>
+              <TotalPrice isCheckout subtotal={subtotal} total={totalPrice} />
               <div>
                 <div className="grid gap-8">
                   <div className="flex justify-between items-center text-md font-secondary">

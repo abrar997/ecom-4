@@ -4,9 +4,12 @@ import SingleProduct from "../components/reusable/SingleProduct";
 import Header from "../components/reusable/Header";
 import TopHeader from "../components/reusable/TopHeader";
 import Footer from "../components/reusable/Footer";
+import { CartContext } from "../context/cartContext";
 
 const AllProducts = () => {
   const { products } = useContext(ProductsContext);
+  const { addToCart } = useContext(CartContext);
+
   return (
     <div>
       <TopHeader />
@@ -17,7 +20,7 @@ const AllProducts = () => {
         </h1>
         <div className="grid lg:grid-cols-4 gap-[30px] grid-cols-2">
           {products.map((item, index) => (
-            <SingleProduct product={item} key={index} />
+            <SingleProduct product={item} key={index} addToCart={addToCart} />
           ))}
         </div>
       </div>

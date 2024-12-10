@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const PathPages = ({ links, lastIndex }) => {
   return (
-    <div className="flex items-center gap-3 text-[14px] font-secondary">
+    <div className="flex flex-wrap lg:flex-nowrap items-center lg:gap-3 gap-2 text-[14px] font-secondary">
       {links.map((item, index) => (
         <div
           className="flex items-center gap-3 text-[14px] font-secondary capitalize"
