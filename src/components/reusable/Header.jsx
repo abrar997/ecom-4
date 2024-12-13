@@ -185,7 +185,7 @@ const InputField = ({ className }) => {
               <MenuItems
                 transition
                 anchor="bottom end"
-                className="origin-left mt-12 fixed top-0 z-[40] w-full rounded shadow-xl bg-[#000000c9] text-white p-4 pb-8 transition duration-100 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
+                className="origin-left mt-20 fixed top-0 z-[40] w-full rounded shadow-xl bg-secondary2 p-4 pb-8 transition duration-100 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
               >
                 <button onClick={() => close()}>
                   <IoClose className="absolute right-2 top-2 text-xl" />

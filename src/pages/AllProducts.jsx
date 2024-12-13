@@ -13,7 +13,7 @@ const AllProducts = () => {
       <TopHeader />
       <Header />
       <div className="lg:p-inline lg:mt-20 mb-[140px] p-4 grid lg:gap-12 gap-4">
-        <h1 className="capitalize lg:text-4xl text-3xl font-semibold lg:font-medium">
+        <h1 className="capitalize lg:text-3xl text-2xl font-secondary font-semibold">
           All Products
         </h1>
         <div className="grid lg:grid-cols-4 gap-[30px] grid-cols-2">

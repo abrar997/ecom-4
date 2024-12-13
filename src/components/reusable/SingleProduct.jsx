@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { WishListContextProvider } from "../../context/wishlistContext";
 import { useContext } from "react";
 import { CartContext } from "../../context/cartContext";
+import { FaStarHalfStroke } from "react-icons/fa6";
+import Rating from "./Rating";
 
 const SingleProduct = ({ product }) => {
   const { wishListProducts, addToWishlist } = useContext(
@@ -66,13 +68,7 @@ const SingleProduct = ({ product }) => {
           )}
         </span>
         <div className="flex gap-2">
-          <div className="flex gap-0.5">
-            <FaStar className="text-[#FFAD33]" />
-            <FaStar className="text-[#FFAD33]" />
-            <FaStar className="text-[#FFAD33]" />
-            <FaStar className="text-[#FFAD33]" />
-            <FaStar className="text-[#FFAD33]" />
-          </div>
+          <Rating rating={product.rating.rate} />
           <p className="opacity-50 font-semibold text-sm">({product.views})</p>
         </div>
       </div>

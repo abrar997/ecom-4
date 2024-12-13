@@ -30,7 +30,6 @@ const CartProductsContext = ({ children }) => {
         price: product.price,
         quantity: product.quantity,
       };
-
       setCartItems([...cartItems, selectedItem]);
     }
   };

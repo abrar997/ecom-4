@@ -12,7 +12,7 @@ const WishListProduct = ({ product }) => {
   return (
     <div className="grid gap-4 w-full">
       <div className="h-64 bg-secondary2 relative rounded flex items-center justify-center">
-        <img src={product.image} alt="" />
+        <img src={product.image} alt="" className="p-6" />
         <div>
           {product.discount && (
             <span className="absolute left-3 top-3 bg-secondary text-white rounded px-3 py-1 text-xs">

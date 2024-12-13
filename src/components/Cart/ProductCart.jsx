@@ -4,6 +4,7 @@ import { CartContext } from "../../context/cartContext";
 
 const ProductCart = ({ item }) => {
   const { Decrement, Increment } = useContext(CartContext);
+
   return (
     <div
       key={item.id}

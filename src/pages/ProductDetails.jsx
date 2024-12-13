@@ -8,7 +8,6 @@ import RelatedItems from "../components/Details/RelatedItems";
 import TopHeader from "../components/reusable/TopHeader";
 import Header from "../components/reusable/Header";
 import Footer from "../components/reusable/Footer";
-import { CartContext } from "../context/cartContext";
 
 const ProductDetails = () => {
   const { productId } = useParams();
