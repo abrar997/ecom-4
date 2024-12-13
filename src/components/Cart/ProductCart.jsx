@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import { CartContext } from "../../context/cartContext";
 
-const ProductCart = ({ item, Decrement, Increment, subtotal }) => {
+const ProductCart = ({ item }) => {
+  const { Decrement, Increment } = useContext(CartContext);
   return (
     <div
       key={item.id}
@@ -16,13 +19,19 @@ const ProductCart = ({ item, Decrement, Increment, subtotal }) => {
       </div>
 
       <p>${item.price}</p>
-      <div className="flex gap-4 border-[1.5px] border-black rounded items-center border-opacity-40 lg:w-[72px] lg:h-[44px] lg:px-3 px-2 w-fit h-fit">
-        <span>{item.quantity || 1}</span>
+      <div className="flex gap-4 border-[1.5px] border-black rounded items-center justify-between border-opacity-40 lg:w-[72px] lg:h-[44px] lg:px-3 px-2 w-fit h-fit">
+        <span>{Number(item.quantity) || 1}</span>
         <div className="flex flex-col">
-          <button className="w-4 h-4" onClick={() => Increment(item.id)}>
+          <button
+            className="w-4 h-4 flex items-center justify-center"
+            onClick={() => Increment(item.id)}
+          >
             <MdKeyboardArrowUp />
           </button>
-          <button className="w-4 h-4" onClick={() => Decrement(item.id)}>
+          <button
+            className="w-4 h-4 flex items-center justify-center"
+            onClick={() => Decrement(item.id)}
+          >
             <MdKeyboardArrowDown />
           </button>
         </div>

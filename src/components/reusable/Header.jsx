@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { Fragment, useContext } from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import {
   IoCartOutline,
@@ -138,7 +138,7 @@ const ShoppingItems = ({
               : 0}
           </span>
         </Link>
-        <Link to="/cart" className="relative mt-1 lg:my-0">
+        <Link to="/cart" className="relative mt-1 lg:mt-0">
           <IoCartOutline />
           <span className="absolute -top-2 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">
             {cartItems && cartItems.length > 0 ? cartItems.length : 0}
@@ -175,7 +175,7 @@ const ShoppingItems = ({
 const InputField = ({ className }) => {
   return (
     <div className={className}>
-      <Menu>
+      <Menu as={Fragment}>
         {({ open, close }) => (
           <>
             <MenuButton>
@@ -185,20 +185,20 @@ const InputField = ({ className }) => {
               <MenuItems
                 transition
                 anchor="bottom end"
-                className="origin-left mt-12 fixed top-0  z-[40] w-full border shadow-lg bg-secondary2 p-4 py-8 transition duration-100 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
+                className="origin-left mt-12 fixed top-0 z-[40] w-full rounded shadow-xl bg-[#000000c9] text-white p-4 pb-8 transition duration-100 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
               >
                 <button onClick={() => close()}>
-                  <IoClose className="text-black absolute right-2 top-2 text-xl" />
+                  <IoClose className="absolute right-2 top-2 text-xl" />
                 </button>
                 <MenuItem>
-                  <p className="text-xl text-black mb-3 font-semibold">
+                  <p className="text-xl mb-3 font-semibold">
                     Search Your product
                   </p>
                 </MenuItem>
                 <MenuItem>
                   <input
                     type="text"
-                    className="outline-none border-none lg:bg-secondary2 placeholder:font-light placeholder:text-xs p-2 rounded w-full"
+                    className="outline-none border-none lg:bg-secondary2 text-black placeholder:font-light placeholder:text-xs p-2 rounded w-full"
                     placeholder="What are you looking for?"
                   />
                 </MenuItem>

@@ -6,6 +6,7 @@ const CartProductsContext = ({ children }) => {
   const initialData = localStorage.getItem("cart")
     ? JSON.parse(localStorage.getItem("cart"))
     : [];
+
   const [cartItems, setCartItems] = useState(initialData);
 
   const subtotal = cartItems.reduce(

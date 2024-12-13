@@ -4,11 +4,14 @@ import WishListProduct from "./WishListProduct";
 import { CartContext } from "../../context/cartContext";
 
 const WishlistAllProducts = () => {
-  const { wishListProducts } = useContext(WishListContextProvider);
+  const { wishListProducts, setWishListProducts } = useContext(
+    WishListContextProvider
+  );
   const { cartItems, setCartItems } = useContext(CartContext);
 
   const sendAllProductToCart = () => {
     setCartItems([...cartItems, ...wishListProducts]);
+    setWishListProducts([]);
   };
 
   return (

@@ -1,12 +1,20 @@
 import { IoHeartOutline } from "react-icons/io5";
 import { TbTruckDelivery } from "react-icons/tb";
 import returnIcon from "../../assets/icons/return.svg";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../../context/cartContext";
+import { WishListContextProvider } from "../../context/wishlistContext";
+import { BsHeartFill } from "react-icons/bs";
 
 const ProductContent = ({ singleProduct }) => {
   const [counter, setCounter] = useState(1);
   const [totalPrice, setTotalPrice] = useState(singleProduct.price);
+  const { addToCart } = useContext(CartContext);
+  const { addToWishlist, wishListProducts } = useContext(
+    WishListContextProvider
+  );
+
+  const isLike = wishListProducts.some((item) => item.id === singleProduct.id);
 
   const IncreaseCounter = () => {
     setCounter((prev) => {
@@ -33,10 +41,14 @@ const ProductContent = ({ singleProduct }) => {
       <div className="bg-black h-[1px] w-full" />
       <Colours />
       <Sizes />
-      <Counter
+      <ProductChecks
         IncreaseCounter={IncreaseCounter}
         counter={counter}
         DecreaseCounter={DecreaseCounter}
+        addToCart={addToCart}
+        addToWishlist={addToWishlist}
+        isLike={isLike}
+        product={singleProduct}
       />
       <Offers />
     </div>
@@ -110,7 +122,15 @@ const ProductContents = ({ singleProduct, totalPrice }) => {
   );
 };
 
-const Counter = ({ IncreaseCounter, counter, DecreaseCounter }) => {
+const ProductChecks = ({
+  IncreaseCounter,
+  counter,
+  DecreaseCounter,
+  addToCart,
+  addToWishlist,
+  isLike,
+  product,
+}) => {
   return (
     <div className="flex lg:gap-4 items-center">
       <div className="flex items-center justify-center border border-black border-r-0 rounded border-opacity-50">
@@ -128,14 +148,21 @@ const Counter = ({ IncreaseCounter, counter, DecreaseCounter }) => {
           +
         </button>
       </div>
-      <Link
-        to=""
+      <button
+        onClick={() => addToCart(product)}
         className="m-auto bg-secondary capitalize text-white rounded lg:py-[10px] py-3 text-md lg:px-12 px-6 hover:bg-hoverBtn transition-all duration-300"
       >
         buy now
-      </Link>
-      <button className="w-10 h-10 rounded flex items-center justify-center border border-black text-2xl border-opacity-50">
-        <IoHeartOutline />
+      </button>
+      <button
+        onClick={() => addToWishlist(product)}
+        className="w-10 h-10 rounded text-xl flex items-center justify-center border border-black  border-opacity-50"
+      >
+        {isLike ? (
+          <BsHeartFill className="text-secondary" />
+        ) : (
+          <IoHeartOutline className="text-2xl" />
+        )}
       </button>
     </div>
   );

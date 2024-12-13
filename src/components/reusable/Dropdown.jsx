@@ -20,7 +20,7 @@ const Dropdown = ({
                 className="flex gap-2 items-center w-full"
                 onClick={item.handleFunction}
               >
-                {item.icon}{" "}
+                {item.icon}
                 <span className="text-white capitalize"> {item.title}</span>
               </button>
             ) : (

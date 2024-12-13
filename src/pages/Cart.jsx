@@ -36,11 +36,11 @@ const Cart = () => {
             </div>
             <div className="grid lg:gap-10 gap-4">
               {cartItems.length > 0 &&
-                cartItems.map((item) =>
+                cartItems.map((item, index) =>
                   item ? (
                     <ProductCart
                       item={item}
-                      key={item.id}
+                      key={index}
                       Decrement={Decrement}
                       Increment={Increment}
                     />

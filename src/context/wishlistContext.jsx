@@ -42,7 +42,12 @@ const WishlistContext = ({ children }) => {
 
   return (
     <WishListContextProvider.Provider
-      value={{ wishListProducts, addToWishlist, deleteItem }}
+      value={{
+        wishListProducts,
+        setWishListProducts,
+        addToWishlist,
+        deleteItem,
+      }}
     >
       {children}
     </WishListContextProvider.Provider>
