@@ -1,7 +1,14 @@
 import { BsTrash } from "react-icons/bs";
 import { IoCartOutline } from "react-icons/io5";
+import { useContext } from "react";
+import { WishListContextProvider } from "../../context/wishlistContext";
+import { CartContext } from "../../context/cartContext";
 
-const WishListProduct = ({ product, deleteItem }) => {
+const WishListProduct = ({ product }) => {
+  const { deleteItem } = useContext(WishListContextProvider);
+  const { addToCart } = useContext(CartContext);
+
+  if (!product) return null;
   return (
     <div className="grid gap-4 w-full">
       <div className="h-64 bg-secondary2 relative rounded flex items-center justify-center">
@@ -26,7 +33,10 @@ const WishListProduct = ({ product, deleteItem }) => {
             <BsTrash />
           </button>
         </div>
-        <button className="bg-black absolute inset-x-0 text-xs py-3 capitalize text-white text-center bottom-0 rounded-b flex items-center justify-center gap-2">
+        <button
+          onClick={() => addToCart(product)}
+          className="bg-black absolute inset-x-0 text-xs py-3 capitalize text-white text-center bottom-0 rounded-b flex items-center justify-center gap-2"
+        >
           <IoCartOutline size={24} />
           add to cart
         </button>

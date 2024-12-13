@@ -7,20 +7,16 @@ import NumberOfUsers from "../components/About/NumberOfUsers";
 import OurTeam from "../components/About/OurTeam";
 import { NumberOfUsersData, TeamData } from "../assets/mockData";
 import Header from "../components/reusable/Header";
+import { AboutLinks } from "../assets/LinksPageData";
 
 const About = () => {
-  const links = [
-    { link: "Home", to: "/" },
-    { link: "About", to: "/about" },
-  ];
-
   return (
     <div>
       <TopHeader />
       <Header />
       <div className="lg:mt-20 mt-8 lg:mb-[130px] mb-12 grid lg:gap-[42px] gap-8">
         <div className="lg:p-inline p-4">
-          <PathPages lastIndex={1} links={links} />
+          <PathPages lastIndex={1} links={AboutLinks} />
         </div>
         <div className="grid lg:gap-[140px] gap-12">
           <FirstSectionAbout />

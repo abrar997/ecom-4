@@ -76,6 +76,7 @@ const CartProductsContext = ({ children }) => {
         DeleteAllItems,
         subtotal,
         totalPrice,
+        setCartItems,
       }}
     >
       {children}

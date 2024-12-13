@@ -1,7 +1,7 @@
 import HeaderSection from "../reusable/HeaderSection";
 import SingleProduct from "../reusable/SingleProduct";
 
-const RelatedItems = ({ products, singleProduct, addToCart }) => {
+const RelatedItems = ({ products, singleProduct }) => {
   const data = products.filter(
     (product) => product.category === singleProduct.category
   );
@@ -11,7 +11,7 @@ const RelatedItems = ({ products, singleProduct, addToCart }) => {
       <HeaderSection title="" subtitle="Related Item" isDetail />
       <div className="grid lg:grid-cols-4 lg:gap-[30px] gap-5">
         {data.map((item, index) => (
-          <SingleProduct product={item} key={index} addToCart={addToCart} />
+          <SingleProduct product={item} key={index} />
         ))}
       </div>
     </div>

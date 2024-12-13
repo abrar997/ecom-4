@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import Button from "./Button";
+import { CartContext } from "../../context/cartContext";
 
-const TotalPrice = ({ subtotal, total, isCheckout }) => {
+const TotalPrice = ({ isCheckout }) => {
+  const { totalPrice, subtotal } = useContext(CartContext);
+
   return (
     <div
       className={`${
@@ -12,7 +16,7 @@ const TotalPrice = ({ subtotal, total, isCheckout }) => {
         <h1 className="text-xl font-medium font-secondary">Cart Total</h1>
       )}
       <div className="grid gap-4">
-        <div className="flex justify-between pb-4 border-b border-black text-md font-secondary">
+        <div className="flex justify-between pb-4 border-b border-black text-md font-secondary items-center">
           <h1>Subtotal</h1>
           <span>${subtotal}</span>
         </div>
@@ -22,7 +26,7 @@ const TotalPrice = ({ subtotal, total, isCheckout }) => {
         </div>
         <div className="flex justify-between text-md font-secondary">
           <h1>Total:</h1>
-          <span>${Number(total)}</span>
+          <span>${Number(totalPrice)}</span>
         </div>
       </div>
       {!isCheckout && (

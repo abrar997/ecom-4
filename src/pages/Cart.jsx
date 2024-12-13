@@ -8,6 +8,7 @@ import Header from "../components/reusable/Header";
 import Footer from "../components/reusable/Footer";
 import { CartContext } from "../context/cartContext";
 import { Link } from "react-router-dom";
+import { CartLinks } from "../assets/LinksPageData";
 
 const Cart = () => {
   const {
@@ -19,18 +20,13 @@ const Cart = () => {
     subtotal,
   } = useContext(CartContext);
 
-  const links = [
-    { link: "Home", to: "/" },
-    { link: "Cart", to: "/cart" },
-  ];
-
   return (
     <div className="overflow-hidden">
       <TopHeader />
       <Header />
       {cartItems && cartItems.length > 0 ? (
         <div className="lg:p-inline p-4 lg:mt-[80px] mt-8 lg:mb-[140px] mb-12 grid lg:gap-[80px] gap-8">
-          <PathPages links={links} lastIndex={1} />
+          <PathPages links={CartLinks} lastIndex={1} />
           <div className="grid items-start lg:gap-10 gap-4">
             <div className="grid grid-cols-4 gap-4 lg:px-10 px-2 lg:py-6 py-3 text-md capitalize font-secondary shadow-cartItem rounded">
               <h1>Product</h1>
@@ -73,15 +69,15 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <div className="flex items-center justify-center h-[60vh] flex-col gap-3">
-          <p className="text-3xl font-semibold text-center capitalize">
+        <div className="flex items-center justify-center h-[60vh] flex-col gap-3 px-4 lg:px-0">
+          <p className="lg:text-3xl text-2xl font-semibold text-center capitalize">
             please start add products
           </p>
           <Link
             to="/products"
-            className="bg-black px-12 py-3 text-white rounded hover:bg-opacity-80 transition-all duration-300"
+            className="bg-black px-12 py-3 text-white rounded hover:bg-opacity-80 transition-all duration-300 lg:mt-3 mt-2"
           >
-            Shop
+            Our Shop
           </Link>
         </div>
       )}

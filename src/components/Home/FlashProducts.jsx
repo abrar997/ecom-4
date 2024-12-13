@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { ProductsContext } from "../../context/context";
 import { Swiper, SwiperSlide } from "swiper/react";
 import HeaderSection from "../reusable/HeaderSection";
 import SingleProduct from "../reusable/SingleProduct";
@@ -5,7 +7,9 @@ import Button from "../reusable/Button";
 import Hr from "../reusable/Hr";
 import "swiper/css";
 
-const FlashProducts = ({ products, addToCart, addToWishlist, isLike }) => {
+const FlashProducts = () => {
+  const { products } = useContext(ProductsContext);
+
   return (
     <div className="flex flex-col lg:gap-10 gap-4 lg:mt-36 mt-8 w-full">
       <HeaderSection subtitle="Today's" title="Flash Sales" isTime />
@@ -25,11 +29,11 @@ const FlashProducts = ({ products, addToCart, addToWishlist, isLike }) => {
                 spaceBetween: 20,
               },
               768: {
-                slidesPerView: 4,
+                slidesPerView: 2,
                 spaceBetween: 40,
               },
               1024: {
-                slidesPerView: 5,
+                slidesPerView: 4.5,
                 spaceBetween: 30,
               },
             }}
@@ -38,13 +42,7 @@ const FlashProducts = ({ products, addToCart, addToWishlist, isLike }) => {
           >
             {products.slice(0, 6).map((item, index) => (
               <SwiperSlide key={item.id} className="swiper-slide">
-                <SingleProduct
-                  key={index}
-                  product={item}
-                  addToCart={addToCart}
-                  addToWishlist={addToWishlist}
-                  isLike={isLike}
-                />
+                <SingleProduct key={index} product={item} />
               </SwiperSlide>
             ))}
           </Swiper>

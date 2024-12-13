@@ -1,6 +1,11 @@
 import { useContext } from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import { IoCartOutline, IoHeartOutline, IoMenuOutline } from "react-icons/io5";
+import {
+  IoCartOutline,
+  IoClose,
+  IoHeartOutline,
+  IoMenuOutline,
+} from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { AuthContext } from "../../context/authContext";
@@ -171,22 +176,36 @@ const InputField = ({ className }) => {
   return (
     <div className={className}>
       <Menu>
-        <MenuButton>
-          <CiSearch />
-        </MenuButton>
-        <MenuItems
-          transition
-          anchor="top start"
-          className="origin-left fixed  -mt-20 text-white z-[40] w-full border shadow-lg bg-secondary2 p-4 py-8 transition duration-100 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
-        >
-          <MenuItem>
-            <input
-              type="text"
-              className="outline-none border-none lg:bg-secondary2 placeholder:font-light placeholder:text-xs p-2 rounded w-full"
-              placeholder="What are you looking for?"
-            />
-          </MenuItem>
-        </MenuItems>
+        {({ open, close }) => (
+          <>
+            <MenuButton>
+              <CiSearch />
+            </MenuButton>
+            {open && (
+              <MenuItems
+                transition
+                anchor="bottom end"
+                className="origin-left mt-12 fixed top-0  z-[40] w-full border shadow-lg bg-secondary2 p-4 py-8 transition duration-100 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
+              >
+                <button onClick={() => close()}>
+                  <IoClose className="text-black absolute right-2 top-2 text-xl" />
+                </button>
+                <MenuItem>
+                  <p className="text-xl text-black mb-3 font-semibold">
+                    Search Your product
+                  </p>
+                </MenuItem>
+                <MenuItem>
+                  <input
+                    type="text"
+                    className="outline-none border-none lg:bg-secondary2 placeholder:font-light placeholder:text-xs p-2 rounded w-full"
+                    placeholder="What are you looking for?"
+                  />
+                </MenuItem>
+              </MenuItems>
+            )}
+          </>
+        )}
       </Menu>
     </div>
   );

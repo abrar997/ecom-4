@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ProductsContext } from "../context/context";
+import { AuthContext } from "../context/authContext";
 import { FaArrowUp } from "react-icons/fa";
 import FirstSection from "../components/Home/FirstSection";
 import FlashProducts from "../components/Home/FlashProducts";
@@ -9,37 +9,23 @@ import Enhancing from "../components/Home/Enhancing";
 import OurProducts from "../components/Home/OurProducts";
 import Featured from "../components/Home/Featured";
 import Services from "../components/reusable/Services";
-import { AuthContext } from "../context/authContext";
 import TopHeader from "../components/reusable/TopHeader";
 import Header from "../components/reusable/Header";
 import Footer from "../components/reusable/Footer";
-import { CartContext } from "../context/cartContext";
-import { WishListContextProvider } from "../context/wishlistContext";
 
 const Home = () => {
-  const { products } = useContext(ProductsContext);
   const { user } = useContext(AuthContext);
-  const { addToCart } = useContext(CartContext);
-  const { addToWishlist, wishListProducts, isLike } = useContext(
-    WishListContextProvider
-  );
-
   return (
     <div>
       <TopHeader />
       {user ? <Header isRed /> : <Header />}
       <div className="relative">
         <FirstSection />
-        <FlashProducts
-          products={products}
-          addToCart={addToCart}
-          addToWishlist={addToWishlist}
-          isLike={isLike}
-        />
+        <FlashProducts />
         <Categories />
-        <BestProducts products={products} addToCart={addToCart} />
+        <BestProducts />
         <Enhancing />
-        <OurProducts products={products} addToCart={addToCart} />
+        <OurProducts />
         <Featured />
         <Services isHome />
         <a

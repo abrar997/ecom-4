@@ -2,8 +2,18 @@ import { BsHeartFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import { IoEyeOutline, IoHeartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { WishListContextProvider } from "../../context/wishlistContext";
+import { useContext } from "react";
+import { CartContext } from "../../context/cartContext";
 
-const SingleProduct = ({ product, addToCart, addToWishlist, isLike }) => {
+const SingleProduct = ({ product }) => {
+  const { wishListProducts, addToWishlist } = useContext(
+    WishListContextProvider
+  );
+  const { addToCart } = useContext(CartContext);
+
+  const isLike = wishListProducts.some((item) => item.id === product.id);
+
   return (
     <div className="grid gap-4 w-full">
       <div className="lg:h-64 h-52 p-6 lg:p-0 group overflow-hidden bg-secondary2 relative rounded flex items-center justify-center">

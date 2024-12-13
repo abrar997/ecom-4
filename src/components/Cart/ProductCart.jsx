@@ -1,6 +1,6 @@
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 
-const ProductCart = ({ item, Decrement, Increment }) => {
+const ProductCart = ({ item, Decrement, Increment, subtotal }) => {
   return (
     <div
       key={item.id}
@@ -27,7 +27,7 @@ const ProductCart = ({ item, Decrement, Increment }) => {
           </button>
         </div>
       </div>
-      <p>${Math.floor(item.price * item.quantity)}</p>
+      <p>${Number(item.price).toFixed(2) * (item.quantity || 1)}</p>
     </div>
   );
 };

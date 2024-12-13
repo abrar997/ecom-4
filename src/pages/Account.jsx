@@ -6,14 +6,12 @@ import Button from "../components/reusable/Button";
 import Footer from "../components/reusable/Footer";
 import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
+import { AccountLinks } from "../assets/LinksPageData";
 
 const Account = () => {
   const { user } = useContext(AuthContext);
   let itemIndex = 0;
-  const links = [
-    { link: "Home", to: "/" },
-    { link: "Account", to: "/account" },
-  ];
+
   const inputsData = [
     { label: "First name", type: "text", placeholder: "Md" },
     { label: "Last name", type: "text", placeholder: "Rimel" },
@@ -27,13 +25,14 @@ const Account = () => {
     { label: "", type: "text", placeholder: "New password" },
     { label: "", type: "text", placeholder: "Confirm password" },
   ];
+
   return (
     <div>
       <TopHeader />
       <Header isCheckout />
       <div className="lg:mt-[80px] mt-8 lg:mb-[140px] mb-12 lg:p-inline p-4 grid lg:gap-[80px] gap-10">
         <div className="flex justify-between items-center font-secondary">
-          <PathPages links={links} lastIndex={1} />
+          <PathPages links={AccountLinks} lastIndex={1} />
           <div className="flex gap-2 text-sm">
             <span>Welcome!</span>
             <span className="text-secondary capitalize">

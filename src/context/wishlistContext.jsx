@@ -7,26 +7,27 @@ const WishlistContext = ({ children }) => {
     ? JSON.parse(localStorage.getItem("wishlist"))
     : [];
   const [wishListProducts, setWishListProducts] = useState(initialData);
-  const [isLike, setIsLike] = useState(false);
 
   const addToWishlist = (product) => {
     const existingItem = wishListProducts.find(
       (item) => item.id === product.id
     );
-    if (existingItem) {
-      alert("remove item from Wishlist");
+    if (existingItem && Array.isArray(wishListProducts)) {
+      const filteredItems = wishListProducts.filter(
+        (item) => item.id !== product.id
+      );
+      setWishListProducts(filteredItems);
     } else {
       const item = {
         id: product.id,
         title: product.title,
         description: product.description,
-        image: product.description,
+        image: product.image,
         discount: product.discount,
         price: product.price,
         views: product.views,
       };
       setWishListProducts([...wishListProducts, item]);
-      setIsLike(true);
     }
   };
 
@@ -41,7 +42,7 @@ const WishlistContext = ({ children }) => {
 
   return (
     <WishListContextProvider.Provider
-      value={{ wishListProducts, addToWishlist, deleteItem, isLike }}
+      value={{ wishListProducts, addToWishlist, deleteItem }}
     >
       {children}
     </WishListContextProvider.Provider>

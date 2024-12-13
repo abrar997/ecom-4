@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const { error, handleLogin, email, setEmail, password, setPassword } =
     useContext(AuthContext);
+
   const navigate = useNavigate();
 
   const CheckHandleLogin = (e) => {

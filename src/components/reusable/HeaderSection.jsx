@@ -1,5 +1,6 @@
 import { BsDot } from "react-icons/bs";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const HeaderSection = ({
   subtitle,
@@ -10,6 +11,7 @@ const HeaderSection = ({
   isTime,
   isFeatured,
   isDetail,
+  isButtonTo,
 }) => {
   const timeData = [
     { title: "days", number: "03" },
@@ -64,9 +66,12 @@ const HeaderSection = ({
           </div>
         )}
         {isButton && (
-          <button className="bg-secondary ml-auto lg:py-4 py-2 lg:px-12 px-2 hover:bg-hoverBtn text-white rounded capitalize lg:text-md lg:font-medium text-sm">
+          <Link
+            to={isButtonTo}
+            className="bg-secondary ml-auto lg:py-4 py-2 lg:px-12 px-2 hover:bg-hoverBtn text-white rounded capitalize lg:text-md lg:font-medium text-sm"
+          >
             {buttonText}
-          </button>
+          </Link>
         )}
       </div>
     </div>

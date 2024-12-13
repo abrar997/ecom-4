@@ -8,19 +8,18 @@ import RelatedItems from "../components/Details/RelatedItems";
 import TopHeader from "../components/reusable/TopHeader";
 import Header from "../components/reusable/Header";
 import Footer from "../components/reusable/Footer";
-import { CartContext } from "../context/cartContext";
 
 const ProductDetails = () => {
   const { productId } = useParams();
-
   const { products, fetchSingleProduct } = useContext(ProductsContext);
-  const { addToCart } = useContext(CartContext);
 
   const item = products.find((product) => product.id.toString() === productId);
-  // if (!item) return <p>loading ...</p>;
+
   useEffect(() => {
     fetchSingleProduct(productId);
-  }, []);
+  }, [productId]);
+
+  if (!item) return <p>loading ...</p>;
 
   return (
     <div>
@@ -31,7 +30,10 @@ const ProductDetails = () => {
           <PathPages
             links={[
               { link: "Account", to: "/account" },
-              { link: item.category, to: "/" },
+              {
+                link: item.category,
+                to: `/category/${item.category}`,
+              },
               { link: item.title, to: "/" },
             ]}
             lastIndex={2}
@@ -42,11 +44,7 @@ const ProductDetails = () => {
           </div>
         </div>
         <div>
-          <RelatedItems
-            products={products}
-            singleProduct={item}
-            addToCart={addToCart}
-          />
+          <RelatedItems products={products} singleProduct={item} />
         </div>
       </div>
       <Footer />
