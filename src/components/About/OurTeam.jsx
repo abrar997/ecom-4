@@ -4,7 +4,7 @@ import Pagination from "../reusable/Pagination";
 
 const OurTeam = ({ data }) => {
   return (
-    <div className="grid gap-[42px]">
+    <div className="grid lg:gap-[42px] gap-12 relative">
       <div className="grid lg:grid-cols-3 lg:gap-[30px] gap-4">
         {data.map((item, index) => (
           <div key={index} className="grid lg:gap-8 gap-3">
@@ -38,7 +38,7 @@ const OurTeam = ({ data }) => {
         ))}
       </div>
       <div className="m-auto">
-        <Pagination />
+        <Pagination isTeam />
       </div>
     </div>
   );

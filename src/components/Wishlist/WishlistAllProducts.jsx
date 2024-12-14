@@ -9,11 +9,30 @@ const WishlistAllProducts = () => {
   );
   const { cartItems, setCartItems } = useContext(CartContext);
 
-  const sendAllProductToCart = () => {
-    setCartItems([...cartItems, ...wishListProducts]);
-    setWishListProducts([]);
-  };
+  // const sendAllProductToCart = () => {
+  //   setCartItems([...cartItems, ...wishListProducts,]);
+  //   setWishListProducts([]);
+  // };
+  // const sendAllProductToCart = () => {
+  //     const updatedCart = [...cartItems]; // Start with the current cart items
 
+  //     wishListProducts.forEach((wishlistProduct) => {
+  //       const existingCartItem = updatedCart.find(
+  //         (item) => item.id === wishlistProduct.id
+  //       );
+
+  //       if (existingCartItem) {
+  //         // If product already exists in the cart, increment its quantity
+  //         existingCartItem.quantity = (existingCartItem.quantity || 1) + 1;
+  //       } else {
+  //         // If product does not exist in the cart, add it with quantity 1
+  //         updatedCart.push({ ...wishlistProduct, quantity: 1 });
+  //       }
+  //     });
+
+  //     setCartItems(updatedCart); // Update cart with merged items
+  //     setWishListProducts([]); // Clear the wishlist
+  //   };
   return (
     <div className="grid lg:gap-[60px] gap-8">
       <div className="flex justify-between items-center">

@@ -37,9 +37,9 @@ const SignUp = () => {
     <>
       <TopHeader />
       <Header />
-      <div className="grid lg:grid-cols-3 gap-4 lg:gap-32 lg:pr-[135px]">
-        <div className="lg:col-span-2">
-          <img src={signUpImage} />
+      <div className="grid lg:grid-cols-3 gap-4 lg:gap-16 lg:pr-[135px]">
+        <div className="lg:col-span-2 lg:w-[85%]">
+          <img src={signUpImage} className="w-full" />
         </div>
         <div className="flex flex-col gap-6 lg:gap-12 lg:py-[125.5px] px-4 lg:px-0 pb-12">
           <div className="grid lg:gap-6 gap-3">

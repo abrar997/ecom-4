@@ -1,10 +1,7 @@
 import { IoArrowForward } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { FaAppleAlt } from "react-icons/fa";
 import { FirstSectionCategories } from "../../assets/mockData";
 import Pagination from "../reusable/Pagination";
-import { GiSoundWaves } from "react-icons/gi";
-import { CgLoadbarSound } from "react-icons/cg";
 import { BsSoundwave } from "react-icons/bs";
 
 const FirstSection = () => {
@@ -31,7 +28,6 @@ const FirstSection = () => {
         <div className="relative bg-black lg:py-10 lg:px-11 py-6 px-4 lg:flex w-full">
           <div className="grid lg:gap-5 gap-3">
             <div className="flex items-center gap-2">
-              {/* <FaAppleAlt className="lg:w-10 lg:h-12" /> */}
               <BsSoundwave className="text-3xl" />
               <span className="text-base capitalize font-secondary">
                 Headphone 14 series

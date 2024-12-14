@@ -51,9 +51,7 @@ const WishListProduct = ({ product }) => {
             </p>
           )}
         </span>
-        <div>
-          <p className="opacity-50 font-semibold text-sm">({product.views})</p>
-        </div>
+        {/* <p className="opacity-50 font-semibold text-sm">({product.views})</p> */}
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ const FirstSectionAbout = () => {
         <h1 className="lg:text-[54px] text-3xl font-semibold tracking-[6%] capitalize">
           our story
         </h1>
-        <div className="grid lg:gap-6 gap-3 lg:text-md text-sm font-secondary">
+        <div className="grid lg:gap-6 gap-3 lg:text-md text-sm font-secondary lg:w-[79%] leading-[26px]">
           <p>
             Launced in 2015, Exclusive is South Asia’s premier online shopping
             makterplace with an active presense in Bangladesh. Supported by wide

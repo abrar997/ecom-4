@@ -24,12 +24,12 @@ export const FirstSectionCategories = [
   {
     title: "women's fashion",
     icon: <IoIosArrowForward />,
-    categoryName: "womenClothing",
+    category: "womenClothing",
   },
   {
     title: "men's fashion",
     icon: <IoIosArrowForward />,
-    categoryName: "menClothing",
+    category: "menClothing",
   },
   { title: "electronics fashion", category: "electronics" },
   { title: "home & lifestyle fashion", category: "home" },

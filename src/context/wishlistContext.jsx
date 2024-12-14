@@ -6,6 +6,7 @@ const WishlistContext = ({ children }) => {
   const initialData = localStorage.getItem("wishlist")
     ? JSON.parse(localStorage.getItem("wishlist"))
     : [];
+
   const [wishListProducts, setWishListProducts] = useState(initialData);
 
   const addToWishlist = (product) => {
@@ -26,6 +27,7 @@ const WishlistContext = ({ children }) => {
         discount: product.discount,
         price: product.price,
         views: product.views,
+        oldPrice: product.oldPrice,
       };
       setWishListProducts([...wishListProducts, item]);
     }

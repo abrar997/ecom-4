@@ -20,7 +20,13 @@ const ProductCategory = () => {
       <Header />
       <div className="lg:p-inline lg:mt-20 mt-8 p-4 grid lg:gap-12 gap-4 lg:mb-[140px] mb-12">
         <h1 className="text-2xl font-secondary font-semibold capitalize">
-          {category}
+          {category === "womenClothing" ? (
+            <span>Women clothes</span>
+          ) : category === "menClothing" ? (
+            <span>Men clothes</span>
+          ) : (
+            category
+          )}
         </h1>
         <div className="grid lg:grid-cols-4 lg:gap-8 lg:gap-y-20">
           {filteredProducts.map((item, index) => (

@@ -38,7 +38,7 @@ const HeaderSection = ({
           </h1>
         )}
         {isTime && (
-          <div className="lg:flex lg:ml-[87px] ml-6 gap-4 items-center hidden">
+          <div className="lg:flex lg:ml-28 ml-6 gap-4 items-center hidden">
             {timeData.map((item, index) => (
               <div key={index} className="flex items-center gap-3">
                 <div>

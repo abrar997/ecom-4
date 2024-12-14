@@ -1,11 +1,9 @@
 import { BsHeartFill } from "react-icons/bs";
-import { FaStar } from "react-icons/fa";
 import { IoEyeOutline, IoHeartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { WishListContextProvider } from "../../context/wishlistContext";
 import { useContext } from "react";
 import { CartContext } from "../../context/cartContext";
-import { FaStarHalfStroke } from "react-icons/fa6";
 import Rating from "./Rating";
 
 const SingleProduct = ({ product }) => {
@@ -15,6 +13,7 @@ const SingleProduct = ({ product }) => {
   const { addToCart } = useContext(CartContext);
 
   const isLike = wishListProducts.some((item) => item.id === product.id);
+  console.log(product.colors);
 
   return (
     <div className="grid gap-4 w-full">
@@ -71,6 +70,25 @@ const SingleProduct = ({ product }) => {
           <Rating rating={product.rating.rate} />
           <p className="opacity-50 font-semibold text-sm">({product.views})</p>
         </div>
+        {product.colors && (
+          <div className="flex gap-2 items-center">
+            {product.colors.map((item, index) => (
+              <button
+                key={index}
+                style={{ backgroundColor: item.color }}
+                className={`${
+                  index === 0 && "border-black border-2"
+                }  w-5 h-5 flex items-center justify-center rounded-full bg-white`}
+              >
+                <span
+                  className={`rounded-full w-full h-full ${
+                    index === 0 && "border-white border-[3px]"
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

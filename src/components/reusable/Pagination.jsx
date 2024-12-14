@@ -1,37 +1,41 @@
-const Pagination = ({ isHome }) => {
+const Pagination = ({ isTeam, isHome }) => {
   return (
     <div
-      className={`flex lg:gap-3 gap-1 ${
-        isHome ? "absolute bottom-4 lg:left-[353px] left-[40%]" : ""
-      }`}
+      className={`absolute ${
+        isHome && "bottom-4"
+      } inset-x-0 flex items-center justify-center lg:gap-3 gap-1`}
     >
-      <span
-        className={`${
-          isHome ? "bg-white  opacity-50" : "bg-black opacity-30"
-        } rounded-full w-3 h-3 cursor-pointer`}
-      />
-      <span
-        className={`${
-          isHome ? "bg-white  opacity-50" : "bg-black opacity-30"
-        } rounded-full w-3 h-3 cursor-pointer`}
-      />
-      <span
-        className={`${
-          isHome ? "border-white" : "border-black border-opacity-30"
-        } bg-secondary border-2  rounded-full w-3 h-3 cursor-pointer`}
-      />
-      <span
-        className={`${
-          isHome ? "bg-white  opacity-50" : "bg-black opacity-30"
-        } rounded-full w-3 h-3 cursor-pointer`}
-      />
-      <span
-        className={`${
-          isHome ? "bg-white  opacity-50" : "bg-black opacity-30"
-        } rounded-full w-3 h-3 cursor-pointer`}
-      />
+      {Array(
+        [1, 2, 3, 4, 5].map((_, i) => (
+          <button
+            key={i}
+            className={`${
+              i === 2
+                ? "bg-secondary"
+                : isTeam
+                ? "bg-black opacity-30"
+                : "bg-white opacity-50"
+            }
+            w-3 h-3 flex items-center justify-center rounded-full`}
+          >
+            <span
+              className={`rounded-full w-full h-full ${
+                i === 2 && isHome
+                  ? "border-white border-[2px]"
+                  : i === 2 && isTeam
+                  ? "border-white border-[2px] border-opacity-30"
+                  : ""
+              }`}
+            />
+          </button>
+        ))
+      )}
     </div>
   );
 };
 
 export default Pagination;
+
+//  ${
+//   isTeam ? "bg-black opacity-30" : "bg-white opacity-50"
+// }
