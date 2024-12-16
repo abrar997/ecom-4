@@ -1,7 +1,7 @@
 import { CiCamera, CiHeadphones, CiMobile4 } from "react-icons/ci";
 import { TbTruckDelivery } from "react-icons/tb";
 import { IoIosArrowForward } from "react-icons/io";
-import { BsShopWindow } from "react-icons/bs";
+import { BsShopWindow, BsSoundwave } from "react-icons/bs";
 import { CiDollar } from "react-icons/ci";
 import { TbShoppingBag } from "react-icons/tb";
 import { FaSackDollar } from "react-icons/fa6";
@@ -38,6 +38,54 @@ export const FirstSectionCategories = [
   { title: "Baby's & toys", category: "electronics" },
   { title: "groceries & pets", category: "electronics" },
   { title: "health & beauty", category: "jewelery" },
+];
+
+export const FirstSectionSliderData = [
+  {
+    id: 1,
+    title: "Up to 10%",
+    title2: "off Voucher",
+    subtitle: "Headphone 14 series",
+    icon: <BsSoundwave />,
+    image:
+      "https://www.freeiconspng.com/thumbs/headphones-png/headphones-png-0.png",
+  },
+  {
+    id: 2,
+    title: "Up to 10%",
+    title2: "off Voucher",
+    subtitle: "Headphone 14 series",
+    icon: <BsSoundwave />,
+    image:
+      "https://www.freeiconspng.com/thumbs/headphones-png/headphones-png-0.png",
+  },
+  {
+    id: 3,
+    title: "Up to 10%",
+    title2: "off Voucher",
+    subtitle: "Headphone 14 series",
+    icon: <BsSoundwave />,
+    image:
+      "https://www.freeiconspng.com/thumbs/headphones-png/headphones-png-0.png",
+  },
+  {
+    id: 4,
+    title: "Up to 10%",
+    title2: "off Voucher",
+    subtitle: "Headphone 14 series",
+    icon: <BsSoundwave />,
+    image:
+      "https://www.freeiconspng.com/thumbs/headphones-png/headphones-png-0.png",
+  },
+  {
+    id: 5,
+    title: "Up to 10%",
+    title2: "off Voucher",
+    subtitle: "Headphone 14 series",
+    icon: <BsSoundwave />,
+    image:
+      "https://www.freeiconspng.com/thumbs/headphones-png/headphones-png-0.png",
+  },
 ];
 
 export const CategoriesData = [
@@ -83,6 +131,7 @@ export const CategoriesData = [
     ),
     title: "Gamin",
   },
+  { icon: <CiHeadphones />, title: "headPhones" },
 ];
 
 export const ServicesData = [

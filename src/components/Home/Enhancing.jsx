@@ -40,7 +40,7 @@ const Enhancing = () => {
             <img
               src="https://www.pngall.com/wp-content/uploads/2016/05/Photo-Camera-PNG-HD.png"
               alt=""
-              className="absolute z-10 lg:w-[58%] w-[65%] -mr-4 lg:-mr-0"
+              className="absolute z-10 lg:w-[58%] w-[65%] -mr-4 lg:-mr-0 md:w-[40%] md:-mt-20"
             />
           </div>
         </div>

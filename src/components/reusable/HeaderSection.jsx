@@ -12,6 +12,8 @@ const HeaderSection = ({
   isFeatured,
   isDetail,
   isButtonTo,
+  next,
+  prev,
 }) => {
   const timeData = [
     { title: "days", number: "03" },
@@ -57,10 +59,14 @@ const HeaderSection = ({
         )}
         {!isNotSlider && !isButton && !isFeatured && !isDetail && (
           <div className="flex gap-2 ml-auto">
-            <button className="bg-secondary2 rounded-full lg:w-11 lg:h-11 w-8 h-8 p-1.5 lg:p-0 flex items-center justify-center text-2xl">
+            <button
+              className={`bg-secondary2 rounded-full lg:w-11 lg:h-11 w-8 h-8 p-1.5 lg:p-0 flex items-center justify-center text-2xl ${prev}`}
+            >
               <FiArrowLeft />
             </button>
-            <button className="bg-secondary2 rounded-full lg:w-11 lg:h-11 w-8 h-8 p-1.5 lg:p-0 flex items-center justify-center text-2xl">
+            <button
+              className={`bg-secondary2 rounded-full lg:w-11 lg:h-11 w-8 h-8 p-1.5 lg:p-0 flex items-center justify-center text-2xl ${next}`}
+            >
               <FiArrowRight />
             </button>
           </div>

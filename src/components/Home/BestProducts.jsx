@@ -15,7 +15,7 @@ const BestProducts = () => {
         buttonText="view all"
         isButtonTo="/products"
       />
-      <div className="grid lg:grid-cols-4 lg:gap-products gap-5 lg:p-inline px-4">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 lg:gap-products gap-5 lg:p-inline px-4">
         {products.slice(5, 9).map((item, index) => (
           <SingleProduct product={item} key={index} />
         ))}

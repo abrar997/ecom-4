@@ -1,14 +1,20 @@
 import { IoArrowForward } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { FirstSectionCategories } from "../../assets/mockData";
-import Pagination from "../reusable/Pagination";
-import { BsSoundwave } from "react-icons/bs";
+import {
+  FirstSectionCategories,
+  FirstSectionSliderData,
+} from "../../assets/mockData";
 import Dropdown from "../reusable/Dropdown";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+import PaginationComponent from "../reusable/Pagination";
+import { useState } from "react";
 
 const FirstSection = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
   return (
     <div
-      className="grid lg:p-inline p-0 lg:grid-cols-4 lg:gap-x-11"
+      className="lg:grid lg:p-inline p-0 lg:grid-cols-4 lg:gap-x-11"
       id="firstSection"
     >
       <div className="border-r col-span-1 p-4 lg:p-0 order-2 relative">
@@ -92,31 +98,57 @@ const FirstSection = () => {
           ))}
         </div>
       </div>
-      <div className="lg:col-span-3 text-white lg:order-2 flex lg:pt-10 pt-0 lg:gap-12">
-        <div className="relative bg-black lg:py-10 lg:px-11 py-6 px-4 lg:flex w-full">
-          <div className="grid lg:gap-5 gap-3">
-            <div className="flex items-center gap-2">
-              <BsSoundwave className="text-3xl" />
-              <span className="text-base capitalize font-secondary">
-                Headphone 14 series
-              </span>
-            </div>
-            <h1 className="font-semibold lg:text-5xl text-3xl flex lg:flex-col gap-2">
-              <span>Up to 10%</span>
-              <span>off Voucher</span>
-            </h1>
-            <button className="flex items-center gap-2">
-              <span className="border-b capitalize">shop now</span>
-              <IoArrowForward className="text-lg" />
-            </button>
-          </div>
-          <img
-            src="https://www.freeiconspng.com/thumbs/headphones-png/headphones-png-0.png"
-            alt=""
-            className="brightness-75 lg:w-[33%] m-auto w-[50%] lg:my-0 p-4 lg:py-0"
+
+      <div className="lg:col-span-3 text-white lg:order-2 lg:pt-10 pt-0">
+        <Swiper
+          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+          pagination={{
+            clickable: true,
+            el: `swiper-container swiper-container-testClass`,
+            bulletClass: `swiper-pagination-bullet swiper-pagination-testClass`,
+          }}
+          modules={[Pagination, Autoplay]}
+          className="h-[344px] bg-black"
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          loop
+        >
+          {FirstSectionSliderData.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div className="relative lg:flex lg:py-10 lg:px-12 py-6 px-4 w-full">
+                <div className="grid lg:gap-5 gap-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-3xl">{item.icon}</span>
+                    <span className="text-base capitalize font-secondary">
+                      {item.subtitle}
+                    </span>
+                  </div>
+                  <h1 className="font-semibold lg:text-5xl text-3xl flex lg:flex-col gap-2">
+                    <span>{item.title}</span>
+                    <span>{item.title2}</span>
+                  </h1>
+                  <button className="flex mt-1 items-center gap-2">
+                    <span className="border-b capitalize">shop now</span>
+                    <IoArrowForward className="text-lg" />
+                  </button>
+                </div>
+                <img
+                  src={item.image}
+                  alt=""
+                  className="brightness-75 lg:w-[35%] m-auto w-[50%] lg:my-0 p-4 lg:py-0 rotate-6"
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+          <PaginationComponent
+            totalSlides={FirstSectionSliderData.length}
+            activeIndex={activeIndex}
+            isHome
+            onclick={(i) => document.querySelector(".swiper").swiper.slideTo(i)}
           />
-          <Pagination isHome />
-        </div>
+        </Swiper>
       </div>
     </div>
   );

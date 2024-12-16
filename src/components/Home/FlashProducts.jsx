@@ -6,19 +6,31 @@ import SingleProduct from "../reusable/SingleProduct";
 import Button from "../reusable/Button";
 import Hr from "../reusable/Hr";
 import "swiper/css";
+import { Navigation } from "swiper/modules";
 
 const FlashProducts = () => {
   const { products } = useContext(ProductsContext);
 
   return (
     <div className="flex flex-col lg:gap-10 gap-4 lg:mt-36 mt-8 w-full">
-      <HeaderSection subtitle="Today's" title="Flash Sales" isTime />
+      <HeaderSection
+        subtitle="Today's"
+        title="Flash Sales"
+        isTime
+        next={"swiper-button-next"}
+        prev={"swiper-button-prev"}
+      />
       <div className="lg:pl-[135px] lg:pr-0 px-4">
         <div className="swiper">
           <Swiper
             slidesPerView={1}
             spaceBetween={30}
             grabCursor={true}
+            navigation={{
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            }}
+            modules={[Navigation]}
             breakpoints={{
               320: {
                 slidesPerView: 2,
