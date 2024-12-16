@@ -192,4 +192,10 @@ export const TeamData = [
   { title: "Tom Cruise", position: "Founder & Chairman", image: Team1 },
   { title: "Emma Watson", position: "Managing director", image: Team2 },
   { title: "Will Smith", position: "product designer", image: Team3 },
+  { title: "Tom Cruise", position: "Founder & Chairman", image: Team1 },
+  { title: "Emma Watson", position: "Managing director", image: Team2 },
+  { title: "Will Smith", position: "product designer", image: Team3 },
+  { title: "Tom Cruise", position: "Founder & Chairman", image: Team1 },
+  { title: "Emma Watson", position: "Managing director", image: Team2 },
+  { title: "Will Smith", position: "product designer", image: Team3 },
 ];

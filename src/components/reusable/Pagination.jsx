@@ -5,12 +5,14 @@ const Pagination = ({ isTeam, isHome, totalSlides, activeIndex, onclick }) => {
         isHome && "bottom-4"
       } inset-x-0 flex items-center justify-center lg:gap-3 gap-1`}
     >
-      {Array.from({ length: totalSlides }).map((_, i) => (
+      {Array.from({
+        length: isTeam ? Math.ceil(totalSlides / 3) : totalSlides,
+      }).map((_, i) => (
         <button
           key={i}
-          onClick={() => onclick(i)}
+          onClick={() => onclick(i * (isTeam ? 3 : 1))}
           className={`${
-            activeIndex === i
+            Math.floor(activeIndex / (isTeam ? 3 : 1)) === i
               ? "bg-secondary"
               : isTeam
               ? "bg-black opacity-30"
@@ -20,10 +22,10 @@ const Pagination = ({ isTeam, isHome, totalSlides, activeIndex, onclick }) => {
         >
           <span
             className={`rounded-full w-full h-full${
-              activeIndex === i && isHome
+              Math.floor(activeIndex / (isTeam ? 3 : 1)) === i && isHome
                 ? "border-white w-full h-full border-[2px]"
-                : activeIndex === i && isTeam
-                ? "border-white border-[2px] border-opacity-30"
+                : Math.floor(activeIndex / (isTeam ? 3 : 1)) === i && isTeam
+                ? "border-white border-[2px] w-full h-full border-opacity-30"
                 : ""
             }`}
           />

@@ -14,13 +14,13 @@ const About = () => {
     <div>
       <TopHeader />
       <Header />
-      <div className="lg:mt-20 mt-8 lg:mb-[130px] mb-12 grid lg:gap-[42px] gap-8">
-        <div className="lg:p-inline p-4">
+      <div className="lg:mt-20 mt-8 lg:mb-[130px] mb-12   lg:gap-[42px] gap-8">
+        <div className="lg:p-inline p-4 lg:mb-10">
           <PathPages lastIndex={1} links={AboutLinks} />
         </div>
-        <div className="grid lg:gap-[140px] gap-12">
+        <div className="lg:gap-[140px] gap-12 flex flex-col">
           <FirstSectionAbout />
-          <div className="lg:p-inline px-4 grid lg:gap-[140px] gap-12">
+          <div className="lg:p-inline px-4 flex flex-col lg:gap-[140px] gap-12">
             <NumberOfUsers data={NumberOfUsersData} />
             <OurTeam data={TeamData} />
           </div>
