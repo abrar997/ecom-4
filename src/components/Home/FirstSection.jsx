@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FirstSectionCategories } from "../../assets/mockData";
 import Pagination from "../reusable/Pagination";
 import { BsSoundwave } from "react-icons/bs";
+import Dropdown from "../reusable/Dropdown";
 
 const FirstSection = () => {
   return (
@@ -10,17 +11,84 @@ const FirstSection = () => {
       className="grid lg:p-inline p-0 lg:grid-cols-4 lg:gap-x-11"
       id="firstSection"
     >
-      <div className="border-r col-span-1 p-4 lg:p-0 order-2">
+      <div className="border-r col-span-1 p-4 lg:p-0 order-2 relative">
         <div className="lg:pt-10 grid lg:gap-y-4 gap-2 text-base">
           {FirstSectionCategories.map((category, index) => (
-            <Link
-              to={`/category/${category.category}`}
-              key={index}
-              className="flex justify-between pr-4 items-center capitalize"
-            >
-              {category.title}
-              {category.icon && <span>{category.icon}</span>}
-            </Link>
+            <div key={index}>
+              {category.category === "womenClothing" ||
+              category.category === "menClothing" ? (
+                <div className="flex justify-between relative">
+                  <Dropdown
+                    data={
+                      category.category === "womenClothing"
+                        ? [
+                            {
+                              id: 1,
+                              title: "Dresses",
+                              to: `/category/${category.category}`,
+                            },
+                            {
+                              id: 2,
+                              title: "Tops & Tees",
+                              to: `/category/${category.category}`,
+                            },
+                            {
+                              id: 3,
+                              title: "Jeans",
+                              to: `/category/${category.category}`,
+                            },
+                            {
+                              id: 4,
+                              title: "Shoes",
+                              to: `/category/${category.category}`,
+                            },
+                          ]
+                        : [
+                            {
+                              id: 1,
+                              title: "Shirts",
+                              to: `/category/${category.category}`,
+                            },
+                            {
+                              id: 2,
+                              title: "Trousers",
+                              to: `/category/${category.category}`,
+                            },
+                            {
+                              id: 3,
+                              title: "Suits",
+                              to: `/category/${category.category}`,
+                            },
+                            {
+                              id: 4,
+                              title: "Shoes",
+                              to: `/category/${category.category}`,
+                            },
+                          ]
+                    }
+                    ClassBtn={
+                      "text-black flex justify-between pr-4 items-center capitalize"
+                    }
+                    button={
+                      <div className="flex justify-between items-center w-full">
+                        <span>{category.title}</span>
+                        <span>{category.icon}</span>
+                      </div>
+                    }
+                    anchor="left start"
+                    className="bg-white shadow capitalize mt-1 origin-top-left rounded absolute z-[40] right-0 top-0 lg:px-4 lg:w-56 py-3 w-fit pl-5 pr-4 transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0 grid gap-2 items-start"
+                    itemClassName="hover:text-secondary capitalize"
+                  />
+                </div>
+              ) : (
+                <Link
+                  to={`/category/${category.category}`}
+                  className="flex justify-between pr-4 items-center capitalize"
+                >
+                  {category.title}
+                </Link>
+              )}
+            </div>
           ))}
         </div>
       </div>
@@ -45,7 +113,7 @@ const FirstSection = () => {
           <img
             src="https://www.freeiconspng.com/thumbs/headphones-png/headphones-png-0.png"
             alt=""
-            className="brightness-75 lg:w-[33%] m-auto w-[50%] -mt-4 lg:my-0"
+            className="brightness-75 lg:w-[33%] m-auto w-[50%] lg:my-0 p-4 lg:py-0"
           />
           <Pagination isHome />
         </div>
