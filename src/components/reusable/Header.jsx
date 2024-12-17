@@ -20,7 +20,7 @@ import logout from "../../assets/icons/logout.svg";
 import { WishListContextProvider } from "../../context/wishlistContext";
 
 const Header = ({ isRed }) => {
-  const { user, handleLogout } = useContext(AuthContext);
+  const { user, handleLogout, userGoogleData } = useContext(AuthContext);
   const { cartItems } = useContext(CartContext);
   const { wishListProducts } = useContext(WishListContextProvider);
 
@@ -100,6 +100,7 @@ const Header = ({ isRed }) => {
             cartItems={cartItems}
             dataUser={data}
             wishListProducts={wishListProducts}
+            userGoogleData={userGoogleData}
           />
         </div>
       </div>
@@ -116,6 +117,7 @@ const ShoppingItems = ({
   cartItems,
   dataUser,
   wishListProducts,
+  userGoogleData,
 }) => {
   return (
     <div className="flex items-center lg:gap-4">
@@ -151,12 +153,16 @@ const ShoppingItems = ({
           anchor="left start"
           button={
             <>
-              {user && isRed ? <img src={userIcon} alt="" /> : ""}
-              {user && !isRed && <img src={darkUser} />}
+              {(user || userGoogleData) && isRed ? (
+                <img src={userIcon} alt="" />
+              ) : (
+                ""
+              )}
+              {(user || userGoogleData) && !isRed && <img src={darkUser} />}
             </>
           }
           ClassBtn={`${
-            user && isRed
+            (user || userGoogleData) && isRed
               ? "bg-secondary rounded-full w-8 h-8 flex items-center justify-center text-white transition-all duration-300"
               : "w-full h-full"
           }`}

@@ -137,7 +137,7 @@ const FirstSection = () => {
                 <img
                   src={item.image}
                   alt=""
-                  className="brightness-75 lg:w-[35%] m-auto w-[50%] lg:my-0 p-4 lg:py-0 rotate-6"
+                  className="brightness-75 lg:w-[35%] m-auto w-[50%] lg:my-0 p-4 lg:py-0"
                 />
               </div>
             </SwiperSlide>

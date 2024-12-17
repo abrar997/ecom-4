@@ -14,11 +14,11 @@ import Header from "../components/reusable/Header";
 import Footer from "../components/reusable/Footer";
 
 const Home = () => {
-  const { user } = useContext(AuthContext);
+  const { user, userGoogleData } = useContext(AuthContext);
   return (
     <div>
       <TopHeader />
-      {user ? <Header isRed /> : <Header />}
+      {user || userGoogleData ? <Header isRed /> : <Header />}
       <div className="relative">
         <FirstSection />
         <FlashProducts />

@@ -1,4 +1,7 @@
-import { createContext, useState } from "react";
+import { googleLogout, useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
+import { createContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
@@ -8,6 +11,9 @@ const AuthenticationContext = ({ children }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLogin, setIsLogin] = useState(!!localStorage.getItem("auth"));
+  const [userGoogleData, setUserGoogleData] = useState(
+    JSON.parse(localStorage.getItem("googleData")) || {}
+  );
 
   const user = JSON.parse(localStorage.getItem("auth")) || null;
 
@@ -33,14 +39,34 @@ const AuthenticationContext = ({ children }) => {
     }
   };
   const handleLogout = () => {
-    if (isLogin) {
-      localStorage.removeItem("auth");
-    }
+    localStorage.removeItem("auth");
+    localStorage.removeItem("googleData");
     setIsLogin(false);
+    setUserGoogleData(null);
+    googleLogout();
   };
-  const signUpGoogle = () => {
-    console.log("goole");
-  };
+  const signUpGoogle = useGoogleLogin({
+    onSuccess: async (response) => {
+      try {
+        const res = await axios.get(
+          "https://www.googleapis.com/oauth2/v3/userinfo",
+          {
+            headers: {
+              Authorization: `Bearer ${response.access_token}`,
+            },
+          }
+        );
+        setUserGoogleData(res.data);
+        localStorage.setItem("googleData", JSON.stringify(res.data));
+        console.log(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  });
+  useEffect(() => {
+    JSON.parse(localStorage.getItem("googleData"), userGoogleData);
+  }, []);
 
   return (
     <AuthContext.Provider
@@ -58,6 +84,7 @@ const AuthenticationContext = ({ children }) => {
         handleLogout,
         isLogin,
         signUpGoogle,
+        userGoogleData,
       }}
     >
       {children}

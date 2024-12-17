@@ -9,7 +9,7 @@ import { AuthContext } from "../context/authContext";
 import { AccountLinks } from "../assets/LinksPageData";
 
 const Account = () => {
-  const { user } = useContext(AuthContext);
+  const { user, userGoogleData } = useContext(AuthContext);
   let itemIndex = 0;
 
   const inputsData = [
@@ -36,7 +36,13 @@ const Account = () => {
           <div className="flex gap-2 text-sm">
             <span>Welcome!</span>
             <span className="text-secondary capitalize">
-              {user ? user.userName : <p>user name</p>}
+              {user ? (
+                user.userName
+              ) : userGoogleData ? (
+                userGoogleData.name
+              ) : (
+                <p>user name</p>
+              )}
             </span>
           </div>
         </div>

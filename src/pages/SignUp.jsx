@@ -19,6 +19,7 @@ const SignUp = () => {
     setPassword,
     isLogin,
     signUpGoogle,
+    userGoogleData,
   } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
@@ -28,10 +29,10 @@ const SignUp = () => {
   };
 
   useEffect(() => {
-    if (isLogin) {
+    if (isLogin || userGoogleData) {
       navigate("/");
     }
-  }, []);
+  }, [isLogin, userGoogleData]);
 
   return (
     <>
@@ -90,12 +91,26 @@ const SignUp = () => {
                   Create Account
                 </button>
                 <button
-                  onClick={signUpGoogle}
+                  onClick={() => signUpGoogle()}
                   type="button"
                   className="border border-black flex items-center justify-center gap-4 text-center py-4 text-md font-secondary"
                 >
                   <img src={Google} /> Sign up with Google
                 </button>
+
+                {/* <GoogleLogin
+                  width={"100%"}
+                  onSuccess={(credentialResponse) => {
+                    // console.log(credentialResponse);
+                    const credentialResponseDecoded = jwtDecode(
+                      credentialResponse.credential
+                    );
+                    console.log(credentialResponseDecoded);
+                  }}
+                  onError={() => {
+                    console.log("Login Failed");
+                  }}
+                /> */}
               </div>
             </form>
             <p className="text-center font-secondary text-md font-normal justify-center flex gap-4">
