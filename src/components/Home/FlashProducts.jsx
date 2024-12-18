@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { ProductsContext } from "../../context/context";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
 import HeaderSection from "../reusable/HeaderSection";
 import SingleProduct from "../reusable/SingleProduct";
 import Button from "../reusable/Button";
 import Hr from "../reusable/Hr";
 import "swiper/css";
-import { Navigation } from "swiper/modules";
 
 const FlashProducts = () => {
   const { products } = useContext(ProductsContext);
@@ -30,7 +30,7 @@ const FlashProducts = () => {
               nextEl: ".swiper-button-next",
               prevEl: ".swiper-button-prev",
             }}
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             breakpoints={{
               320: {
                 slidesPerView: 2,
@@ -50,6 +50,7 @@ const FlashProducts = () => {
               },
             }}
             loop={true}
+            autoplay
             className="mySwiper"
           >
             {products.slice(0, 6).map((item, index) => (

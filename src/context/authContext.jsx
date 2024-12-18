@@ -1,7 +1,6 @@
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
-import { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { createContext, useState } from "react";
 
 export const AuthContext = createContext();
 
@@ -14,6 +13,7 @@ const AuthenticationContext = ({ children }) => {
   const [userGoogleData, setUserGoogleData] = useState(
     JSON.parse(localStorage.getItem("googleData")) || {}
   );
+  const [oTP, setOTP] = useState();
 
   const user = JSON.parse(localStorage.getItem("auth")) || null;
 
@@ -38,6 +38,7 @@ const AuthenticationContext = ({ children }) => {
       }
     }
   };
+
   const handleLogout = () => {
     localStorage.removeItem("auth");
     localStorage.removeItem("googleData");
@@ -45,6 +46,7 @@ const AuthenticationContext = ({ children }) => {
     setUserGoogleData(null);
     googleLogout();
   };
+
   const signUpGoogle = useGoogleLogin({
     onSuccess: async (response) => {
       try {
@@ -58,15 +60,11 @@ const AuthenticationContext = ({ children }) => {
         );
         setUserGoogleData(res.data);
         localStorage.setItem("googleData", JSON.stringify(res.data));
-        console.log(res.data);
       } catch (error) {
         console.log(error);
       }
     },
   });
-  useEffect(() => {
-    JSON.parse(localStorage.getItem("googleData"), userGoogleData);
-  }, []);
 
   return (
     <AuthContext.Provider
@@ -85,6 +83,8 @@ const AuthenticationContext = ({ children }) => {
         isLogin,
         signUpGoogle,
         userGoogleData,
+        oTP,
+        setOTP,
       }}
     >
       {children}

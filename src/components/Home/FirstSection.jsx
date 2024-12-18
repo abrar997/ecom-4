@@ -1,105 +1,21 @@
 import { IoArrowForward } from "react-icons/io5";
-import { Link } from "react-router-dom";
-import {
-  FirstSectionCategories,
-  FirstSectionSliderData,
-} from "../../assets/mockData";
-import Dropdown from "../reusable/Dropdown";
+import { FirstSectionSliderData } from "../../assets/mockData";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import PaginationComponent from "../reusable/Pagination";
 import { useState } from "react";
+import FirstSectionCategories from "./FirstSectionCategories";
+import { Link } from "react-router-dom";
 
 const FirstSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     <div
-      className="lg:grid lg:p-inline p-0 lg:grid-cols-4 lg:gap-x-11"
+      className="lg:grid w-full lg:p-inline flex p-0 lg:grid-cols-4 lg:gap-x-11 overflow-hidden"
       id="firstSection"
     >
-      <div className="border-r col-span-1 p-4 lg:p-0 order-2 relative">
-        <div className="lg:pt-10 grid lg:gap-y-4 gap-2 text-base">
-          {FirstSectionCategories.map((category, index) => (
-            <div key={index}>
-              {category.category === "womenClothing" ||
-              category.category === "menClothing" ? (
-                <div className="flex justify-between relative">
-                  <Dropdown
-                    data={
-                      category.category === "womenClothing"
-                        ? [
-                            {
-                              id: 1,
-                              title: "Dresses",
-                              to: `/category/${category.category}`,
-                            },
-                            {
-                              id: 2,
-                              title: "Tops & Tees",
-                              to: `/category/${category.category}`,
-                            },
-                            {
-                              id: 3,
-                              title: "Jeans",
-                              to: `/category/${category.category}`,
-                            },
-                            {
-                              id: 4,
-                              title: "Shoes",
-                              to: `/category/${category.category}`,
-                            },
-                          ]
-                        : [
-                            {
-                              id: 1,
-                              title: "Shirts",
-                              to: `/category/${category.category}`,
-                            },
-                            {
-                              id: 2,
-                              title: "Trousers",
-                              to: `/category/${category.category}`,
-                            },
-                            {
-                              id: 3,
-                              title: "Suits",
-                              to: `/category/${category.category}`,
-                            },
-                            {
-                              id: 4,
-                              title: "Shoes",
-                              to: `/category/${category.category}`,
-                            },
-                          ]
-                    }
-                    ClassBtn={
-                      "text-black flex justify-between pr-4 items-center capitalize"
-                    }
-                    button={
-                      <div className="flex justify-between items-center w-full">
-                        <span>{category.title}</span>
-                        <span>{category.icon}</span>
-                      </div>
-                    }
-                    anchor="left start"
-                    className="bg-white shadow capitalize mt-1 origin-top-left rounded absolute z-[40] right-0 top-0 lg:px-4 lg:w-56 py-3 w-fit pl-5 pr-4 transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0 grid gap-2 items-start"
-                    itemClassName="hover:text-secondary capitalize"
-                  />
-                </div>
-              ) : (
-                <Link
-                  to={`/category/${category.category}`}
-                  className="flex justify-between pr-4 items-center capitalize"
-                >
-                  {category.title}
-                </Link>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="lg:col-span-3 text-white lg:order-2 lg:pt-10 pt-0">
+      <FirstSectionCategories />
+      <div className="lg:col-span-3 w-full text-white lg:order-2 lg:pt-10 pt-0">
         <Swiper
           onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
           pagination={{
@@ -113,7 +29,6 @@ const FirstSection = () => {
             delay: 2500,
             disableOnInteraction: false,
           }}
-          loop
         >
           {FirstSectionSliderData.map((item, index) => (
             <SwiperSlide key={index}>
@@ -125,19 +40,19 @@ const FirstSection = () => {
                       {item.subtitle}
                     </span>
                   </div>
-                  <h1 className="font-semibold lg:text-5xl text-3xl flex lg:flex-col gap-2">
+                  <h1 className="font-semibold lg:text-5xl text-2xl flex lg:flex-col flex-wrap gap-2 lg:flex-nowrap lg:gap-2">
                     <span>{item.title}</span>
                     <span>{item.title2}</span>
                   </h1>
-                  <button className="flex mt-1 items-center gap-2">
+                  <Link to="/products" className="flex mt-1 items-center gap-2">
                     <span className="border-b capitalize">shop now</span>
                     <IoArrowForward className="text-lg" />
-                  </button>
+                  </Link>
                 </div>
                 <img
                   src={item.image}
                   alt=""
-                  className="brightness-75 lg:w-[35%] m-auto w-[50%] lg:my-0 p-4 lg:py-0"
+                  className="brightness-75 lg:w-[35%] lg:m-auto mx-auto -mt-4 md:w-[20%] md:-mt-4 lg:mt-0 w-[50%] lg:my-0 lg:py-0 p-2"
                 />
               </div>
             </SwiperSlide>

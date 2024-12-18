@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
+import { SwiperSlide, Swiper } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
 import { CategoriesData } from "../../assets/mockData";
 import HeaderSection from "../reusable/HeaderSection";
 import Hr from "../reusable/Hr";
-import { Autoplay, Navigation } from "swiper/modules";
-import { SwiperSlide, Swiper } from "swiper/react";
 import "swiper/css";
 
 const Categories = () => {
@@ -48,14 +49,17 @@ const Categories = () => {
         >
           {CategoriesData.map((category, index) => (
             <SwiperSlide key={index}>
-              <div className="border border-black p-4 lg:h-36 lg:pt-[25px] hover:border-slate-50 border-opacity-30 rounded  flex lg:grid items-center lg:justify-center gap-4 hover:bg-secondary transition-all duration-300 group">
+              <Link
+                to={`/category/${category.category}`}
+                className="border h-[80px] border-black p-4 lg:h-36 lg:pt-[25px] hover:border-slate-50 border-opacity-30 rounded flex lg:grid items-center lg:justify-center gap-4 hover:bg-secondary transition-all duration-300 group"
+              >
                 <div className="text-5xl lg:m-auto group-hover:text-white">
                   {category.icon}
                 </div>
                 <h2 className="text-center capitalize text-md font-secondary group-hover:text-white">
                   {category.title}
                 </h2>
-              </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>

@@ -20,16 +20,28 @@ import Team1 from "../assets/images/team-1.png";
 import Team2 from "../assets/images/team-2.png";
 import Team3 from "../assets/images/team-3.png";
 
-export const FirstSectionCategories = [
+export const FirstSectionCategoriesData = [
   {
     title: "women's fashion",
     icon: <IoIosArrowForward />,
     category: "womenClothing",
+    children: [
+      { title: "Dresses", category: "dresses" },
+      { title: "Tops & Tees", category: "tops" },
+      { title: "Jeans", category: "jeans" },
+      { title: "shoes", category: "shoes" },
+    ],
   },
   {
     title: "men's fashion",
     icon: <IoIosArrowForward />,
     category: "menClothing",
+    children: [
+      { title: "shirts", category: "shirts" },
+      { title: "trousers", category: "trousers" },
+      { title: "suits", category: "suits" },
+      { title: "shoes", category: "shoes" },
+    ],
   },
   { title: "electronics fashion", category: "electronics" },
   { title: "home & lifestyle fashion", category: "home" },
@@ -89,7 +101,7 @@ export const FirstSectionSliderData = [
 ];
 
 export const CategoriesData = [
-  { icon: <CiMobile4 />, title: "phones" },
+  { icon: <CiMobile4 />, title: "phones", category: "electronics" },
   {
     icon: (
       <div>
@@ -102,6 +114,7 @@ export const CategoriesData = [
       </div>
     ),
     title: "computers",
+    category: "electronics",
   },
   {
     icon: (
@@ -115,9 +128,10 @@ export const CategoriesData = [
       </div>
     ),
     title: "smartwatch",
+    category: "electronics",
   },
-  { icon: <CiCamera />, title: "camera" },
-  { icon: <CiHeadphones />, title: "headPhones" },
+  { icon: <CiCamera />, title: "camera", category: "electronics" },
+  { icon: <CiHeadphones />, title: "headPhones", category: "electronics" },
   {
     icon: (
       <div>
@@ -129,7 +143,8 @@ export const CategoriesData = [
         />
       </div>
     ),
-    title: "Gamin",
+    title: "Gaming",
+    category: "electronics",
   },
   { icon: <CiHeadphones />, title: "headPhones" },
 ];

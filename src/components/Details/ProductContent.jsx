@@ -36,7 +36,7 @@ const ProductContent = ({ singleProduct }) => {
   };
 
   return (
-    <div className="flex flex-col lg:gap-6 gap-6 col-span-1">
+    <div className="flex flex-col lg:gap-4 gap-6 col-span-1">
       <ProductContents singleProduct={singleProduct} totalPrice={totalPrice} />
       <div className="bg-black h-[1px] w-full" />
       <Colours />
@@ -100,8 +100,8 @@ const Sizes = () => {
 
 const ProductContents = ({ singleProduct, totalPrice }) => {
   return (
-    <div className="grid lg:gap-6 gap-3">
-      <div className="grid lg:gap-4 gap-2">
+    <div className="grid lg:gap-4 gap-3">
+      <div className="grid lg:gap-2 gap-2">
         <h1 className="text-2xl font-semibold tracking-[3%]">
           {singleProduct.title}
         </h1>

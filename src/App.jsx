@@ -18,6 +18,8 @@ import CartProductsContext from "./context/cartContext";
 import ProtectedRoute from "./components/route/ProtectedRoute";
 import ProductCategory from "./pages/ProductCategory";
 import WishlistContext from "./context/wishlistContext";
+import ForgetPassword from "./pages/ForgetPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 function App() {
   return (
@@ -35,6 +37,10 @@ function App() {
                     <Route
                       element={<ProductCategory />}
                       path="/category/:category/"
+                    />
+                    <Route
+                      element={<ProductCategory />}
+                      path="/category/:category/:categoryChild"
                     />
                     <Route
                       element={<ProductDetails />}
@@ -106,6 +112,22 @@ function App() {
                         </ProtectedRoute>
                       }
                       path="/contact"
+                    />
+                    <Route
+                      element={
+                        <ProtectedRoute>
+                          <ForgetPassword />
+                        </ProtectedRoute>
+                      }
+                      path="/forgetPassword"
+                    />
+                    <Route
+                      element={
+                        <ProtectedRoute>
+                          <ResetPassword />
+                        </ProtectedRoute>
+                      }
+                      path="/reset"
                     />
                     <Route element={<NotFound />} path="*" />
                   </Routes>

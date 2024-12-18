@@ -9,7 +9,7 @@ const TopHeader = () => {
           Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
         </p>
         <Link
-          to=""
+          to="/products"
           className="border-b font-semibold hover:text-gray-300 text-sm lg:text-md"
         >
           ShopNow

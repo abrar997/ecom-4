@@ -32,7 +32,7 @@ const SignUp = () => {
     if (isLogin || userGoogleData) {
       navigate("/");
     }
-  }, [isLogin, userGoogleData]);
+  }, [userGoogleData]);
 
   return (
     <>

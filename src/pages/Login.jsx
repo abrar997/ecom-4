@@ -4,7 +4,7 @@ import { AuthContext } from "../context/authContext";
 import TopHeader from "../components/reusable/TopHeader";
 import Header from "../components/reusable/Header";
 import Footer from "../components/reusable/Footer";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { error, handleLogin, email, setEmail, password, setPassword } =
@@ -71,9 +71,12 @@ const Login = () => {
                 >
                   Login
                 </button>
-                <p className="text-secondary text-md font-secondary font-normal">
+                <Link
+                  to="/forgetPassword"
+                  className="text-secondary text-md font-secondary font-normal"
+                >
                   Forget Password?
-                </p>
+                </Link>
               </div>
             </form>
           </div>
