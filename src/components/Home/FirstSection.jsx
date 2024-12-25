@@ -49,6 +49,7 @@ const FirstSection = () => {
                     <IoArrowForward className="text-lg" />
                   </Link>
                 </div>
+
                 <img
                   src={item.image}
                   alt=""

@@ -1,7 +1,7 @@
 import { CiCamera, CiHeadphones, CiMobile4 } from "react-icons/ci";
 import { TbTruckDelivery } from "react-icons/tb";
 import { IoIosArrowForward } from "react-icons/io";
-import { BsShopWindow, BsSoundwave } from "react-icons/bs";
+import { BsBag, BsCamera, BsShopWindow, BsSoundwave } from "react-icons/bs";
 import { CiDollar } from "react-icons/ci";
 import { TbShoppingBag } from "react-icons/tb";
 import { FaSackDollar } from "react-icons/fa6";
@@ -67,18 +67,18 @@ export const FirstSectionSliderData = [
     title: "Up to 10%",
     title2: "off Voucher",
     subtitle: "Headphone 14 series",
-    icon: <BsSoundwave />,
+    icon: <BsCamera />,
     image:
-      "https://www.freeiconspng.com/thumbs/headphones-png/headphones-png-0.png",
+      "https://th.bing.com/th/id/R.72d1f8bf255823284396a4a0a151e0c3?rik=jv8J2%2blKwwesug&riu=http%3a%2f%2fofficialpsds.com%2fimageview%2f7n%2f5v%2f7n5v26_large.png%3f1521316558&ehk=8VqIS379%2fbnhWV9ng689PIUMN%2fglfnC89yiJZVULVno%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1",
   },
   {
     id: 3,
     title: "Up to 10%",
     title2: "off Voucher",
     subtitle: "Headphone 14 series",
-    icon: <BsSoundwave />,
+    icon: <BsBag />,
     image:
-      "https://www.freeiconspng.com/thumbs/headphones-png/headphones-png-0.png",
+      "https://th.bing.com/th/id/OIP.6WflYSoMLwWLA_pVmVF_ZAHaHa?rs=1&pid=ImgDetMain",
   },
   {
     id: 4,

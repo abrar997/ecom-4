@@ -46,7 +46,7 @@ const ProductCategory = () => {
           </Link>
         </div>
         {filteredProducts && filteredProducts.length > 0 ? (
-          <div className="grid lg:grid-cols-4 lg:gap-8 lg:gap-y-20">
+          <div className="grid lg:grid-cols-4 lg:gap-8 gap-6 lg:gap-y-20">
             {filteredProducts.map((item, index) => (
               <SingleProduct product={item} key={index} />
             ))}

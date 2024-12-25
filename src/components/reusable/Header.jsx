@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useEffect } from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import {
   IoCartOutline,
@@ -67,6 +67,7 @@ const Header = ({ isRed }) => {
       itemClassName: "flex gap-4 items-center w-full text-sm font-secondary",
     },
   ];
+
   return (
     <>
       <div className="flex justify-between lg:p-inline lg:pt-10 lg:pb-4 p-4 relative items-center">
@@ -119,6 +120,17 @@ const ShoppingItems = ({
   wishListProducts,
   userGoogleData,
 }) => {
+  // useEffect(() => {
+  //   const handleShoppingCart = () => {
+  //     if (window.scrollY > 300 && window.screen.availWidth < 900) {
+  //       document.querySelector(".shopping-items").classList.remove("hidden");
+  //       document.querySelector(".shopping-items").classList.add("grid");
+  //     }
+  //   };
+  //   window.addEventListener("scroll", handleShoppingCart);
+  //   return () => window.removeEventListener("scroll", handleShoppingCart);
+  // }, []);
+
   return (
     <div className="flex items-center lg:gap-4">
       <div className="bg-secondary2 rounded relative py-2 px-5 hidden lg:flex">
@@ -131,7 +143,7 @@ const ShoppingItems = ({
           <CiSearch />
         </button>
       </div>
-      <div className="lg:flex lg:gap-4 text-[22px] items-center grid gap-3 top-[270px]  rounded lg:shadow-none shadow z-30 p-4 px-2 pt-6 lg:p-0 lg:top-0 lg:sticky fixed bg-secondary2 lg:bg-transparent right-0">
+      <div className="lg:flex shopping-items lg:gap-4 text-[22px] items-center hidden gap-3 top-[270px] rounded lg:shadow-none shadow z-30 p-4 px-2 pt-6 lg:p-0 lg:top-0 lg:sticky fixed bg-secondary2 lg:bg-transparent right-0">
         <Link to="/wishlist" className="relative">
           <IoHeartOutline />
           <span className="absolute -top-2 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">

@@ -10,13 +10,13 @@ const ForgetPassword = () => {
     if (email) {
       const OTP = Math.floor(Math.random() * 9500 + 1000); //create random number as verification number to send it to email
       setOTP(OTP);
-      const req = await axios
+      await axios
         .post("http://localhost:5173/forgetPassword", {
           OTP,
           recipient_email: email,
         })
         .then(() => {
-          navigate("reset");
+          navigate("/reset");
         })
         .catch((error) => {
           console.log(error);
