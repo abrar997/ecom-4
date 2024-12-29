@@ -20,6 +20,7 @@ import ProductCategory from "./pages/ProductCategory";
 import WishlistContext from "./context/wishlistContext";
 import ForgetPassword from "./pages/ForgetPassword";
 import ResetPassword from "./pages/ResetPassword";
+import FilteredProducts from "./components/reusable/FilteredProducts";
 
 function App() {
   return (
@@ -120,6 +121,14 @@ function App() {
                         </ProtectedRoute>
                       }
                       path="/forgetPassword"
+                    />
+                    <Route
+                      element={
+                        <ProtectedRoute>
+                          <FilteredProducts />
+                        </ProtectedRoute>
+                      }
+                      path="/filtered-products"
                     />
                     <Route
                       element={

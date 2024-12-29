@@ -78,7 +78,7 @@ export const FirstSectionSliderData = [
     subtitle: "Headphone 14 series",
     icon: <BsBag />,
     image:
-      "https://th.bing.com/th/id/OIP.6WflYSoMLwWLA_pVmVF_ZAHaHa?rs=1&pid=ImgDetMain",
+      "https://www.freeiconspng.com/thumbs/headphones-png/headphones-png-0.png",
   },
   {
     id: 4,

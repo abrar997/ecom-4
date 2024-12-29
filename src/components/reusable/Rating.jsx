@@ -9,7 +9,11 @@ const Rating = ({ rating }) => {
       {Array(fullStars)
         .fill(0)
         .map((_, i) => (
-          <FaStar kernelMatrix={`full-${i}`} className="text-[#FFAD33]" />
+          <FaStar
+            key={`full-${i}`}
+            kernelMatrix={`full-${i}`}
+            className="text-[#FFAD33]"
+          />
         ))}
       {halfStar && <img src={halfStarImage} />}
 

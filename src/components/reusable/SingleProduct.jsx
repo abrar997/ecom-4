@@ -13,7 +13,6 @@ const SingleProduct = ({ product }) => {
   const { addToCart } = useContext(CartContext);
   const location = useLocation();
   const isLike = wishListProducts.some((item) => item.id === product.id);
-  console.log(product.colors);
 
   return (
     <div className="grid gap-4 w-full">

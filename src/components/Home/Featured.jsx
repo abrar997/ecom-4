@@ -11,7 +11,7 @@ const Featured = () => {
       <div className="grid lg:grid-cols-2 text-text lg:gap-[30px] gap-4 lg:p-inline p-4">
         <div className="relative bg-black lg:h-[600px] h-[300px]">
           <img
-            className="absolute bottom-0 right-0 lg:w-full w-1/2"
+            className="absolute bottom-0 right-0 lg:w-[80%] w-1/2 md:w-1/3"
             src={feature1}
           />
           <div className="absolute left-8 bottom-8 flex flex-col gap-4 items-start">
@@ -38,7 +38,11 @@ const Featured = () => {
           <div className="grid grid-cols-2 gap-[30px] h-[284px]">
             <div className="relative bg-black">
               <div className="absolute inset-0 flex items-center justify-center">
-                <img src={feature3} alt="" className="absolute z-10" />
+                <img
+                  src={feature3}
+                  alt=""
+                  className="absolute z-10 lg:w-1/2 w-1/2"
+                />
               </div>
               <div className="absolute z-30 left-8 bottom-8 flex flex-col gap-4 items-start">
                 <h1 className="font-semibold text-[24px] capitalize">

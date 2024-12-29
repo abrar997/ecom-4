@@ -52,7 +52,7 @@ const OurProducts = () => {
           className="mySwiper"
         >
           {products.slice(8, 17).map((item, index) => (
-            <SwiperSlide>
+            <SwiperSlide key={index}>
               <SingleProduct product={item} key={index} />
             </SwiperSlide>
           ))}

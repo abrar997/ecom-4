@@ -1,23 +1,16 @@
-import { Fragment, useContext, useEffect } from "react";
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import {
-  IoCartOutline,
-  IoClose,
-  IoHeartOutline,
-  IoMenuOutline,
-} from "react-icons/io5";
+import { useContext } from "react";
+import { IoMenuOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { CiSearch } from "react-icons/ci";
 import { AuthContext } from "../../context/authContext";
 import { CartContext } from "../../context/cartContext";
 import Dropdown from "../reusable/Dropdown";
 import userIcon from "../../assets/icons/user.svg";
-import darkUser from "../../assets/icons/darkUser.svg";
 import order from "../../assets/icons/bag.svg";
 import cancel from "../../assets/icons/cancel.svg";
 import star from "../../assets/icons/star.svg";
 import logout from "../../assets/icons/logout.svg";
 import { WishListContextProvider } from "../../context/wishlistContext";
+import ShoppingItems from "../Header/ShoppingItems";
 
 const Header = ({ isRed }) => {
   const { user, handleLogout, userGoogleData } = useContext(AuthContext);
@@ -110,121 +103,3 @@ const Header = ({ isRed }) => {
   );
 };
 export default Header;
-
-const ShoppingItems = ({
-  isRed,
-  user,
-  handleLogout,
-  cartItems,
-  dataUser,
-  wishListProducts,
-  userGoogleData,
-}) => {
-  // useEffect(() => {
-  //   const handleShoppingCart = () => {
-  //     if (window.scrollY > 300 && window.screen.availWidth < 900) {
-  //       document.querySelector(".shopping-items").classList.remove("hidden");
-  //       document.querySelector(".shopping-items").classList.add("grid");
-  //     }
-  //   };
-  //   window.addEventListener("scroll", handleShoppingCart);
-  //   return () => window.removeEventListener("scroll", handleShoppingCart);
-  // }, []);
-
-  return (
-    <div className="flex items-center lg:gap-4">
-      <div className="bg-secondary2 rounded relative py-2 px-5 hidden lg:flex">
-        <input
-          type="text"
-          className="outline-none border-none bg-transparent placeholder:font-light placeholder:text-xs"
-          placeholder="What are you looking for?"
-        />
-        <button className="absolute text-2xl right-4 my-auto">
-          <CiSearch />
-        </button>
-      </div>
-      <div className="lg:flex shopping-items lg:gap-4 text-[22px] items-center hidden gap-3 top-[270px] rounded lg:shadow-none shadow z-30 p-4 px-2 pt-6 lg:p-0 lg:top-0 lg:sticky fixed bg-secondary2 lg:bg-transparent right-0">
-        <Link to="/wishlist" className="relative">
-          <IoHeartOutline />
-          <span className="absolute -top-2 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">
-            {wishListProducts && wishListProducts.length > 0
-              ? wishListProducts.length
-              : 0}
-          </span>
-        </Link>
-        <Link to="/cart" className="relative mt-1 lg:mt-0">
-          <IoCartOutline />
-          <span className="absolute -top-2 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">
-            {cartItems && cartItems.length > 0 ? cartItems.length : 0}
-          </span>
-        </Link>
-        <InputField className="lg:hidden" />
-      </div>
-      <div className="relative">
-        <Dropdown
-          anchor="left start"
-          button={
-            <>
-              {(user || userGoogleData) && isRed ? (
-                <img src={userIcon} alt="" />
-              ) : (
-                ""
-              )}
-              {(user || userGoogleData) && !isRed && <img src={darkUser} />}
-            </>
-          }
-          ClassBtn={`${
-            (user || userGoogleData) && isRed
-              ? "bg-secondary rounded-full w-8 h-8 flex items-center justify-center text-white transition-all duration-300"
-              : "w-full h-full"
-          }`}
-          className={`bg-[#000] ${
-            isRed ? "bg-opacity-10" : "bg-opacity-90"
-          } backdrop-blur-[75px] capitalize bg-opacity-10 origin-top-right rounded absolute z-[40] right-0 top-16 ml-8 mt-10 lg:px-4 lg:w-56 py-[18px] w-fit pl-5 pr-4 transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0 grid gap-2 items-start`}
-          data={dataUser}
-          Function={handleLogout}
-          itemClassName="flex items-center gap-2 text-white"
-        />
-      </div>
-    </div>
-  );
-};
-
-const InputField = ({ className }) => {
-  return (
-    <div className={className}>
-      <Menu as={Fragment}>
-        {({ open, close }) => (
-          <>
-            <MenuButton>
-              <CiSearch />
-            </MenuButton>
-            {open && (
-              <MenuItems
-                transition
-                anchor="bottom end"
-                className="origin-left mt-20 fixed top-0 z-[40] w-full rounded shadow-xl bg-secondary2 p-4 pb-8 transition duration-100 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
-              >
-                <button onClick={() => close()}>
-                  <IoClose className="absolute right-2 top-2 text-xl" />
-                </button>
-                <MenuItem>
-                  <p className="text-xl mb-3 font-semibold">
-                    Search Your product
-                  </p>
-                </MenuItem>
-                <MenuItem>
-                  <input
-                    type="text"
-                    className="outline-none border-none lg:bg-secondary2 text-black placeholder:font-light placeholder:text-xs p-2 rounded w-full"
-                    placeholder="What are you looking for?"
-                  />
-                </MenuItem>
-              </MenuItems>
-            )}
-          </>
-        )}
-      </Menu>
-    </div>
-  );
-};
