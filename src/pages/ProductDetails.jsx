@@ -16,7 +16,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     fetchSingleProduct(productId);
-  }, [productId]);
+  }, [productId, fetchSingleProduct]);
 
   if (!item) return <p>loading ...</p>;
 

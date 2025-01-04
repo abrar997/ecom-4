@@ -21,6 +21,7 @@ import WishlistContext from "./context/wishlistContext";
 import ForgetPassword from "./pages/ForgetPassword";
 import ResetPassword from "./pages/ResetPassword";
 import FilteredProducts from "./components/reusable/FilteredProducts";
+import Logout from "./pages/Logout";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
                     {/* public routes */}
                     <Route element={<Login />} path="/login" />
                     <Route element={<SignUp />} path="/signup" />
+                    <Route element={<Logout />} path="/logout" />
                     <Route
                       element={<ProductCategory />}
                       path="/category/:category/"
@@ -45,7 +47,7 @@ function App() {
                     />
                     <Route
                       element={<ProductDetails />}
-                      path="/product/:productId/"
+                      path="/product/:productId"
                     />
 
                     {/* protected routes */}

@@ -1,12 +1,17 @@
 import { Button, Dialog, DialogPanel } from "@headlessui/react";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
 import { ProductsContext } from "../../context/context";
 
 const SearchField = ({ className }) => {
-  const { searchProduct, setSearchProduct } = useContext(ProductsContext);
+  const { searchProduct, setSearchProduct, handleSearchProducts } =
+    useContext(ProductsContext);
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    handleSearchProducts();
+  }, [searchProduct]);
 
   return (
     <div className={className}>

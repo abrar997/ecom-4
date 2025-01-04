@@ -2,22 +2,26 @@ import { BsHeartFill } from "react-icons/bs";
 import { IoEyeOutline, IoHeartOutline } from "react-icons/io5";
 import { Link, useLocation } from "react-router-dom";
 import { WishListContextProvider } from "../../context/wishlistContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../context/cartContext";
 import Rating from "./Rating";
+import { ProductsContext } from "../../context/context";
 
 const SingleProduct = ({ product }) => {
   const { wishListProducts, addToWishlist } = useContext(
     WishListContextProvider
   );
   const { addToCart } = useContext(CartContext);
+  const { setFilteredProducts, setSearchProduct } = useContext(ProductsContext);
   const location = useLocation();
   const isLike = wishListProducts.some((item) => item.id === product.id);
-
+  const [currentImage, setCurrentImage] = useState(
+    product.colors ? product.colors[0].image : product.image
+  );
   return (
     <div className="grid gap-4 w-full">
       <div className="lg:h-64 h-52 p-6 lg:p-0 group overflow-hidden bg-secondary2 relative rounded flex items-center justify-center">
-        <img src={product.image} alt="" />
+        <img src={currentImage} alt="" />
         <div>
           {product.discount && (
             <span className="absolute left-3 top-3 bg-secondary text-white rounded lg:px-3 px-2 py-1 text-xs">
@@ -43,6 +47,10 @@ const SingleProduct = ({ product }) => {
           </button>
           <Link
             to={`/product/${product.id}/`}
+            onClick={() => {
+              setFilteredProducts([]);
+              setSearchProduct("");
+            }}
             className="w-8 h-8 bg-white rounded-full flex items-center justify-center"
           >
             <IoEyeOutline />
@@ -74,14 +82,19 @@ const SingleProduct = ({ product }) => {
             {product.colors.map((item, index) => (
               <button
                 key={index}
+                onClick={() => setCurrentImage(index)}
                 style={{ backgroundColor: item.color }}
-                className={`${
-                  index === 0 && "border-black border-2"
-                }  w-5 h-5 flex items-center justify-center rounded-full bg-white`}
+                className={`
+                  ${
+                    currentImage === item.image
+                      ? "border-black border-2"
+                      : "border-0"
+                  } 
+                 w-5 h-5 flex items-center justify-center rounded-full bg-white`}
               >
                 <span
                   className={`rounded-full w-full h-full ${
-                    index === 0 && "border-white border-[3px]"
+                    currentImage === item.image && "border-white border-[3px]"
                   }`}
                 />
               </button>

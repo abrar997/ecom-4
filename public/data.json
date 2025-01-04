@@ -312,8 +312,16 @@
       "rate": 2.2
     },
     "colors": [
-      { "id": 1, "color": "#FB1314" },
-      { "id": 2, "color": "#DB4444" }
+      {
+        "id": 1,
+        "color": "#FB1314",
+        "image": "/images/productsImages/p1-2.png"
+      },
+      {
+        "id": 2,
+        "color": "#DB4444",
+        "image": "/images/productsImages/p1-4.png"
+      }
     ]
   },
   {
@@ -338,8 +346,16 @@
       "rate": 2.6
     },
     "colors": [
-      { "id": 1, "color": "#EEFF61" },
-      { "id": 2, "color": "#DB4444" }
+      {
+        "id": 1,
+        "color": "#EEFF61",
+        "image": "/images/productsImages/p1-2.png"
+      },
+      {
+        "id": 2,
+        "color": "#DB4444",
+        "image": "/images/productsImages/p1-4.png"
+      }
     ]
   },
   {
@@ -365,8 +381,12 @@
       "rate": 2.9
     },
     "colors": [
-      { "id": 1, "color": "black" },
-      { "id": 2, "color": "#DB4444" }
+      { "id": 1, "color": "black", "image": "/images/productsImages/p1-2.png" },
+      {
+        "id": 2,
+        "color": "#DB4444",
+        "image": "/images/productsImages/p1-4.png"
+      }
     ]
   },
   {
@@ -391,8 +411,16 @@
       "rate": 3.8
     },
     "colors": [
-      { "id": 1, "color": "#184A48" },
-      { "id": 2, "color": "#DB4444" }
+      {
+        "id": 1,
+        "color": "#184A48",
+        "image": "/images/productsImages/p1-2.png"
+      },
+      {
+        "id": 2,
+        "color": "#DB4444",
+        "image": "/images/productsImages/p1-4.png"
+      }
     ]
   },
   {

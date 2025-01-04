@@ -1,6 +1,7 @@
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
@@ -14,7 +15,7 @@ const AuthenticationContext = ({ children }) => {
     JSON.parse(localStorage.getItem("googleData")) || {}
   );
   const [oTP, setOTP] = useState();
-
+  const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("auth")) || null;
 
   const handleSignUp = () => {
@@ -31,7 +32,6 @@ const AuthenticationContext = ({ children }) => {
     const user = JSON.parse(localStorage.getItem("auth"));
     if (user) {
       if (email === user.email && password === user.password) {
-        localStorage.setItem("auth", "true");
         setIsLogin(true);
       } else {
         setError("invalid email or password .");
@@ -45,6 +45,7 @@ const AuthenticationContext = ({ children }) => {
     setIsLogin(false);
     setUserGoogleData(null);
     googleLogout();
+    navigate("/signup");
   };
 
   const signUpGoogle = useGoogleLogin({

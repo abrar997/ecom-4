@@ -10,7 +10,7 @@ import cancel from "../../assets/icons/cancel.svg";
 import star from "../../assets/icons/star.svg";
 import logout from "../../assets/icons/logout.svg";
 import { WishListContextProvider } from "../../context/wishlistContext";
-import ShoppingItems from "../Header/ShoppingItems";
+import HeaderItems from "../Header/HeaderItems";
 
 const Header = ({ isRed }) => {
   const { user, handleLogout, userGoogleData } = useContext(AuthContext);
@@ -35,28 +35,24 @@ const Header = ({ isRed }) => {
       title: "my order",
       icon: <img src={order} />,
       to: "/cart",
-      isFunction: false,
       itemClassName: "flex gap-4 items-center w-full text-sm font-secondary",
     },
     {
       title: "my collection",
       icon: <img src={cancel} />,
       to: "/wishlist",
-      isFunction: false,
       itemClassName: "flex gap-4 items-center w-full text-sm font-secondary",
     },
     {
       title: "my reviews",
       icon: <img src={star} />,
       to: "/cart",
-      isFunction: false,
       itemClassName: "flex gap-4 items-center w-full text-sm font-secondary",
     },
     {
       title: "logout",
       icon: <img src={logout} />,
-      isFunction: true,
-      handleFunction: handleLogout,
+      to: "/logout",
       itemClassName: "flex gap-4 items-center w-full text-sm font-secondary",
     },
   ];
@@ -79,6 +75,7 @@ const Header = ({ isRed }) => {
           ))}
         </div>
         <div className="flex items-center lg:gap-6 gap-3">
+          {/* menu for mobile */}
           <div className="lg:hidden">
             <Dropdown
               button={<IoMenuOutline size={24} />}
@@ -88,7 +85,7 @@ const Header = ({ isRed }) => {
               anchor="top start"
             />
           </div>
-          <ShoppingItems
+          <HeaderItems
             isRed={isRed}
             user={user}
             cartItems={cartItems}

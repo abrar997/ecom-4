@@ -5,11 +5,11 @@ export default function ContextProvider({ children }) {
   const AllProducts = localStorage.getItem("products")
     ? JSON.parse(localStorage.getItem("products"))
     : [];
+
   const [products, setProducts] = useState([]);
   const [singleProduct, setSingleProduct] = useState({});
   const [searchProduct, setSearchProduct] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
-
   const fetchAllProducts = async () => {
     const res = await fetch("data.json");
     const dataApi = await res.json();
@@ -18,9 +18,7 @@ export default function ContextProvider({ children }) {
   };
 
   const fetchSingleProduct = async (id) => {
-    const res = await fetch(`data.json`);
-    const data = await res.json();
-    const product = data.find((item) => item.id.toString() === id);
+    const product = products.find((item) => item.id.toString() === id);
     if (product) {
       setSingleProduct(product);
     } else {
@@ -45,7 +43,7 @@ export default function ContextProvider({ children }) {
 
   useEffect(() => {
     handleSearchProducts();
-  }, [products, searchProduct, filteredProducts]);
+  }, [searchProduct]);
 
   return (
     <ProductsContext.Provider

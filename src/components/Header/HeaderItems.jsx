@@ -1,13 +1,14 @@
 import { IoCartOutline, IoHeartOutline } from "react-icons/io5";
 import Dropdown from "../reusable/Dropdown";
 import { CiSearch } from "react-icons/ci";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import userIcon from "../../assets/icons/user.svg";
 import SearchField from "./SearchField";
 import darkUser from "../../assets/icons/darkUser.svg";
+import { ProductsContext } from "../../context/context";
 
-const ShoppingItems = ({
+const HeaderItems = ({
   isRed,
   user,
   handleLogout,
@@ -16,19 +17,7 @@ const ShoppingItems = ({
   wishListProducts,
   userGoogleData,
 }) => {
-  //   useEffect(() => {
-  //     const handleShoppingCart = () => {
-  //       if (window.scrollY > 200 && window.innerWidth < 720) {
-  //         document.querySelector(".shopping-items").classList.remove("hidden");
-  //         document.querySelector(".shopping-items").classList.add("grid");
-  //       } else {
-  //         document.querySelector(".shopping-items").classList.add("hidden");
-  //         document.querySelector(".shopping-items").classList.remove("grid");
-  //       }
-  //     };
-  //     window.addEventListener("scroll", handleShoppingCart);
-  //     return () => window.removeEventListener("scroll", handleShoppingCart);
-  //   }, []);
+  const { searchProduct, setSearchProduct } = useContext(ProductsContext);
 
   return (
     <div className="flex items-center lg:gap-4">
@@ -37,11 +26,14 @@ const ShoppingItems = ({
           type="text"
           className="outline-none border-none bg-transparent placeholder:font-light placeholder:text-xs"
           placeholder="What are you looking for?"
+          value={searchProduct}
+          onChange={(e) => setSearchProduct(e.target.value)}
         />
         <button className="absolute text-2xl right-4 my-auto">
           <CiSearch />
         </button>
       </div>
+
       <div className="lg:flex shopping-items lg:gap-4 text-[22px] items-center grid gap-3 top-[270px] rounded lg:shadow-none shadow z-30 p-4 px-2 pt-6 lg:p-0 lg:top-0 lg:sticky fixed bg-secondary2 lg:bg-transparent right-0">
         <Link to="/wishlist" className="relative">
           <IoHeartOutline />
@@ -89,4 +81,4 @@ const ShoppingItems = ({
   );
 };
 
-export default ShoppingItems;
+export default HeaderItems;
