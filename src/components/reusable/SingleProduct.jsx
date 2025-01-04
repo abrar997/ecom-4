@@ -21,7 +21,11 @@ const SingleProduct = ({ product }) => {
   return (
     <div className="grid gap-4 w-full">
       <div className="lg:h-64 h-52 p-6 lg:p-0 group overflow-hidden bg-secondary2 relative rounded flex items-center justify-center">
-        <img src={currentImage} alt="" />
+        {location.pathname === "/" ? (
+          <img src={currentImage} alt="" />
+        ) : (
+          <img src={product.image} alt="" />
+        )}
         <div>
           {product.discount && (
             <span className="absolute left-3 top-3 bg-secondary text-white rounded lg:px-3 px-2 py-1 text-xs">
@@ -82,7 +86,7 @@ const SingleProduct = ({ product }) => {
             {product.colors.map((item, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentImage(index)}
+                onClick={() => setCurrentImage(item.image)}
                 style={{ backgroundColor: item.color }}
                 className={`
                   ${

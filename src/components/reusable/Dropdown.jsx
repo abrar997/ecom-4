@@ -15,7 +15,7 @@ const Dropdown = ({
       <MenuItems transition anchor={anchor} className={`${className}`}>
         {data.map((item, index) => (
           <MenuItem key={index}>
-            <Link className={itemClassName} to={item.to}>
+            <Link className={itemClassName} to={item.to} accordion-item>
               <span>{item.icon}</span>
               <span> {item.title}</span>
             </Link>

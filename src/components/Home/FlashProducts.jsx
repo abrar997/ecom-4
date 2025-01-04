@@ -50,7 +50,10 @@ const FlashProducts = () => {
               },
             }}
             loop={true}
-            autoplay
+            autoplay={{
+              delay: 3500,
+              disableOnInteraction: false,
+            }}
             className="mySwiper"
           >
             {products.slice(0, 6).map((item, index) => (

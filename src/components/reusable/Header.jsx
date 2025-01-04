@@ -79,7 +79,7 @@ const Header = ({ isRed }) => {
           <div className="lg:hidden">
             <Dropdown
               button={<IoMenuOutline size={24} />}
-              className="bg-[#000] origin-left text-white gap-3 absolute z-[40] inset-x-0 mt-6 whitespace-nowrap p-4 py-8 transition duration-100 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0 grid items-center justify-center"
+              className="bg-[#000] origin-left text-white gap-3 absolute z-[40] inset-x-0 mt-6 whitespace-nowrap p-4 py-8 transition duration-300 ease-in-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0 grid items-center justify-center"
               itemClassName="focus:border-b border-black hover:border-b capitalize text-center"
               data={HeaderLinks}
               anchor="top start"

@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/authContext";
 import { FaArrowUp } from "react-icons/fa";
 import FirstSection from "../components/Home/FirstSection";
@@ -20,14 +20,13 @@ const Home = () => {
   const { user, userGoogleData } = useContext(AuthContext);
   const { filteredProducts, searchProduct, handleSearchProducts, products } =
     useContext(ProductsContext);
+  const [isArrow, setIsArrow] = useState(false);
 
   const handleScroll = () => {
     if (window.scrollY >= 450) {
-      document.getElementById("arrow").classList.add("right-[89px]");
-      document.getElementById("arrow").classList.remove("-right-20");
+      setIsArrow(true);
     } else {
-      document.getElementById("arrow").classList.add("-right-16");
-      document.getElementById("arrow").classList.remove("right-[89px]");
+      setIsArrow(false);
     }
   };
 
@@ -65,7 +64,9 @@ const Home = () => {
         smooth={true}
         duration={500}
         id="arrow"
-        className="fixed w-[46px] h-[46px] -right-20 z-30 cursor-pointer bottom-16 flex items-center justify-center rounded-full bg-secondary2 transition-all duration-500"
+        className={`fixed w-[46px] h-[46px] ${
+          isArrow ? "lg:right-[89px] right-5" : "-right-20 "
+        }  z-30 cursor-pointer bottom-16 flex items-center justify-center rounded-full bg-secondary2 transition-all duration-500`}
       >
         <FaArrowUp />
       </Link>

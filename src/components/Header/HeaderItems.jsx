@@ -1,7 +1,7 @@
 import { IoCartOutline, IoHeartOutline } from "react-icons/io5";
 import Dropdown from "../reusable/Dropdown";
 import { CiSearch } from "react-icons/ci";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import userIcon from "../../assets/icons/user.svg";
 import SearchField from "./SearchField";
@@ -18,6 +18,19 @@ const HeaderItems = ({
   userGoogleData,
 }) => {
   const { searchProduct, setSearchProduct } = useContext(ProductsContext);
+  const [isShowHeaderItems, setIsShowHeaderItems] = useState(false);
+  const handleScroll = () => {
+    if (window.scrollY >= 150) {
+      setIsShowHeaderItems(true);
+    } else {
+      setIsShowHeaderItems(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="flex items-center lg:gap-4">
@@ -34,7 +47,13 @@ const HeaderItems = ({
         </button>
       </div>
 
-      <div className="lg:flex shopping-items lg:gap-4 text-[22px] items-center grid gap-3 top-[270px] rounded lg:shadow-none shadow z-30 p-4 px-2 pt-6 lg:p-0 lg:top-0 lg:sticky fixed bg-secondary2 lg:bg-transparent right-0">
+      <div
+        className={`lg:flex shopping-items lg:gap-4 text-[22px] items-center ${
+          isShowHeaderItems
+            ? "right-0 opacity-100"
+            : " -right-10 opacity-20 lg:opacity-100"
+        } grid gap-3 top-[270px] rounded lg:shadow-none shadow z-30 p-4 px-2 pt-6 transition-all duration-500 lg:p-0 lg:top-0 lg:sticky fixed bg-secondary2 lg:bg-transparent `}
+      >
         <Link to="/wishlist" className="relative">
           <IoHeartOutline />
           <span className="absolute -top-2 -right-1 bg-secondary text-white w-4 h-4 rounded-full flex items-center text-sm justify-center">

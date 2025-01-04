@@ -45,11 +45,11 @@ export const FirstSectionCategoriesData = [
   },
   { title: "electronics fashion", category: "electronics" },
   { title: "home & lifestyle fashion", category: "home" },
-  { title: "medicine", category: "jewelery" },
+  { title: "medicine", category: "medicine" },
   { title: "sports & outdoor", category: "electronics" },
   { title: "Baby's & toys", category: "electronics" },
-  { title: "groceries & pets", category: "electronics" },
-  { title: "health & beauty", category: "jewelery" },
+  { title: "groceries & pets", category: "groceries&pets" },
+  { title: "health & beauty", category: "health" },
 ];
 
 export const FirstSectionSliderData = [

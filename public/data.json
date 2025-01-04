@@ -103,7 +103,7 @@
     "discount": -35,
     "views": 99,
     "description": "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl.",
-    "category": "jewelery",
+    "category": "medicine",
     "image": "/images/flash-5.png",
     "productsImages": [
       {
@@ -125,7 +125,7 @@
     "oldPrice": 360,
     "views": 99,
     "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day.",
-    "category": "jewelery",
+    "category": "medicine",
     "image": "/images/best-1.png",
     "productsImages": [
       {
@@ -147,7 +147,7 @@
     "oldPrice": 1100,
     "views": 65,
     "description": "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
-    "category": "jewelery",
+    "category": "medicine",
     "image": "/images/best-2.png",
     "productsImages": [
       {
@@ -169,7 +169,7 @@
     "oldPrice": 170,
     "views": 65,
     "description": "Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
-    "category": "jewelery",
+    "category": "medicine",
     "image": "/images/best-3.png",
     "productsImages": [
       {
@@ -212,7 +212,7 @@
     "price": 100,
     "views": 35,
     "description": "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance.",
-    "category": "electronics",
+    "category": "groceries&pets",
     "image": "/images/ourP-1.png",
     "productsImages": [
       {
@@ -315,7 +315,7 @@
       {
         "id": 1,
         "color": "#FB1314",
-        "image": "/images/productsImages/p1-2.png"
+        "image": "/images/ourP-5.png"
       },
       {
         "id": 2,
@@ -349,7 +349,7 @@
       {
         "id": 1,
         "color": "#EEFF61",
-        "image": "/images/productsImages/p1-2.png"
+        "image": "/images/ourP-6.png"
       },
       {
         "id": 2,
@@ -381,7 +381,7 @@
       "rate": 2.9
     },
     "colors": [
-      { "id": 1, "color": "black", "image": "/images/productsImages/p1-2.png" },
+      { "id": 1, "color": "black", "image": "/images/ourP-7.png" },
       {
         "id": 2,
         "color": "#DB4444",
@@ -414,7 +414,7 @@
       {
         "id": 1,
         "color": "#184A48",
-        "image": "/images/productsImages/p1-2.png"
+        "image": "/images/ourP-8.png"
       },
       {
         "id": 2,
@@ -471,7 +471,7 @@
     "title": "DANVOUY Womens T Shirt Casual Cotton Short",
     "price": 12.99,
     "description": "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
-    "category": "womenClothing",
+    "category": "health",
     "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
     "productsImages": [
       {
