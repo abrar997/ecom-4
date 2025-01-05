@@ -10,6 +10,7 @@ export default function ContextProvider({ children }) {
   const [singleProduct, setSingleProduct] = useState({});
   const [searchProduct, setSearchProduct] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
+
   const fetchAllProducts = async () => {
     const res = await fetch("data.json");
     const dataApi = await res.json();

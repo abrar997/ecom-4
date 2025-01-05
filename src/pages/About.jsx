@@ -13,12 +13,7 @@ import { ProductsContext } from "../context/context";
 import FilteredProducts from "../components/reusable/FilteredProducts";
 
 const About = () => {
-  const { filteredProducts, searchProduct, handleSearchProducts, products } =
-    useContext(ProductsContext);
-
-  useEffect(() => {
-    handleSearchProducts();
-  }, [searchProduct, filteredProducts, products]);
+  const { filteredProducts, searchProduct } = useContext(ProductsContext);
 
   return (
     <div>

@@ -4,10 +4,12 @@ import { ProductsContext } from "../context/context";
 import TopHeader from "../components/reusable/TopHeader";
 import Header from "../components/reusable/Header";
 import { AuthContext } from "../context/authContext";
+import Footer from "../components/reusable/Footer";
 
 const Logout = () => {
   const { filteredProducts, searchProduct } = useContext(ProductsContext);
   const { user, handleLogout, userGoogleData } = useContext(AuthContext);
+
   return (
     <div className="lg:h-[42vh]">
       <TopHeader />
@@ -37,6 +39,7 @@ const Logout = () => {
           </div>
         </div>
       )}
+      <Footer />
     </div>
   );
 };

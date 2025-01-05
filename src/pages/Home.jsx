@@ -18,8 +18,7 @@ import FilteredProducts from "../components/reusable/FilteredProducts";
 
 const Home = () => {
   const { user, userGoogleData } = useContext(AuthContext);
-  const { filteredProducts, searchProduct, handleSearchProducts, products } =
-    useContext(ProductsContext);
+  const { filteredProducts, searchProduct } = useContext(ProductsContext);
   const [isArrow, setIsArrow] = useState(false);
 
   const handleScroll = () => {
@@ -34,10 +33,6 @@ const Home = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  useEffect(() => {
-    handleSearchProducts();
-  }, [searchProduct, filteredProducts, products]);
 
   return (
     <div className="relative">

@@ -10,12 +10,7 @@ import { useContext, useEffect } from "react";
 import { ProductsContext } from "../context/context";
 
 const Contact = () => {
-  const { filteredProducts, searchProduct, handleSearchProducts, products } =
-    useContext(ProductsContext);
-
-  useEffect(() => {
-    handleSearchProducts();
-  }, [searchProduct, filteredProducts, products]);
+  const { filteredProducts, searchProduct } = useContext(ProductsContext);
 
   return (
     <div>
