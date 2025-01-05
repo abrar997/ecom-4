@@ -11,7 +11,7 @@ const FirstSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     <div
-      className="lg:grid w-full lg:p-inline flex p-0 lg:grid-cols-4 lg:gap-x-11 overflow-hidden"
+      className="lg:grid lg:p-inline w-full flex p-0 lg:grid-cols-4 lg:gap-x-11"
       id="firstSection"
     >
       <FirstSectionCategories />
@@ -33,9 +33,9 @@ const FirstSection = () => {
           {FirstSectionSliderData.map((item, index) => (
             <SwiperSlide key={index}>
               <div className="relative lg:flex lg:py-10 lg:px-12 py-6 px-4 w-full">
-                <div className="grid lg:gap-5 gap-3">
+                <div className="grid lg:gap-5 gap-2">
                   <div className="flex items-center gap-2">
-                    <span className="text-3xl">{item.icon}</span>
+                    <span className="lg:text-3xl">{item.icon}</span>
                     <span className="text-base capitalize font-secondary">
                       {item.subtitle}
                     </span>

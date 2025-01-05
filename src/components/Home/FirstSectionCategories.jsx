@@ -12,7 +12,7 @@ const FirstSectionCategories = () => {
   return (
     <div
       className={`lg:w-full relative transition-all duration-300 ease-in-out ${
-        isOpenMobile ? "w-full" : "w-14"
+        isOpenMobile ? "w-full" : "w-[15%]"
       }`}
     >
       <button

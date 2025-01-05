@@ -32,7 +32,7 @@ const SignUp = () => {
   };
 
   useEffect(() => {
-    if (isLogin || userGoogleData) {
+    if (isLogin) {
       navigate("/logout");
     }
   }, [userGoogleData]);

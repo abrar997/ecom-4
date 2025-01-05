@@ -61,6 +61,7 @@ const AuthenticationContext = ({ children }) => {
         );
         setUserGoogleData(res.data);
         localStorage.setItem("googleData", JSON.stringify(res.data));
+        navigate("/");
       } catch (error) {
         console.log(error);
       }

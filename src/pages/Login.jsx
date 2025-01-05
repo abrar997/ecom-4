@@ -71,10 +71,7 @@ const Login = () => {
                 >
                   Login
                 </button>
-                <Link
-                  to="/forgetPassword"
-                  className="text-secondary text-md font-secondary font-normal"
-                >
+                <Link className="text-secondary text-md font-secondary font-normal">
                   Forget Password?
                 </Link>
               </div>

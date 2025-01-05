@@ -7,7 +7,7 @@ import { AuthContext } from "../context/authContext";
 
 const Logout = () => {
   const { filteredProducts, searchProduct } = useContext(ProductsContext);
-  const { user, handleLogout } = useContext(AuthContext);
+  const { user, handleLogout, userGoogleData } = useContext(AuthContext);
   return (
     <div className="lg:h-[42vh]">
       <TopHeader />
@@ -18,9 +18,13 @@ const Logout = () => {
         <div className="flex items-center justify-center p-4 lg:px-0 lg:py-24">
           <div className="lg:w-1/3 shadow rounded p-4 lg:p-12 flex flex-col lg:gap-4 gap-1 items-center justify-center">
             <h1 className="text-2xl leading-10 font-secondary font-semibold text-center capitalize">
-              Thank Your,
-              <span className="opacity-50 text-xl px-2">
-                {user ? user.userName : null}
+              Thank You,
+              <span className="opacity-50 text-xl pr-2 pl-1">
+                {user
+                  ? user.userName
+                  : userGoogleData
+                  ? userGoogleData.name
+                  : null}
               </span>
               For visiting us
             </h1>
