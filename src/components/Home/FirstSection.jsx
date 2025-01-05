@@ -11,11 +11,11 @@ const FirstSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     <div
-      className="lg:grid lg:p-inline w-full flex p-0 lg:grid-cols-4 lg:gap-x-11"
+      className="lg:grid lg:p-inline w-full flex p-0 lg:grid-cols-4 lg:gap-x-11 overflow-hidden"
       id="firstSection"
     >
       <FirstSectionCategories />
-      <div className="lg:col-span-3 w-full text-white lg:order-2 lg:pt-10 pt-0">
+      <div className="lg:col-span-3 w-[85%] lg:w-full text-white lg:order-2 lg:pt-10 pt-0">
         <Swiper
           onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
           pagination={{
@@ -32,7 +32,7 @@ const FirstSection = () => {
         >
           {FirstSectionSliderData.map((item, index) => (
             <SwiperSlide key={index}>
-              <div className="relative lg:flex lg:py-10 lg:px-12 py-6 px-4 w-full">
+              <div className="relative lg:flex lg:py-10 lg:px-12 py-6 px-4 w-fit lg:w-full">
                 <div className="grid lg:gap-5 gap-2">
                   <div className="flex items-center gap-2">
                     <span className="lg:text-3xl">{item.icon}</span>
@@ -53,7 +53,7 @@ const FirstSection = () => {
                 <img
                   src={item.image}
                   alt=""
-                  className="brightness-75 lg:w-[35%] lg:m-auto mx-auto -mt-4 md:w-[20%] md:-mt-4 lg:mt-0 w-[50%] lg:my-0 lg:py-0 p-2"
+                  className="brightness-75 lg:w-[35%] lg:m-auto mx-auto md:w-[20%] md:-mt-4 lg:mt-0 w-[50%] p-2"
                 />
               </div>
             </SwiperSlide>

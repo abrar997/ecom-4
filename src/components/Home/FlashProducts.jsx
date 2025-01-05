@@ -17,8 +17,8 @@ const FlashProducts = () => {
         subtitle="Today's"
         title="Flash Sales"
         isTime
-        next={"swiper-button-next"}
-        prev={"swiper-button-prev"}
+        next={"swiper-button-next-F"}
+        prev={"swiper-button-prev-F"}
       />
       <div className="lg:pl-[135px] lg:pr-0 px-4">
         <div className="swiper">
@@ -27,8 +27,8 @@ const FlashProducts = () => {
             spaceBetween={30}
             grabCursor={true}
             navigation={{
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
+              nextEl: ".swiper-button-next-F",
+              prevEl: ".swiper-button-prev-F",
             }}
             modules={[Navigation, Autoplay]}
             breakpoints={{
@@ -50,15 +50,12 @@ const FlashProducts = () => {
               },
             }}
             loop={true}
-            autoplay={{
-              delay: 3500,
-              disableOnInteraction: false,
-            }}
+            autoplay
             className="mySwiper"
           >
             {products.slice(0, 6).map((item, index) => (
-              <SwiperSlide key={item.id} className="swiper-slide">
-                <SingleProduct key={index} product={item} />
+              <SwiperSlide key={index} className="swiper-slide">
+                <SingleProduct product={item} />
               </SwiperSlide>
             ))}
           </Swiper>

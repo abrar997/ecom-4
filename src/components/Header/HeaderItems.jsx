@@ -20,7 +20,7 @@ const HeaderItems = ({
   const { searchProduct, setSearchProduct } = useContext(ProductsContext);
   const [isShowHeaderItems, setIsShowHeaderItems] = useState(false);
   const handleScroll = () => {
-    if (window.scrollY >= 150) {
+    if (window.scrollY >= 50) {
       setIsShowHeaderItems(true);
     } else {
       setIsShowHeaderItems(false);
