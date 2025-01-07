@@ -1,6 +1,6 @@
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
@@ -10,11 +10,12 @@ const AuthenticationContext = ({ children }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [isLogin, setIsLogin] = useState(!!localStorage.getItem("auth"));
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    !!localStorage.getItem("auth")
+  );
   const [userGoogleData, setUserGoogleData] = useState(
     JSON.parse(localStorage.getItem("googleData")) || {}
   );
-  const [oTP, setOTP] = useState();
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("auth")) || null;
 
@@ -25,27 +26,20 @@ const AuthenticationContext = ({ children }) => {
       password,
     };
     localStorage.setItem("auth", JSON.stringify(item));
-    setIsLogin(true);
+    setIsAuthenticated(true);
+    navigate("/login");
   };
 
   const handleLogin = () => {
     const user = JSON.parse(localStorage.getItem("auth"));
     if (user) {
       if (email === user.email && password === user.password) {
-        setIsLogin(true);
+        setIsAuthenticated(true);
+        navigate("/");
       } else {
         setError("invalid email or password .");
       }
     }
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem("auth");
-    localStorage.removeItem("googleData");
-    setIsLogin(false);
-    setUserGoogleData(null);
-    googleLogout();
-    navigate("/signup");
   };
 
   const signUpGoogle = useGoogleLogin({
@@ -59,14 +53,32 @@ const AuthenticationContext = ({ children }) => {
             },
           }
         );
-        setUserGoogleData(res.data);
         localStorage.setItem("googleData", JSON.stringify(res.data));
+        setUserGoogleData(res.data);
+        setIsAuthenticated(true);
         navigate("/");
       } catch (error) {
         console.log(error);
       }
     },
   });
+
+  const handleLogout = () => {
+    localStorage.removeItem("auth");
+    setIsAuthenticated(false);
+    setUserGoogleData(null);
+    googleLogout();
+    navigate("/signup");
+  };
+
+  useEffect(() => {
+    let localAuth = JSON.parse(localStorage.getItem("auth"));
+    let googleData = JSON.parse(localStorage.getItem("googleData"));
+    if (localAuth || googleData) {
+      setIsAuthenticated(true);
+      setUserGoogleData(googleData || null);
+    }
+  }, []);
 
   return (
     <AuthContext.Provider
@@ -82,11 +94,9 @@ const AuthenticationContext = ({ children }) => {
         error,
         user,
         handleLogout,
-        isLogin,
+        isAuthenticated,
         signUpGoogle,
         userGoogleData,
-        oTP,
-        setOTP,
       }}
     >
       {children}

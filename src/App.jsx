@@ -36,90 +36,51 @@ function App() {
                     <Route element={<SignUp />} path="/signup" />
                     <Route element={<Logout />} path="/logout" />
                     <Route
-                      element={<ProductCategory />}
-                      path="/category/:category/"
-                    />
-                    <Route
-                      element={<ProductCategory />}
-                      path="/category/:category/:categoryChild"
-                    />
-                    <Route
-                      element={<ProductDetails />}
-                      path="/product/:productId"
-                    />
-
-                    {/* protected routes */}
-                    <Route
-                      element={
-                        <ProtectedRoute>
-                          <Home />
-                        </ProtectedRoute>
-                      }
+                      element={<ProtectedRoute component={Home} />}
                       path="/"
                     />
                     <Route
-                      element={
-                        <ProtectedRoute>
-                          <AllProducts />
-                        </ProtectedRoute>
-                      }
+                      element={<ProtectedRoute component={ProductCategory} />}
+                      path="/category/:category/"
+                    />
+                    <Route
+                      element={<ProtectedRoute component={ProductCategory} />}
+                      path="/category/:category/:categoryChild"
+                    />
+                    <Route
+                      element={<ProtectedRoute component={ProductDetails} />}
+                      path="/product/:productId"
+                    />
+                    <Route
+                      element={<ProtectedRoute component={AllProducts} />}
                       path="/products"
                     />
-
                     <Route
-                      element={
-                        <ProtectedRoute>
-                          <About />
-                        </ProtectedRoute>
-                      }
+                      element={<ProtectedRoute component={About} />}
                       path="/about"
                     />
                     <Route
-                      element={
-                        <ProtectedRoute>
-                          <WishList />
-                        </ProtectedRoute>
-                      }
+                      element={<ProtectedRoute component={WishList} />}
                       path="/wishlist"
                     />
                     <Route
-                      element={
-                        <ProtectedRoute>
-                          <Cart />
-                        </ProtectedRoute>
-                      }
+                      element={<ProtectedRoute component={Cart} />}
                       path="/cart"
                     />
                     <Route
-                      element={
-                        <ProtectedRoute>
-                          <Checkout />
-                        </ProtectedRoute>
-                      }
+                      element={<ProtectedRoute component={Checkout} />}
                       path="/checkout"
                     />
                     <Route
-                      element={
-                        <ProtectedRoute>
-                          <Account />
-                        </ProtectedRoute>
-                      }
+                      element={<ProtectedRoute component={Account} />}
                       path="/account"
                     />
                     <Route
-                      element={
-                        <ProtectedRoute>
-                          <Contact />
-                        </ProtectedRoute>
-                      }
+                      element={<ProtectedRoute component={Contact} />}
                       path="/contact"
                     />
                     <Route
-                      element={
-                        <ProtectedRoute>
-                          <FilteredProducts />
-                        </ProtectedRoute>
-                      }
+                      element={<ProtectedRoute component={FilteredProducts} />}
                       path="/filtered-products"
                     />
                     <Route element={<NotFound />} path="*" />

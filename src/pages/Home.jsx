@@ -15,12 +15,13 @@ import Footer from "../components/reusable/Footer";
 import { Link, Element } from "react-scroll";
 import { ProductsContext } from "../context/context";
 import FilteredProducts from "../components/reusable/FilteredProducts";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const { user, userGoogleData } = useContext(AuthContext);
   const { filteredProducts, searchProduct } = useContext(ProductsContext);
   const [isArrow, setIsArrow] = useState(false);
-
+  const navigate = useNavigate();
   const handleScroll = () => {
     if (window.scrollY >= 450) {
       setIsArrow(true);

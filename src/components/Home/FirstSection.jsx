@@ -32,7 +32,7 @@ const FirstSection = () => {
         >
           {FirstSectionSliderData.map((item, index) => (
             <SwiperSlide key={index}>
-              <div className="relative lg:flex lg:py-10 lg:px-12 py-6 px-4 w-fit lg:w-full">
+              <div className="relative md:flex lg:py-10 lg:px-12 py-6 px-4 w-fit lg:w-full">
                 <div className="grid lg:gap-5 gap-2">
                   <div className="flex items-center gap-2">
                     <span className="lg:text-3xl">{item.icon}</span>
@@ -53,7 +53,7 @@ const FirstSection = () => {
                 <img
                   src={item.image}
                   alt=""
-                  className="brightness-75 lg:w-[35%] lg:m-auto mx-auto md:w-[20%] md:-mt-4 lg:mt-0 w-[50%] p-2"
+                  className="brightness-75 lg:w-[35%] lg:m-auto m-auto md:w-[40%] md:-mt-4 lg:mt-0 w-[50%] p-2"
                 />
               </div>
             </SwiperSlide>

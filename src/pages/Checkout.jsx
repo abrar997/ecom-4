@@ -1,6 +1,5 @@
 import Coupon from "../components/reusable/Coupon";
 import Button from "../components/reusable/Button";
-
 import PathPages from "../components/reusable/PathPages";
 import TopHeader from "../components/reusable/TopHeader";
 import Header from "../components/reusable/Header";

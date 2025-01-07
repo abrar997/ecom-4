@@ -19,7 +19,7 @@ const SignUp = () => {
     setEmail,
     setUserName,
     setPassword,
-    isLogin,
+    isAuthenticated,
     signUpGoogle,
     userGoogleData,
   } = useContext(AuthContext);
@@ -30,12 +30,6 @@ const SignUp = () => {
     handleSignUp();
     navigate("/login");
   };
-
-  useEffect(() => {
-    if (isLogin) {
-      navigate("/logout");
-    }
-  }, [userGoogleData]);
 
   return (
     <>
