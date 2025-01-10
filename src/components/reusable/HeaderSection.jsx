@@ -14,12 +14,16 @@ const HeaderSection = ({
   isButtonTo,
   next,
   prev,
+  days,
+  hours,
+  minutes,
+  seconds,
 }) => {
   const timeData = [
-    { title: "days", number: "03" },
-    { title: "hours", number: "23" },
-    { title: "minutes", number: "19" },
-    { title: "seconds", number: "56" },
+    { title: "days", number: days },
+    { title: "hours", number: hours },
+    { title: "minutes", number: minutes },
+    { title: "seconds", number: seconds },
   ];
   return (
     <div

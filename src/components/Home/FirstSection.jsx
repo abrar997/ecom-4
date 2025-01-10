@@ -26,7 +26,7 @@ const FirstSection = () => {
           modules={[Pagination, Autoplay]}
           className="h-[344px] bg-black"
           autoplay={{
-            delay: 4500,
+            delay: 5500,
             disableOnInteraction: false,
           }}
         >
