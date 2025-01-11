@@ -37,21 +37,27 @@ const HeaderSection = ({
           {subtitle}
         </p>
       </div>
-      <div className="flex items-center">
+      <div
+        className={`${
+          isTime ? "lg:flex grid gap-3" : "flex gap-4"
+        }  items-center`}
+      >
         {title && (
           <h1 className="font-semibold lg:text-4xl text-2xl lg:tracking-[4%] capitalize">
             {title}
           </h1>
         )}
         {isTime && (
-          <div className="lg:flex lg:ml-28 ml-6 gap-4 items-center hidden">
+          <div className="flex lg:ml-28 lg:gap-4 gap-2 items-center">
             {timeData.map((item, index) => (
               <div key={index} className="flex items-center gap-3">
                 <div>
                   <p className="text-xs capitalize font-secondary font-medium">
                     {item.title}
                   </p>
-                  <span className="font-semibold text-3xl">{item.number}</span>
+                  <span className="font-semibold lg:text-3xl">
+                    {item.number}
+                  </span>
                 </div>
                 <span className={`${index === 3 && "hidden"} text-hoverBtn`}>
                   <BsDot />
